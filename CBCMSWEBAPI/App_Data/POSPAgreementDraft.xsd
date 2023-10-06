@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="POSPAgreementDraft" targetNamespace="http://tempuri.org/POSPAgreementDraft.xsd" xmlns:mstns="http://tempuri.org/POSPAgreementDraft.xsd" xmlns="http://tempuri.org/POSPAgreementDraft.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="POSPAgreementDraft" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="POSPAgreementDraft" msprop:Generator_UserDSName="POSPAgreementDraft">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="POSPAgreementDraft" msprop:Generator_TableClassName="POSPAgreementDraftDataTable" msprop:Generator_TableVarName="tablePOSPAgreementDraft" msprop:Generator_RowChangedName="POSPAgreementDraftRowChanged" msprop:Generator_TablePropName="_POSPAgreementDraft" msprop:Generator_RowDeletingName="POSPAgreementDraftRowDeleting" msprop:Generator_RowChangingName="POSPAgreementDraftRowChanging" msprop:Generator_RowEvHandlerName="POSPAgreementDraftRowChangeEventHandler" msprop:Generator_RowDeletedName="POSPAgreementDraftRowDeleted" msprop:Generator_RowClassName="POSPAgreementDraftRow" msprop:Generator_UserTableName="POSPAgreementDraft" msprop:Generator_RowEvArgName="POSPAgreementDraftRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GivenName" msprop:Generator_ColumnVarNameInTable="columnGivenName" msprop:Generator_ColumnPropNameInRow="GivenName" msprop:Generator_ColumnPropNameInTable="GivenNameColumn" msprop:Generator_UserColumnName="GivenName" type="xs:string" minOccurs="0" />
+              <xs:element name="PAN" msprop:Generator_ColumnVarNameInTable="columnPAN" msprop:Generator_ColumnPropNameInRow="PAN" msprop:Generator_ColumnPropNameInTable="PANColumn" msprop:Generator_UserColumnName="PAN" type="xs:string" minOccurs="0" />
+              <xs:element name="Adr1" msprop:Generator_ColumnVarNameInTable="columnAdr1" msprop:Generator_ColumnPropNameInRow="Adr1" msprop:Generator_ColumnPropNameInTable="Adr1Column" msprop:Generator_UserColumnName="Adr1" type="xs:string" minOccurs="0" />
+              <xs:element name="Adr2" msprop:Generator_ColumnVarNameInTable="columnAdr2" msprop:Generator_ColumnPropNameInRow="Adr2" msprop:Generator_ColumnPropNameInTable="Adr2Column" msprop:Generator_UserColumnName="Adr2" type="xs:string" minOccurs="0" />
+              <xs:element name="District" msprop:Generator_ColumnVarNameInTable="columnDistrict" msprop:Generator_ColumnPropNameInRow="District" msprop:Generator_ColumnPropNameInTable="DistrictColumn" msprop:Generator_UserColumnName="District" type="xs:string" minOccurs="0" />
+              <xs:element name="PostCode" msprop:Generator_ColumnVarNameInTable="columnPostCode" msprop:Generator_ColumnPropNameInRow="PostCode" msprop:Generator_ColumnPropNameInTable="PostCodeColumn" msprop:Generator_UserColumnName="PostCode" type="xs:string" minOccurs="0" />
+              <xs:element name="Sign" msprop:Generator_ColumnVarNameInTable="columnSign" msprop:Generator_ColumnPropNameInRow="Sign" msprop:Generator_ColumnPropNameInTable="SignColumn" msprop:Generator_UserColumnName="Sign" type="xs:string" minOccurs="0" />
+              <xs:element name="EntryDate" msprop:Generator_ColumnVarNameInTable="columnEntryDate" msprop:Generator_ColumnPropNameInRow="EntryDate" msprop:Generator_ColumnPropNameInTable="EntryDateColumn" msprop:Generator_UserColumnName="EntryDate" type="xs:string" minOccurs="0" />
+              <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:string" minOccurs="0" />
+              <xs:element name="BirthRegDate" msprop:Generator_ColumnVarNameInTable="columnBirthRegDate" msprop:Generator_ColumnPropNameInRow="BirthRegDate" msprop:Generator_ColumnPropNameInTable="BirthRegDateColumn" msprop:Generator_UserColumnName="BirthRegDate" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

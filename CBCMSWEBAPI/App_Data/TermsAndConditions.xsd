@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TermsAndConditions" targetNamespace="http://tempuri.org/TermsAndConditions.xsd" xmlns:mstns="http://tempuri.org/TermsAndConditions.xsd" xmlns="http://tempuri.org/TermsAndConditions.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="TermsAndConditions" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="TermsAndConditions" msprop:Generator_UserDSName="TermsAndConditions">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TermsAndConditions" msprop:Generator_TableClassName="TermsAndConditionsDataTable" msprop:Generator_TableVarName="tableTermsAndConditions" msprop:Generator_TablePropName="_TermsAndConditions" msprop:Generator_RowDeletingName="TermsAndConditionsRowDeleting" msprop:Generator_RowChangingName="TermsAndConditionsRowChanging" msprop:Generator_RowEvHandlerName="TermsAndConditionsRowChangeEventHandler" msprop:Generator_RowDeletedName="TermsAndConditionsRowDeleted" msprop:Generator_UserTableName="TermsAndConditions" msprop:Generator_RowChangedName="TermsAndConditionsRowChanged" msprop:Generator_RowEvArgName="TermsAndConditionsRowChangeEvent" msprop:Generator_RowClassName="TermsAndConditionsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="LegalName" msdata:Caption="BankAcntName" msprop:Generator_ColumnVarNameInTable="columnLegalName" msprop:Generator_ColumnPropNameInRow="LegalName" msprop:Generator_ColumnPropNameInTable="LegalNameColumn" msprop:Generator_UserColumnName="LegalName" type="xs:string" minOccurs="0" />
+              <xs:element name="MemType" msdata:Caption="BankAcntType" msprop:Generator_ColumnVarNameInTable="columnMemType" msprop:Generator_ColumnPropNameInRow="MemType" msprop:Generator_ColumnPropNameInTable="MemTypeColumn" msprop:Generator_UserColumnName="MemType" type="xs:string" minOccurs="0" />
+              <xs:element name="EmpCode" msdata:Caption="BankAccntNo" msprop:Generator_ColumnVarNameInTable="columnEmpCode" msprop:Generator_ColumnPropNameInRow="EmpCode" msprop:Generator_ColumnPropNameInTable="EmpCodeColumn" msprop:Generator_UserColumnName="EmpCode" type="xs:string" minOccurs="0" />
+              <xs:element name="Mobile" msdata:Caption="BankName" msprop:Generator_ColumnVarNameInTable="columnMobile" msprop:Generator_ColumnPropNameInRow="Mobile" msprop:Generator_ColumnPropNameInTable="MobileColumn" msprop:Generator_UserColumnName="Mobile" type="xs:string" minOccurs="0" />
+              <xs:element name="Email" msdata:Caption="BankBranch" msprop:Generator_ColumnVarNameInTable="columnEmail" msprop:Generator_ColumnPropNameInRow="Email" msprop:Generator_ColumnPropNameInTable="EmailColumn" msprop:Generator_UserColumnName="Email" type="xs:string" minOccurs="0" />
+              <xs:element name="crAddressLine1" msdata:Caption="BankBrnCode" msprop:Generator_ColumnVarNameInTable="columncrAddressLine1" msprop:Generator_ColumnPropNameInRow="crAddressLine1" msprop:Generator_ColumnPropNameInTable="crAddressLine1Column" msprop:Generator_UserColumnName="crAddressLine1" type="xs:string" minOccurs="0" />
+              <xs:element name="crState" msdata:Caption="IFSCCode" msprop:Generator_ColumnVarNameInTable="columncrState" msprop:Generator_ColumnPropNameInRow="crState" msprop:Generator_ColumnPropNameInTable="crStateColumn" msprop:Generator_UserColumnName="crState" type="xs:string" minOccurs="0" />
+              <xs:element name="crCity" msdata:Caption="MICRCode" msprop:Generator_ColumnVarNameInTable="columncrCity" msprop:Generator_ColumnPropNameInRow="crCity" msprop:Generator_ColumnPropNameInTable="crCityColumn" msprop:Generator_UserColumnName="crCity" type="xs:string" minOccurs="0" />
+              <xs:element name="crPostCode" msdata:Caption="UniqueRefID" msprop:Generator_ColumnVarNameInTable="columncrPostCode" msprop:Generator_ColumnPropNameInRow="crPostCode" msprop:Generator_ColumnPropNameInTable="crPostCodeColumn" msprop:Generator_UserColumnName="crPostCode" type="xs:string" minOccurs="0" />
+              <xs:element name="crDistrict" msdata:Caption="WStatus" msprop:Generator_ColumnVarNameInTable="columncrDistrict" msprop:Generator_ColumnPropNameInRow="crDistrict" msprop:Generator_ColumnPropNameInTable="crDistrictColumn" msprop:Generator_UserColumnName="crDistrict" type="xs:string" minOccurs="0" />
+              <xs:element name="PAN" msdata:Caption="RecruitMemName" msprop:Generator_ColumnVarNameInTable="columnPAN" msprop:Generator_ColumnPropNameInRow="PAN" msprop:Generator_ColumnPropNameInTable="PANColumn" msprop:Generator_UserColumnName="PAN" type="xs:string" minOccurs="0" />
+              <xs:element name="TaxRegnNo" msdata:Caption="RecruitMemCode" msprop:Generator_ColumnVarNameInTable="columnTaxRegnNo" msprop:Generator_ColumnPropNameInRow="TaxRegnNo" msprop:Generator_ColumnPropNameInTable="TaxRegnNoColumn" msprop:Generator_UserColumnName="TaxRegnNo" type="xs:string" minOccurs="0" />
+              <xs:element name="OthRegnNo" msdata:Caption="imgSignature" msprop:Generator_ColumnVarNameInTable="columnOthRegnNo" msprop:Generator_ColumnPropNameInRow="OthRegnNo" msprop:Generator_ColumnPropNameInTable="OthRegnNoColumn" msprop:Generator_UserColumnName="OthRegnNo" type="xs:string" minOccurs="0" />
+              <xs:element name="RegnAuthority" msdata:Caption="MemCode" msprop:Generator_ColumnVarNameInTable="columnRegnAuthority" msprop:Generator_ColumnPropNameInRow="RegnAuthority" msprop:Generator_ColumnPropNameInTable="RegnAuthorityColumn" msprop:Generator_UserColumnName="RegnAuthority" type="xs:string" minOccurs="0" />
+              <xs:element name="BankAcntName" msdata:Caption="SAPCODE" msprop:Generator_ColumnVarNameInTable="columnBankAcntName" msprop:Generator_ColumnPropNameInRow="BankAcntName" msprop:Generator_ColumnPropNameInTable="BankAcntNameColumn" msprop:Generator_UserColumnName="BankAcntName" type="xs:string" minOccurs="0" />
+              <xs:element name="BankAccntNo" msdata:Caption="EmpCode" msprop:Generator_ColumnVarNameInTable="columnBankAccntNo" msprop:Generator_ColumnPropNameInRow="BankAccntNo" msprop:Generator_ColumnPropNameInTable="BankAccntNoColumn" msprop:Generator_UserColumnName="BankAccntNo" type="xs:string" minOccurs="0" />
+              <xs:element name="MICRCode" msprop:Generator_ColumnVarNameInTable="columnMICRCode" msprop:Generator_ColumnPropNameInRow="MICRCode" msprop:Generator_ColumnPropNameInTable="MICRCodeColumn" msprop:Generator_UserColumnName="MICRCode" type="xs:string" minOccurs="0" />
+              <xs:element name="IFSCCode" msprop:Generator_ColumnVarNameInTable="columnIFSCCode" msprop:Generator_ColumnPropNameInRow="IFSCCode" msprop:Generator_ColumnPropNameInTable="IFSCCodeColumn" msprop:Generator_UserColumnName="IFSCCode" type="xs:string" minOccurs="0" />
+              <xs:element name="BankAcntType" msprop:Generator_ColumnVarNameInTable="columnBankAcntType" msprop:Generator_ColumnPropNameInRow="BankAcntType" msprop:Generator_ColumnPropNameInTable="BankAcntTypeColumn" msprop:Generator_UserColumnName="BankAcntType" type="xs:string" minOccurs="0" />
+              <xs:element name="BankName" msprop:Generator_ColumnVarNameInTable="columnBankName" msprop:Generator_ColumnPropNameInRow="BankName" msprop:Generator_ColumnPropNameInTable="BankNameColumn" msprop:Generator_UserColumnName="BankName" type="xs:string" minOccurs="0" />
+              <xs:element name="BankBranch" msprop:Generator_ColumnVarNameInTable="columnBankBranch" msprop:Generator_ColumnPropNameInRow="BankBranch" msprop:Generator_ColumnPropNameInTable="BankBranchColumn" msprop:Generator_UserColumnName="BankBranch" type="xs:string" minOccurs="0" />
+              <xs:element name="BranchAddress" msprop:Generator_ColumnVarNameInTable="columnBranchAddress" msprop:Generator_ColumnPropNameInRow="BranchAddress" msprop:Generator_ColumnPropNameInTable="BranchAddressColumn" msprop:Generator_UserColumnName="BranchAddress" type="xs:string" minOccurs="0" />
+              <xs:element name="imgSignature" msprop:Generator_ColumnVarNameInTable="columnimgSignature" msprop:Generator_ColumnPropNameInRow="imgSignature" msprop:Generator_ColumnPropNameInTable="imgSignatureColumn" msprop:Generator_UserColumnName="imgSignature" type="xs:string" minOccurs="0" />
+              <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

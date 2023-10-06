@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Textbox Name="Textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value xml:space="preserve">                                                                                                                          </Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value xml:space="preserve">  </Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value xml:space="preserve">                                                                                                               </Value>
+                <Style />
+              </TextRun>
+              <TextRun>
+                <Value> Date: </Value>
+                <Style>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!LcnIssDate.Value</Value>
+                <Style>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value xml:space="preserve">  </Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value xml:space="preserve"> </Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value xml:space="preserve">  </Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value> This is in reference to the application made by you to act as Motor Insurance Service Provider (MISP).</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value> This is to confirm that you have fulfilled the criteria as laid down under the IRDAI Guidelines on Motor Insurance Service Provider. Your identification particular is as under:</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <LeftIndent>0cm</LeftIndent>
+            <RightIndent>0cm</RightIndent>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <LeftIndent>0cm</LeftIndent>
+            <RightIndent>0cm</RightIndent>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value> PAN No: </Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!PAN.Value</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <LeftIndent>0cm</LeftIndent>
+            <RightIndent>0cm</RightIndent>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <LeftIndent>0cm</LeftIndent>
+            <RightIndent>0cm</RightIndent>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value> This letter authorizes you to act as MISP for Reliance General Insurance to distribute and service</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <LeftIndent>0cm</LeftIndent>
+            <RightIndent>0cm</RightIndent>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value> Motor insurance policies (including add-ons) only.</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <LeftIndent>0cm</LeftIndent>
+            <RightIndent>0cm</RightIndent>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <LeftIndent>0cm</LeftIndent>
+            <RightIndent>0cm</RightIndent>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <LeftIndent>0cm</LeftIndent>
+            <RightIndent>0cm</RightIndent>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value> Yours truly</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <LeftIndent>0cm</LeftIndent>
+            <RightIndent>0cm</RightIndent>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <LeftIndent>0cm</LeftIndent>
+            <RightIndent>0cm</RightIndent>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <LeftIndent>0cm</LeftIndent>
+            <RightIndent>0cm</RightIndent>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <LeftIndent>0cm</LeftIndent>
+            <RightIndent>0cm</RightIndent>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value xml:space="preserve"> </Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <LeftIndent>0cm</LeftIndent>
+            <RightIndent>0cm</RightIndent>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Authorised Signatory</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <LeftIndent>0cm</LeftIndent>
+            <RightIndent>0cm</RightIndent>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Height>12.80901cm</Height>
+        <Width>17.68708cm</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!Adr1.Value</Value>
+                <Style>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value xml:space="preserve">    </Value>
+                <Style>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!City.Value</Value>
+                <Style>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!State.Value</Value>
+                <Style>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!PostCode.Value</Value>
+                <Style>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!MobileTel.Value</Value>
+                <Style>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox2</rd:DefaultName>
+        <Top>0.86995cm</Top>
+        <Left>0.28787cm</Left>
+        <Height>2.67229cm</Height>
+        <Width>6.05896cm</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Image Name="Image2">
+        <Source>Embedded</Source>
+        <Value>IRDA1</Value>
+        <Sizing>FitProportional</Sizing>
+        <Top>9.54828cm</Top>
+        <Height>1.15604cm</Height>
+        <Width>3.21663cm</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+    </ReportItems>
+    <Height>5.0893in</Height>
+    <Style />
+  </Body>
+  <Width>6.96342in</Width>
+  <Page>
+    <PageHeight>29.7cm</PageHeight>
+    <PageWidth>21cm</PageWidth>
+    <LeftMargin>2cm</LeftMargin>
+    <RightMargin>2cm</RightMargin>
+    <TopMargin>2cm</TopMargin>
+    <BottomMargin>2cm</BottomMargin>
+    <ColumnSpacing>0.13cm</ColumnSpacing>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="MISPAppointment">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>7d3cb06a-7416-45c9-9706-87163ba41938</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="MISPAppointment">
+      <Query>
+        <DataSourceName>MISPAppointment</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="LcnIssDate">
+          <DataField>LcnIssDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PAN">
+          <DataField>PAN</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Adr1">
+          <DataField>Adr1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="City">
+          <DataField>City</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="State">
+          <DataField>State</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PostCode">
+          <DataField>PostCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MobileTel">
+          <DataField>MobileTel</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>MISPAppointment</rd:DataSetName>
+        <rd:SchemaPath>~/App_Data/MISPAppointment.xsd</rd:SchemaPath>
+        <rd:TableName>MISPAppointment</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <EmbeddedImages>
+    <EmbeddedImage Name="IRDA">
+      <MIMEType>image/jpeg</MIMEType>
+      <ImageData>/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwMDAwYEBAMFBwYHBwcGBwcICQsJCAgKCAcHCg0KCgsMDAwMBwkODw0MDgsMDAz/2wBDAQICAgMDAwYDAwYMCAcIDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAz/wAARCAB+ATEDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9/KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAK5/xv8AC3QPiPPp8mt6Zb6g+lTfaLQyg/uX/vD3roKKOqfYPIRV2KAOg4FLRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFF
+FABRRRQAUUUUAFFFFABRRRQAUUVV1vWrbw5pFxfXkqwWlpGZZZGOAijqTQBaorF8AfELRvil4Vt9a0DULfVNLu8+VcQPuR8HB5+oraoAKKK80/ae/ax8G/sh+DbLXfGl89jYX99Fp8LIm4tLIwVR+ZoA9LoqDTdQi1bToLqA7obiNZYzjqpGRU9ABRXwh/wVO+OPj/8AZR/ao+BXjXR9cMHgPWdZXw/4g09v9W4c5Eh7A84z7V91Wd2l/ZxTxndHMgkU+oIyKduoXJaKKKQBRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFUPFHh228XeHL7S7xBJa6hA9vKpHVWBB/nV+igD8rP2F/HviT/AIJdf8FFNY/Z48Z3NxP8PfH076h4Ivpn/dQszEmEZ6HJ6V+qdfLX/BVX9ixP2p/gZ/bOiQiH4h+BH/tfw5ex8SJNH82zPXB54rrP+Cc37VS/tZfsz6RrN26L4i01f7O1q3/jhuovlbI9yCaqWupK0dj3mvgT/g4LitI/2bPBNzfKsltB4w08tGf4szLX33Xx1/wXI+GFt8Rf2HLqecNv0HWLLUYyP4dkoJzRDcJbHqX7Zf7Uj/sffsY6n8RrHSG1caFZW8q2aHG5G2j9Aa7r9mj4xp+0H8A/CnjWOEW6eJdPjvREDny92eM/hXEeKfANn+1N+wNPoc+24h8TeFjHGV5BcwHYR/wICvnj/g33+ONz4p/ZP1L4Z6wzL4h+EOqzaBcRyH5zGrEq2PSi2g76nW/8F5PhE3xP/wCCcHjO8th/xMvCgi1izcfejeOReR+Br279g34pH4zfse/DzxC0gllvdEthK4OdzqgVv1FX/wBs3whD4+/ZT8f6Rcf6m90W4RuPRd39K+df+DffxLNr/wDwTL8IQzsXfS7q8slJOTtSZgKPsi+0fa9FFFSUFFFFABRRRQAUUUUAFFFFABRRRQAU
+UUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAIyh1IIyDwQe9fm5NrEv/AATB/wCCqrpcsbf4W/Hdh5QXiHT9RHAHoNxr9JK+a/8Agqt+x4n7Y37J2r6VZgx+J9Cxq2hXCD54bqL5lwevOKqO9mKXdH0mrB1BByDyCO9eEf8ABTPwxL4s/Yd+IVvDF5skelyThfTYCc1yv/BJr9r1f2pf2SdNm1SfZ4o8I50bXY5Th45oflLtnoDjOa9C+Ivxt8CfGz4feOPB+ieKNE1bWX0a8t5bKC5VpFJhdcY+pos0wvdGf/wTZ12PxJ+wp8MblJVmzocKOwOfmGQRXxh8JbxP2H/+C+nirwxKfs/h/wCOWmDUrQdIze7skDtnivof/gitrKz/ALFNjpA3B/DWoXGlyKx5Rkbp+teK/wDBwV8MLjwRovwx+PmiRsmr/CzXopbqZBybWRlUgn05NUviaJe1z9Afi5bC8+FfiSJhkPpdyCP+2TV8Nf8ABt68q/sL6jC7lkh8SXyxg/wjznr7AvviTa+Ov2VrnxRbSo9rqfhx7xXU8fNbkn9Sa+Sf+Dcm2b/hgSS7KkLe+IL+RSR94ec1JfCx9UfflFFFQUFFFFABRRSM4RSSQAOST2oAWivGvj3+378J/wBnDTZpvEvjDS4Z4ePssMoknY+gUV8jeNv+CxfxC/aB1R9F+A3wy1TUfNYLHq+pwtHDj1HaqUWxXR+iuq61aaFaPcXt1b2kEY3NJNIEVR9TXyr+0v8A8Fmfgz+zxdf2db6u/jHX2OyPTdFUzyF+wJAxXgll/wAEy/j7+2JP/aPxp+Jt/pdjOQTo+nSGNFX+7kGvp39mr/glX8Hv2Zlhn0vw3bahqcYBa8vlE0jMP4stmnaK3Fq9j5S/Yv8A+C2fxL/bP/4KC23w6074cTaN4OtkZ9TubmJhNar2LEjGa/T6uP8AAPwF8J/DHxJqmr6JoljYajrEhkup4olV5D6Z
+A6VpeL/if4d8AWrTa1rem6ZEnLNcXCpj9al2ew1dbm9RXyX8bf8AgtT8CPgw0kX/AAkv/CQXaHaINLQzFz6A18oftS/8F/PH118Ldfv/AIX/AAl8QfZbK2aQ6veQMBAuPvgdKag2JySP1jzRX56f8G8nxs+Nf7Sv7Ner+PPizeS3Fnr94X0aOVSrxoPvZHpX6F0mrOw07q4UUUUhhRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUn3silrO8XayfDvhbUb9V3taW7zADuVUmgD8MP21vFmqfs5f8ABV/xF8NPhR4ofw/4X+LMtvH4mnh/1GlzScEBuis2a+sfit/wQUs/Avwtj1z4R+LdY0z4j6davKL9rgldTkK5IbnkNXP/ALPX/BPDTf2xf2Avijrc0gn+IfjLX72+stUJzNazW8hMCBuoweK+j/8Agjd+1te/tBfs5v4W8UOU8ffDadtD1qGQ/vHMXyrKR1w3rWrlpoZJa6ngf/Bt98drqL4efEL4WeN547T4leHPEdzcX9pI2HlDHG4Dv0Ffb37enwMt/wBpD9kHx94PuEEg1TSZvLBH/LRF3rj3ytflZqH7EnjL4if8FSvj94l+GuvyaB4+8MRx6xYQq22O/DPzGw756fjX3V+wr/wU9svjhfS/Dv4m2X/CHfEzS0+zXlnefu475hwWjJ65/rRJa8yHF6WZ81/sN/th3Mn/AAQQ+IE2tTFNW+GNjd6Dc7m+dWEmxAffBr6l/wCCHXgOX4e/8Ezfh1b3MflT3lvLfyZGM+bIXB/IivyZ/bzk8Ufspfta/E/9muzg+y+EPj/rseuWc/SNIAQz47Y4NfXnhHX/AIw/8FAr+38DfBfVpPA/wo+HGnw6R/bCjb/ac8aBX2HuNwNU46CjLU/WDNFflv8ACj9rb4x/8Euvj1pvgv4/XcviP4d+ID5dl4mRdwtH6KHPpXvv7ZH/AAV48G/CzwR/Znw7uB428d69H5GkWdgPNCyO
+MI7Edgay5WXzKx5D/wAFJ/8Agqb8Ufhr+1AfBXwU0AeJbfwFbxan4xeNd/lwNyUHuBX1v+yl/wAFA/hz+1X8GbLxbpev6fZ7o8X1pczCOWylH3lYH0Oa89/4Ja/sOXf7PPwf1jXvHYXU/iF8SZn1DxDLMNxCyci3/wB1c9K474l/8EJPhr4r+Ieoa1oWp6v4WttXkMt5YWEpSGVj14FN8uwve3Om/aV/4LM/C/4MPPpfhuabx14nDeXDYaWhlDP2yw7ZrwHTvhx+11/wUFmOp6vrX/Cr/CV4d0FlD8s3lH15znFfUXwZ/Yc+A/7DOnf2gtpo1rfQLul1DUpFaU98/NXG/HH/AILffB74UO1jodzdeLdSRvKS202LeN3QDIpr+6g/xFL4Ef8ABDX4XfDrU4dW8UvfeNNaBEksuoymRGfvwa+ttC8KeF/g74fWKxtNK0HT7dcDaqxKoHvX5z3/APwUL/an/aena3+HHwyk8O6bdNsjvr1MMqnvzV3Rv+CUvx5/aFmWf4s/Fm+trSQ7nsrCUgAHqvFFm/iYX7I+sPjH/wAFOvgv8ERMmq+MtPnuIQSYLRvOcn04r5k8c/8ABdbUPGt09l8KPhjr/iWR8rHdTwskfsa9e+Cn/BFP4K/CaSO4u9Hl8RX6cme/fzMn15r6a8GfCTwz8PNOjtdF0PTNOhiGFENuq4/HFL3UP3mfnElz+3D+1mojJsvh3o96ucqo8xFNaPg//ggtrXj3UPtXxV+KXiDxGZH3yQx3DKje3XFfpcOKKOd9A5V1Pmj4If8ABJP4I/Ay1QWXhGy1C4T/AJb3qCV8/jXuUvwc8LzeEbnQv7C0waTdxGGa2W3UJIp7HiuloqbsqyMfwJ4C0j4Z+F7bRtCsLfTdMsxtht4F2og9hWxRRSAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAqO6tkvbaSGVQ8cqlGU9weDUlFAHwF+z549/wCHZX7TeufDHxfJ
+LB4C8bX8mqeHNUk/1EE0h3PEx6DmvPv2uNWb/gmt/wAFLfCXxq0RP+LY/F0ppXiVrc5ghn4CTEjjknOa+/8A9ov9mnwn+1F4Am8PeK9PS7tm+aGYDE1s/ZkbqDX50/tm/wDBP744eA/gnrXgnSJh8Tvh3OhktbWfm909h9wqx5+U+laRsyGmkd/pXxC074S/8F9JLSE/6L8UfB8D2syn93cMvzHHrX0f+2p/wTs8Eftcad/aN5nw94psAZLXXbM+VNCRzlmHUDFfgf8A8PHPG/wy/bY+CUvjjQL+28X/AAmkbS/sroRNd2uNqdsmv1A8e/tb/tD/APBRHRpvAvw+8D6h4C0vVCIdQ168BQxQMPm25GehNVKLVmJSTPyR/wCCg0PxS+IXx/1jXpvEzeJvDPwYvU0BPE0Y4ePeAwDdzjNf0c/8E7fB/hDwZ+xx4Fg8EGCTRLjTIrkTR4zPK6hpGY9zuJrxLX/+CRHw18Kf8E4tZ+DFzeW9murQtc3us3DhZJ708mVmPPWvG/2S/wBsf4ef8Ekv2U9L+Fmq+MZPiH4h0qR0todOBnKKT8qcZok+ZWQJWd2foZ8cfgJ4V/aM8CXPhzxdpNtq2mXI5SVclD6qexrxH4Yfsc/s/fsGF9cjg0jTbqLJW81GdZJIR6LnpXzLefti/tYftvztB8MvAreB9AkO3+09SXaSh/iwRmuh+Hv/AAQ41b4j6iuq/Gv4ma54qnmPmSWFrO0dup/u/Sotbdj32R2/x4/4Lr/C34dalLpfhWLUPGurjKxx6fEZELfUV5Cn7ZP7XX7YpNt4G8A/8IVpVxwl7eDYyr/e5Ffb3wQ/YK+FH7PljHF4b8G6Tbyxgf6RJCJJW+rGvXooktogiKsaLwFUYAoulsh2b3Pzn8G/8EVfFvxf1GPVvjR8TtY1ueQ7pbC0lZIvcelfU3wM/wCCbvwe/Z8t4/7C8H6c1xHg/aLpBLIT65Ne60UnJsdkiKzsodOt1igijhiX
+hURQoH4Cpa85l/ae8MzfG+PwBZXS32viIzXEcJ3C2Uf3iOhr0apGFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABQeaKKAPxp/4Odf2L/+EW1/4f8A7Rvhe2t7XUPC2q28etyKoHmQLIpDEd69y1f/AILjp448KeHfD/wV8Gal498Y6lp8RuDaW5FvaSlQDuOMda9L/wCCkn/BPjx3+3Z8dvBWn3HiEW/wctSG8QaQp+a+I5GR6V9Lfs//ALKvgH9l7wnBo3gnw1puiWsChd0UI818dy/WtOZcquRyu+h8I6D/AME4P2iP22dSj1r43fES68JaRctvbQNHdlkVf7rHp7V9Vfs3/wDBLr4O/szQpJpHhe11DVFILajqA8+dz65PFfQ9FS5MrlRHb20dpEEijSNBwFRQAPwqSiipGcx8ZPi7onwI+Ger+LPEd2tlo2iW7XNzM38KgZr4z/Yv/ar+Lv8AwUY+LaeNtHsB4V+C+mXTrZSXKkT64oONyf7NfZnxi+D2gfHr4eah4W8T2S6jomqJ5dzbscCRfSrPwx+Gmi/B3wFpfhnw7Yw6boujwC3tLaJcLEg7U01YWtzeHFee/tX6z4q8P/s3+M7zwRbi78W2+lytpUJ/5aT4wB/OvQqKQz5F/wCCQf7OWpfDj9nS08YeO9PmX4qeLnkudfubr5plfecIM9FxivrqkA2jjilpt3dwWgUUUUgCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/9k=</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="IRDA1">
+      <MIMEType>image/jpeg</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>7a9ef846-dcb5-4291-93a9-642d3a51ae3a</rd:ReportID>
+</Report>

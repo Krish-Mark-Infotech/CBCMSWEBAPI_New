@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="MISPAppointment" targetNamespace="http://tempuri.org/MISPAppointment.xsd" xmlns:mstns="http://tempuri.org/MISPAppointment.xsd" xmlns="http://tempuri.org/MISPAppointment.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="MISPAppointment" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="MISPAppointment" msprop:Generator_UserDSName="MISPAppointment">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="MISPAppointment" msprop:Generator_TableClassName="MISPAppointmentDataTable" msprop:Generator_TableVarName="tableMISPAppointment" msprop:Generator_RowChangedName="MISPAppointmentRowChanged" msprop:Generator_TablePropName="_MISPAppointment" msprop:Generator_RowDeletingName="MISPAppointmentRowDeleting" msprop:Generator_RowChangingName="MISPAppointmentRowChanging" msprop:Generator_RowEvHandlerName="MISPAppointmentRowChangeEventHandler" msprop:Generator_RowDeletedName="MISPAppointmentRowDeleted" msprop:Generator_RowClassName="MISPAppointmentRow" msprop:Generator_UserTableName="MISPAppointment" msprop:Generator_RowEvArgName="MISPAppointmentRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="LcnIssDate" msprop:Generator_ColumnVarNameInTable="columnLcnIssDate" msprop:Generator_ColumnPropNameInRow="LcnIssDate" msprop:Generator_ColumnPropNameInTable="LcnIssDateColumn" msprop:Generator_UserColumnName="LcnIssDate" type="xs:string" minOccurs="0" />
+              <xs:element name="PAN" msprop:Generator_ColumnVarNameInTable="columnPAN" msprop:Generator_ColumnPropNameInRow="PAN" msprop:Generator_ColumnPropNameInTable="PANColumn" msprop:Generator_UserColumnName="PAN" type="xs:string" minOccurs="0" />
+              <xs:element name="Adr1" msprop:Generator_ColumnVarNameInTable="columnAdr1" msprop:Generator_ColumnPropNameInRow="Adr1" msprop:Generator_ColumnPropNameInTable="Adr1Column" msprop:Generator_UserColumnName="Adr1" type="xs:string" minOccurs="0" />
+              <xs:element name="City" msprop:Generator_ColumnVarNameInTable="columnCity" msprop:Generator_ColumnPropNameInRow="City" msprop:Generator_ColumnPropNameInTable="CityColumn" msprop:Generator_UserColumnName="City" type="xs:string" minOccurs="0" />
+              <xs:element name="State" msprop:Generator_ColumnVarNameInTable="columnState" msprop:Generator_ColumnPropNameInRow="State" msprop:Generator_ColumnPropNameInTable="StateColumn" msprop:Generator_UserColumnName="State" type="xs:string" minOccurs="0" />
+              <xs:element name="PostCode" msprop:Generator_ColumnVarNameInTable="columnPostCode" msprop:Generator_ColumnPropNameInRow="PostCode" msprop:Generator_ColumnPropNameInTable="PostCodeColumn" msprop:Generator_UserColumnName="PostCode" type="xs:string" minOccurs="0" />
+              <xs:element name="MobileTel" msprop:Generator_ColumnVarNameInTable="columnMobileTel" msprop:Generator_ColumnPropNameInRow="MobileTel" msprop:Generator_ColumnPropNameInTable="MobileTelColumn" msprop:Generator_UserColumnName="MobileTel" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

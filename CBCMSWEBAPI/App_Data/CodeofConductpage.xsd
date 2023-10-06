@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CodeofConductpage" targetNamespace="http://tempuri.org/CodeofConductpage.xsd" xmlns:mstns="http://tempuri.org/CodeofConductpage.xsd" xmlns="http://tempuri.org/CodeofConductpage.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CodeofConductpage" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="CodeofConductpage" msprop:Generator_UserDSName="CodeofConductpage">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="CodeofConductpage" msprop:Generator_TableClassName="CodeofConductpageDataTable" msprop:Generator_TableVarName="tableCodeofConductpage" msprop:Generator_TablePropName="_CodeofConductpage" msprop:Generator_RowDeletingName="CodeofConductpageRowDeleting" msprop:Generator_RowChangingName="CodeofConductpageRowChanging" msprop:Generator_RowEvHandlerName="CodeofConductpageRowChangeEventHandler" msprop:Generator_RowDeletedName="CodeofConductpageRowDeleted" msprop:Generator_UserTableName="CodeofConductpage" msprop:Generator_RowChangedName="CodeofConductpageRowChanged" msprop:Generator_RowEvArgName="CodeofConductpageRowChangeEvent" msprop:Generator_RowClassName="CodeofConductpageRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GivenName" msprop:Generator_ColumnVarNameInTable="columnGivenName" msprop:Generator_ColumnPropNameInRow="GivenName" msprop:Generator_ColumnPropNameInTable="GivenNameColumn" msprop:Generator_UserColumnName="GivenName" type="xs:string" minOccurs="0" />
+              <xs:element name="Sign" msprop:Generator_ColumnVarNameInTable="columnSign" msprop:Generator_ColumnPropNameInRow="Sign" msprop:Generator_ColumnPropNameInTable="SignColumn" msprop:Generator_UserColumnName="Sign" type="xs:string" minOccurs="0" />
+              <xs:element name="City" msprop:Generator_ColumnVarNameInTable="columnCity" msprop:Generator_ColumnPropNameInRow="City" msprop:Generator_ColumnPropNameInTable="CityColumn" msprop:Generator_UserColumnName="City" type="xs:string" minOccurs="0" />
+              <xs:element name="EntryDate" msprop:Generator_ColumnVarNameInTable="columnEntryDate" msprop:Generator_ColumnPropNameInRow="EntryDate" msprop:Generator_ColumnPropNameInTable="EntryDateColumn" msprop:Generator_UserColumnName="EntryDate" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

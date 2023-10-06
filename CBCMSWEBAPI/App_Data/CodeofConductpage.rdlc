@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Textbox Name="Textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>(i) Every Insurance Advisor shall,---    
+     (a)   identify himself and the insurance company of whom he is an Insurance  Advisor;
+     (b)   show the agency identity card to the prospect, and also disclose his agency                                        appointment letter to the prospect on demand;
+     (c)   disseminate the requisite information in respect of insurance products offered for                            sale by his insurer and take into account the needs of the prospect while                                            recommending a specific insurance plan;
+     (d)   where the Insurance Advisor represents more than one insurance company                                       offering same line of products, he should dispassionately advice the policyholder                             on the products of all Insurers whom he is representing and the product best                                     suited to the specific needs of the prospect.
+      (e)  disclose the scales of commission in respect of the insurance product offered for                              sale, if asked by the prospect;
+      (f)   indicate the premium to be charged by the insurer for the insurance product                                     offered for sale;
+      (g)   explain to the prospect the nature of information required in the proposal form by                          the insurer, and also the importance of disclosure of material information in the                               purchase of an insurance contract;
+      (h)   bring to the notice of the insurer any adverse habits or income inconsistency of                                the prospect, in the form of a report called “Insurance Advisor’s Confidential                                     Report” along with every proposal submitted to the insurer, and any material fact                            that may adversely affect the underwriting decision of the insurer as regards                                      acceptance of the proposal, by making all reasonable enquiries about the                                            prospect;
+       (i)   obtain the requisite documents at the time of filing the proposal form with the                                 insurer; and other documents subsequently asked for by the insurer for                                              completion of the proposal;
+       (j)    advise every prospect to effect nomination under the policy.                  
+       (k)   inform promptly the prospect about the acceptance or rejection of the proposal                               by the insurer;
+       (l)    render necessary assistance and advice to every policyholder on all policy                                           servicing matters including assignment of policy, change of address or exercise                                 of options under the policy or any other policy service, wherever necessary;           
+     (m)    render necessary assistance to the policyholders or claimants or beneficiaries                                   in complying with the requirements for settlement of claims by the insurer.</Value>
+                <Style>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>
+ (ii) No Insurance Advisor shall,----</Value>
+                <Style>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>0.49666in</Top>
+        <Left>0.19458in</Left>
+        <Height>6.625in</Height>
+        <Width>6.07292in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>CODE OF CONDUCT</Value>
+                <Style>
+                  <FontFamily>Times New Roman</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox2</rd:DefaultName>
+        <Top>0.18576in</Top>
+        <Left>0.19458in</Left>
+        <Height>0.23264in</Height>
+        <Width>6.07292in</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value xml:space="preserve">    </Value>
+                <Style>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>(a)  solicit or procure insurance business without being appointed to act as such by the                            insurer
+    (b)   induce the prospect to omit any material information in the proposal form;
+    (c)   induce the prospect to submit wrong information in the proposal form or documents                        submitted to the insurer for acceptance of the proposal;
+    (d)   resort to multilevel marketing for soliciting and procuring insurance policies and/or                           induct any prospect/policyholder to join a multilevel  marketing scheme.
+    (e)   behave in a discourteous manner with the prospect;
+    (f)    interfere with any proposal introduced by any other Insurance Advisor;                        
+    (g)   offer different rates, advantages, terms and conditions other than those offered by                           his insurer;
+    (h)   demand or receive a share of proceeds from the beneficiary under an insurance                                 contract;
+    (i)    force a policyholder to terminate the existing policy and to effect a new policy from                          him within three years from the date of such termination of the earlier policy;
+    (j)    apply for fresh agency appointment to act as an Insurance Advisor, if his agency                                 appointment was earlier cancelled by the designated official, and a period of five                                years has not elapsed from the date of such cancellation;
+   (k)    become or remain a director of any insurance company;</Value>
+                <Style>
+                  <FontFamily>calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>
+(iii)      Every Insurance Advisor shall, with a view to conserve the insurance business                                     already procured through him, make every attempt to ensure remittance of  the                                premiums by   the policyholders within the stipulated time, by giving notice to                                    the policyholder orally  and in writing.</Value>
+                <Style>
+                  <FontFamily>calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>
+Declaration on Code of Conduct
+I have read and understood the Code of Conduct and shall abide by the same at all times.
+</Value>
+                <Style>
+                  <FontFamily>calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style>
+                  <FontFamily>calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value xml:space="preserve">
+</Value>
+                <Style>
+                  <FontFamily>calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style>
+                  <FontFamily>calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>(Signature of the Applicant)
+</Value>
+                <Style>
+                  <FontFamily>calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Name of the Applicant:</Value>
+                <Style>
+                  <FontFamily>calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!GivenName.Value</Value>
+                <Style>
+                  <FontFamily>calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>
+Date:</Value>
+                <Style>
+                  <FontFamily>calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!EntryDate.Value</Value>
+                <Style>
+                  <FontFamily>calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>
+Place:</Value>
+                <Style>
+                  <FontFamily>calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!City.Value</Value>
+                <Style>
+                  <FontFamily>calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value xml:space="preserve">    </Value>
+                <Style>
+                  <FontFamily>calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>7.12166in</Top>
+        <Left>0.19458in</Left>
+        <Height>7.64585in</Height>
+        <Width>6.125in</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Image Name="Image2">
+        <Source>Database</Source>
+        <Value>=First(Fields!Sign.Value, "CodeofConductpage")</Value>
+        <MIMEType>image/jpeg</MIMEType>
+        <Sizing>Fit</Sizing>
+        <Top>13.84737in</Top>
+        <Left>0.66333in</Left>
+        <Height>0.36458in</Height>
+        <Width>0.5in</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+    </ReportItems>
+    <Height>14.79181in</Height>
+    <Style />
+  </Body>
+  <Width>6.31958in</Width>
+  <Page>
+    <PageFooter>
+      <Height>0.99306in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Line Name="Line1">
+          <Top>0.59722in</Top>
+          <Height>0in</Height>
+          <Width>6.31958in</Width>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+            </Border>
+          </Style>
+        </Line>
+        <Textbox Name="PageNumber">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals!PageNumber</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>PageNumber</rd:DefaultName>
+          <Top>0.05556in</Top>
+          <Left>5.31958in</Left>
+          <Height>0.25in</Height>
+          <Width>1in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Image Name="Image1">
+          <Source>Embedded</Source>
+          <Value>CodeofConduct</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.05556in</Top>
+          <Left>0.03833in</Left>
+          <Height>0.38542in</Height>
+          <Width>1.97917in</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <PageHeight>29.7cm</PageHeight>
+    <PageWidth>21cm</PageWidth>
+    <LeftMargin>2cm</LeftMargin>
+    <RightMargin>2cm</RightMargin>
+    <TopMargin>2cm</TopMargin>
+    <BottomMargin>2cm</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="CodeofConductpage">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>2dc85896-6f7a-4d7f-8bbd-f3adefc921bb</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="CodeofConductpage">
+      <Query>
+        <DataSourceName>CodeofConductpage</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="GivenName">
+          <DataField>GivenName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Sign">
+          <DataField>Sign</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="City">
+          <DataField>City</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EntryDate">
+          <DataField>EntryDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>CodeofConductpage</rd:DataSetName>
+        <rd:SchemaPath>~/App_Data/CodeofConductpage.xsd</rd:SchemaPath>
+        <rd:TableName>CodeofConductpage</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <EmbeddedImages>
+    <EmbeddedImage Name="CodeofConduct">
+      <MIMEType>image/jpeg</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>3013e01b-6ecc-41b4-94bb-ebaff963a30c</rd:ReportID>
+</Report>
