@@ -25,14 +25,16 @@ namespace CBCMSWEBAPI
             String skey = "";
             String pad = "";
             String DBName = "";
+            String EXTDB = "";
             
             server = Convert.ToBase64String(Encoding.UTF8.GetBytes(SecurityKey));
             akey = Convert.ToBase64String(Encoding.UTF8.GetBytes(api_key));
             skey = Convert.ToBase64String(Encoding.UTF8.GetBytes(sharedkey));
             pad = Convert.ToBase64String(Encoding.UTF8.GetBytes(Padding));
             DBName = Convert.ToBase64String(Encoding.UTF8.GetBytes("CBCMS.db"));
+            EXTDB = Convert.ToBase64String(Encoding.UTF8.GetBytes("ARTL_StatePin.db"));
 
-            return "{\"Table\": [ {\"ResponseCode\": \"0\",\"server\":\"" + server + "\",\"pad\":\"" + pad + "\",\"api_key\":\"" + akey + "\",\"shared_key\":\"" + skey + "\",\"DBName\":\"" + DBName + "\"}]}";
+            return "{\"Table\": [ {\"ResponseCode\": \"0\",\"server\":\"" + server + "\",\"pad\":\"" + pad + "\",\"api_key\":\"" + akey + "\",\"shared_key\":\"" + skey + "\",\"DBName\":\"" + DBName + "\",\"EXTDB\":\"" + EXTDB + "\"}]}";
         }
 
 

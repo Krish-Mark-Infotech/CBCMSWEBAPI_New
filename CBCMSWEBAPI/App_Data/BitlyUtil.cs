@@ -13,6 +13,7 @@ using System.Web;
 using Grpc.Core;
 using System.Text;
 using System.Configuration;
+using System.Net.Http;
 
 namespace CBCMSWEBAPI
 {
@@ -26,7 +27,7 @@ namespace CBCMSWEBAPI
         string emailhost = ConfigurationManager.AppSettings["EmailHost"].ToString();
         string emailfrom = ConfigurationManager.AppSettings["EmailFrom"].ToString();
         string emailpass = ConfigurationManager.AppSettings["EmailPass"].ToString();
-        public BitlyUtil() { 
+        public BitlyUtil() {
         }
 
         public string CreateBitlyLink(string strAppNo, string MobileNo, string EmailID)
@@ -104,13 +105,13 @@ namespace CBCMSWEBAPI
                                 + "\"WebLink\":\"" + objDaset.Tables[0].Rows[0]["WebLink"].ToString() + "\","
                                 + "\"AppLink\":\"" + objDaset.Tables[0].Rows[0]["AppLink"].ToString() + "\"}]}";
                     }
-                    
+
                 }
                 else
                 {
                     JSonString = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"Invalid details\"}]}";
                 }
-            }catch(Exception e)
+            } catch (Exception e)
             {
                 LogAPIError("CreateBitlyLink", e.ToString());
                 JSonString = "{\"Table\": [ {\"ResponseCode\": \"2\",\"ErrorDescription\":\"" + e.Message.ToString() + "\"}]}";
@@ -134,15 +135,15 @@ namespace CBCMSWEBAPI
                 {
                     string strBody = string.Format("Hi {0},<br /><br />Please complete your application using below link {1}.<br />Please do not reply to this email<br /><br />Thank You.",
                         "Candidate", objDaset.Tables[0].Rows[0]["WebLink"].ToString(), objDaset.Tables[0].Rows[0]["AppLink"].ToString());
-                    
+
                     FuncSmsSend(objDaset.Tables[0].Rows[0]["MobileNo"].ToString(), strBody, objDaset.Tables[0].Rows[0]["mRefNo"].ToString());
 
-                    FunMailSend(objDaset.Tables[0].Rows[0]["EmailID"].ToString(),strBody);
+                    FunMailSend(objDaset.Tables[0].Rows[0]["EmailID"].ToString(), strBody);
 
                     JSonString = "{\"Table\": [ {\"ResponseCode\": \"0\",\"Message\":\"We have sent the link.\"}]}";
                 }
             }
-            catch(Exception e) 
+            catch (Exception e)
             {
                 LogAPIError("ShareLink", e.ToString());
                 JSonString = "{\"Table\": [ {\"ResponseCode\": \"2\",\"ErrorDescription\":\"" + e.Message.ToString() + "\"}]}";
@@ -151,7 +152,7 @@ namespace CBCMSWEBAPI
             return JSonString;
         }
 
-        public void FunMailSend(string EmailID,string strBody)
+        public void FunMailSend(string EmailID, string strBody)
         {
             try
             {
@@ -171,7 +172,7 @@ namespace CBCMSWEBAPI
                 smtp.EnableSsl = false;
                 smtp.Port = 25;
                 smtp.Send(mm);
-            }catch(Exception e)
+            } catch (Exception e)
             {
                 LogAPIError("FunMailSend", e.ToString());
             }
@@ -179,7 +180,7 @@ namespace CBCMSWEBAPI
 
         public void FuncSmsSend(String strSMSTo, String strSMSContent, String strSMSRefNo)
         {
-            string strResponse = "", status = "", sourceRequestId="";
+            string strResponse = "", status = "", sourceRequestId = "";
             try
             {
                 string jsonData = "";
@@ -260,6 +261,49 @@ namespace CBCMSWEBAPI
             ht.Add("@UserId", "API");
             ht.Add("@Severity", "High");
             dstemp = objDAL.selectFromDatabase("Mob_LogError", ht, "USRMGMT");
+        }
+
+        public void demo (){
+            try
+            {
+                // URL of the Web API endpoint.
+                string apiUrl = "http://kmi.centralindia.cloudapp.azure.com/ckycwebapi/api/CKYC/CKYCSearch";
+
+                // Create an HttpClient instance.
+                using (HttpClient httpClient = new HttpClient())
+                {
+                   string  inputData = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
+                        "<REQ_ROOT>" +
+                            "<CKYC_INQ>" +
+                                "<ID_TYPE>C</ID_TYPE>" +
+                                "<ID_NO>DTIPS7526U</ID_NO>" +
+                            "</CKYC_INQ>" +
+                        "</REQ_ROOT>";
+                    // Serialize the request data to JSON.
+                    //string jsonContent = Newtonsoft.Json.JsonConvert.SerializeObject(requestData);
+
+                    // Create a StringContent with the JSON content.
+                    StringContent content = new StringContent(inputData, Encoding.UTF8, "application/xml");
+
+                    // Make a POST request with the request body.
+                    HttpResponseMessage response = httpClient.PostAsync(apiUrl, content).Result;
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        // Request was successful. You can process the response here.
+                        string responseContent = response.Content.ReadAsStringAsync().Result;
+                        Console.WriteLine("Response: " + responseContent);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Request failed with status code: " + response.StatusCode);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
         }
 
         public class SingleSmsReq

@@ -39,7 +39,7 @@ namespace CBCMSWEBAPI.Controllers
         DataSet dstemp = new DataSet();
         String SeqNo = String.Empty;
         String JsonResponce = String.Empty;
-
+        //api/CBCMS/GetName?name="30036813"
         [Route("api/CBCMS/GetName")]
         [HttpGet]
         public string GetName(string name)
@@ -77,6 +77,7 @@ namespace CBCMSWEBAPI.Controllers
                     htParam.Clear();
                     htParam.Add("@UserId", Convert.ToString(jObject["UserId"]).Trim());
                     htParam.Add("@Answer", Convert.ToString(jObject["Answer"]).Trim());
+                    htParam.Add("@DeviceInfo", Convert.ToString(jObject["DeviceInfo"]).Trim());
                     dstemp = objDAL.selectFromDatabase("prc_validateCaptcha_request", htParam, "USRMGMT");
 
                     if (dstemp.Tables.Count > 0 && dstemp.Tables[0].Rows.Count > 0)
@@ -452,6 +453,7 @@ namespace CBCMSWEBAPI.Controllers
                 htParam.Clear();
                 htParam.Add("@SAPCode", Convert.ToString(jObject["SapCode"]).Trim());
                 htParam.Add("@Flag", Convert.ToString(jObject["Flag"]).Trim());
+                htParam.Add("@MemTypeFlag", Convert.ToString(jObject["MemTypeFlag"]).Trim());
                 dstemp = objDAL.selectFromDatabase("prc_GetARTLDashBoardDtls_mobile", htParam, "IsysARTL");
                 if (dstemp.Tables.Count > 0 && dstemp.Tables[0].Rows.Count > 0)
                 {
@@ -1345,6 +1347,7 @@ namespace CBCMSWEBAPI.Controllers
             return JSonString;
         }
 
+
         [Route("api/CBCMS/ConvertPStoIS")]
         [HttpPost]
         public string ConvertPStoIS([FromBody] InputModel model)
@@ -1580,7 +1583,6 @@ namespace CBCMSWEBAPI.Controllers
                 string strSapCode = Convert.ToString(jObject["SapCode"]).Trim();
                 string strTokenId = Convert.ToString(jObject["strTokenId"]).Trim();
                 string strAppNo = Convert.ToString(jObject["AppNo"]).Trim();
-                //string strAppNo = Convert.ToString(jObject["AppNo"]).Trim();
                 SeqNo = ServerTrnReqLog(json, "SendPaymentLink", strSapCode, "", "Candidate Manager");
                 String result = ValidateRequest(json);
                 if (!result.Equals("Valid"))
@@ -1605,6 +1607,70 @@ namespace CBCMSWEBAPI.Controllers
                 htable.Add("@AppNo", strAppNo);
 
                 objDaset = objDAL.selectFromDatabase("Prc_OnboradingPaymentForARTL", htable, "ISysARTL");
+                if (objDaset.Tables.Count > 0 && objDaset.Tables[0].Rows.Count > 0)
+                {
+                    JSonString = ds2json(objDaset);
+                }
+                else
+                {
+                    JSonString = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"No records to display\"}]}";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                JSonString = "{\"Table\": [ {\"ResponseCode\": \"2\",\"ErrorDescription\":\"" + ex.Message.ToString() + "\"}]}";
+            }
+            updateResponse(JSonString, SeqNo);
+            JSonString = encryptDecrypt.EncryptAndEncode(JSonString);
+            return JSonString;
+        }
+
+        [Route("api/CBCMS/GetFeesWavier")]
+        [HttpPost]
+        public string GetFeesWavier([FromBody] InputModel model)
+        {
+            #region Declaration
+            DataSet objDaset = new DataSet();
+            XmlDocument xmlDoc = new XmlDocument();
+            string SeqNo = string.Empty;
+            Hashtable htable = new Hashtable();
+            String JSonString = String.Empty;
+            #endregion
+            try
+            {
+                string jsonInput = model.jsonInput;
+                string json = encryptDecrypt.DecodeAndDecrypt(jsonInput);
+                JObject jObject = JObject.Parse(json);
+                string strSapCode = Convert.ToString(jObject["SapCode"]).Trim();
+                string strTokenId = Convert.ToString(jObject["strTokenId"]).Trim();
+                //string strAppNo = Convert.ToString(jObject["AppNo"]).Trim();
+                SeqNo = ServerTrnReqLog(json, "GetFeesWavier", strSapCode, "", "Candidate Manager");
+                String result = ValidateRequest(json);
+                if (!result.Equals("Valid"))
+                {
+                    JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"" + result + "\"}]}";
+                    updateResponse(JsonResponce, SeqNo);
+                    return JsonResponce;
+                }
+                else if (strTokenId.Equals(string.Empty) || (!strTokenId.Equals(string.Empty)
+                    && ValidateToken(strSapCode, strTokenId) != "Valid"))
+                {
+                    JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"invalid token details\"}]}";
+                    updateResponse(JsonResponce, SeqNo);
+
+                    return HttpStatusCode.NonAuthoritativeInformation.ToString();
+                    //(HttpStatusCode.NonAuthoritativeInformation, JsonResponce).ToString();
+
+                }
+                objDaset.Clear();
+                htable.Clear();
+
+                htable.Add("@BIZSRC", Convert.ToString(jObject["BizSrc"]).Trim());
+                htable.Add("@CHNCLS", Convert.ToString(jObject["ChnCls"]).Trim());
+                htable.Add("@WAVCNT", Convert.ToString(jObject["WavCount"]).Trim());
+
+                objDaset = objDAL.selectFromDatabase("Prc_Get_WavierRes", htable, "ISysARTL");
                 if (objDaset.Tables.Count > 0 && objDaset.Tables[0].Rows.Count > 0)
                 {
                     JSonString = ds2json(objDaset);
@@ -1794,8 +1860,11 @@ namespace CBCMSWEBAPI.Controllers
                 htParam.Add("@Appno", strAppno.ToString().Trim());
                 htParam.Add("@Flag", Convert.ToString(jObject["Flag"]).Trim());
                 htParam.Add("@ModuleID", Convert.ToString(jObject["ModuleID"]).Trim());
-                dstemp = objDAL.selectFromDatabase("prc_CnandidateApproved_mobile", htParam, "IsysARTL");
-                JsonResponce = "Candidate Apporved";
+                htParam.Add("@SapCode", strSapCode);
+                htParam.Add("@CarrierCode", Convert.ToString(jObject["CarrierCode"]).Trim());
+                //dstemp = objDAL.selectFromDatabase("prc_CnandidateApproved_mobile", htParam, "IsysARTL");
+                dstemp = objDAL.selectFromDatabase("prc_UpdateCandidateapproval_mob", htParam, "IsysARTL");
+                JsonResponce = "Candidate Approved";
             }
             catch (Exception ex)
             {
@@ -1990,10 +2059,10 @@ namespace CBCMSWEBAPI.Controllers
                     if (dstemp.Tables.Count > 0 && dstemp.Tables[0].Rows.Count > 0)
                     {
                         //return ds2json(dstemp);ResponseCode
-                        if (dstemp.Tables[0].Rows[0]["ResponseCode"].Equals("0")
-                            && dstemp.Tables[0].Rows[0]["AllCfrResponded"].Equals("Y"))
+                        if (dstemp.Tables[0].Rows[0]["ResponseCode"].ToString().Trim().Equals("0")
+                            && dstemp.Tables[0].Rows[0]["AllCfrResponded"].ToString().Trim().Equals("Y"))
                         {
-                            ConvertRDLCToPDF(dstemp.Tables[0].Rows[0]["CndNo"].ToString(), strSapCode);
+                            ConvertRDLCToPDF(dstemp.Tables[0].Rows[0]["CndNo"].ToString().Trim(), strSapCode);
                         }
                     }
 
@@ -2275,10 +2344,75 @@ namespace CBCMSWEBAPI.Controllers
                 }
 
                 htParam.Clear();
-                htParam.Add("@PAN", Convert.ToString(jObject["PAN"]).Trim());
-                htParam.Add("@ApplicationNo", Convert.ToString(jObject["ApplicationNo"]).Trim());
+                htParam.Add("@PanNo", Convert.ToString(jObject["PAN"]).Trim());
+                //htParam.Add("@ApplicationNo", Convert.ToString(jObject["ApplicationNo"]).Trim());
                 htParam.Add("@AgentType", Convert.ToString(jObject["MemType"]).Trim());
-                dstemp = objDAL.selectFromDatabase("Prc_GetChkPANExist_MobApp", htParam, "IsysARTL");
+                htParam.Add("@SapCode", strSapCode);
+                dstemp = objDAL.selectFromDatabase("Prc_GetChkPANExist_Mob", htParam, "IsysARTL");
+                if (dstemp.Tables.Count > 0 && dstemp.Tables[0].Rows.Count > 0)
+                {
+                    JsonResponce = ds2json(dstemp);
+                }
+                else
+                {
+                    JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"Verification failed\"}]}";
+                }
+            }
+            catch (Exception ex)
+            {
+                JsonResponce = ex.ToString();
+            }
+
+            updateResponse(JsonResponce, SeqNo);
+            JsonResponce = encryptDecrypt.EncryptAndEncode(JsonResponce);
+            return JsonResponce;
+        }
+
+        [Route("api/CBCMS/Get_NomineePAN_verification_mobile")]
+        [HttpPost]
+        public string Get_NomineePAN_verification_mobile([FromBody] InputModel model)
+        {
+            try
+            {
+                dstemp.Clear();
+                htParam.Clear();
+                //string PAN, string ApplicationNo, String SapCode, String strTokenId
+                //string strPAN = encryptDecrypt.DecodeAndDecrypt(PAN.Trim());
+
+                //String param = "PAN : " + strPAN + ",ApplicationNo : " + ApplicationNo;
+
+                string jsonInput = model.jsonInput;
+                string json = encryptDecrypt.DecodeAndDecrypt(jsonInput);
+                JObject jObject = JObject.Parse(json);
+                string strSapCode = Convert.ToString(jObject["SapCode"]).Trim();
+                string strAppNo = Convert.ToString(jObject["ApplicationNo"]).Trim();
+                string strTokenId = Convert.ToString(jObject["strTokenId"]).Trim();
+
+                SeqNo = ServerTrnReqLog(json, "Get_NomineePAN_verification_mobile", strSapCode, strAppNo, "Candidate Manager");
+
+                String result = ValidateRequest(json);
+                if (!result.Equals("Valid"))
+                {
+                    JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"" + result + "\"}]}";
+                    updateResponse(JsonResponce, SeqNo);
+                    return JsonResponce;
+                }
+                else if (strTokenId.Equals(string.Empty) || (!strTokenId.Equals(string.Empty)
+                    && ValidateToken(strSapCode, strTokenId) != "Valid"))
+                {
+                    JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"invalid token details\"}]}";
+                    updateResponse(JsonResponce, SeqNo);
+
+                    return HttpStatusCode.NonAuthoritativeInformation.ToString();
+                    //(HttpStatusCode.NonAuthoritativeInformation, JsonResponce).ToString();
+
+                }
+
+                htParam.Clear();
+                htParam.Add("@PanNo", Convert.ToString(jObject["PAN"]).Trim());
+                //htParam.Add("@ApplicationNo", Convert.ToString(jObject["ApplicationNo"]).Trim());
+                htParam.Add("@CndAgtType", Convert.ToString(jObject["CndAgtType"]).Trim());
+                dstemp = objDAL.selectFromDatabase("Prc_GetChkNomineePANExist_MobApp", htParam, "IsysARTL");
                 if (dstemp.Tables.Count > 0 && dstemp.Tables[0].Rows.Count > 0)
                 {
                     JsonResponce = ds2json(dstemp);
@@ -2698,18 +2832,26 @@ namespace CBCMSWEBAPI.Controllers
                 htParam.Add("@ICDate", Convert.ToString(jObject["ICdate"]).Trim());
                 htParam.Add("@Status", Convert.ToString(jObject["Status"]).Trim());
                 htParam.Add("@IsActive", Convert.ToString(jObject["IsActive"]).Trim());
+                // htParam.Add("@ActiveCnt", Convert.ToString(jObject["ActiveCnt"]).Trim());
+                int cnt = Convert.ToInt16(Convert.ToString(jObject["ActiveCnt"]).Trim());
 
                 dstemp = objDAL.selectFromDatabase("prc_compositedetailsIns_Mob", htParam, "IsysARTL");
                 if (dstemp.Tables.Count > 0 && dstemp.Tables[0].Rows.Count > 0)
                 {
                     JsonResponce = ds2json(dstemp);
-                    if (dstemp.Tables[0].Rows[0]["ResponseCode"].ToString() == "0")
+                    if (dstemp.Tables[0].Rows[0]["ResponseCode"].ToString().Trim() == "0")
                     {
-                        string cndno = dstemp.Tables[0].Rows[0]["CndNo"].ToString();
-                        
-                        if (!cndno.IsNullOrWhiteSpace())
+                        string cndno = dstemp.Tables[0].Rows[0]["CndNo"].ToString().Trim();
+                        string act = dstemp.Tables[0].Rows[0]["IsActive"].ToString().Trim();
+                        int tcnt = Convert.ToInt16(dstemp.Tables[0].Rows[0]["Cnt"].ToString().Trim());
+                        if (!cndno.IsNullOrWhiteSpace() && act == "Y" && cnt == tcnt)
                         {
+                            //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "Candidate Composite RDLC" + DateTime.Now.ToString() + Environment.NewLine);
+
                             ConvertRDLCToPDF(cndno, strSapCode);
+
+                            //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "Candidate Composite RDLC end" + DateTime.Now.ToString() + Environment.NewLine);
+
                         }
                     }
                 }
@@ -2949,6 +3091,9 @@ namespace CBCMSWEBAPI.Controllers
                 htParam.Add("@SetPrefDt", Convert.ToString(jObject["SetPrefDt"]).Trim());
                 htParam.Add("@PAFlag", Convert.ToString(jObject["PAFlag"]).Trim());
                 htParam.Add("@WavierType", Convert.ToString(jObject["WavierType"]).Trim());
+                //htParam.Add("@RegRemark", Convert.ToString(jObject["RegRemark"]).Trim());
+                htParam.Add("@RegReferralCode", Convert.ToString(jObject["RegReferralCode"]).Trim());
+                htParam.Add("@WavierCount", Convert.ToString(jObject["WavierCount"]).Trim());
                 // dstemp = objDAL.selectFromDatabase("prc_CndAdmin_InsCnd1_mobile", htParam, "IsysARTL");
 
                 //dstemp = objDAL.selectFromDatabase("prc_CndAdmin_InsCnd1_Androidmobile", htParam, "IsysARTL");
@@ -2956,10 +3101,10 @@ namespace CBCMSWEBAPI.Controllers
                 if (dstemp.Tables.Count > 0)//&& dstemp.Tables[0].Rows.Count > 0 CndStatus
                 {
                     JsonResponce = ds2json(dstemp);
-                    if (dstemp.Tables[0].Rows[0]["ResponseCode"].ToString() == "0")
+                    if (dstemp.Tables[0].Rows[0]["ResponseCode"].ToString().Trim() == "0")
                     {
-                        string cndno = dstemp.Tables[0].Rows[0]["CndNo"].ToString();
-                        string cndtype = dstemp.Tables[0].Rows[0]["Cand_Type"].ToString();
+                        string cndno = dstemp.Tables[0].Rows[0]["CndNo"].ToString().Trim();
+                        string cndtype = dstemp.Tables[0].Rows[0]["Cand_Type"].ToString().Trim();
                         if (!cndno.IsNullOrWhiteSpace() && cndtype == "F")
                         {
                             ConvertRDLCToPDF(cndno, strSapCode);
@@ -3032,9 +3177,9 @@ namespace CBCMSWEBAPI.Controllers
                     JsonResponce = ds2json(dstemp);
                     try
                     {
-                        if (dstemp.Tables[0].Rows[0]["ResponseCode"].ToString() == "0")
+                        if (dstemp.Tables[0].Rows[0]["ResponseCode"].ToString().Trim() == "0")
                         {
-                            string cndno = dstemp.Tables[0].Rows[0]["CndNo"].ToString();
+                            string cndno = dstemp.Tables[0].Rows[0]["CndNo"].ToString().Trim();
                             if (!cndno.IsNullOrWhiteSpace())
                             {
                                 ConvertRDLCToPDF(cndno, strSapCode);
@@ -3068,8 +3213,11 @@ namespace CBCMSWEBAPI.Controllers
         {
             try
             {
+                //[FromBody] InputModel model
+                //string jsonInput = "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\nKZ8HSRp3GCbubapHGhSfxJ7tpUay0Q==\n";
                 string jsonInput = model.jsonInput;
                 string json = encryptDecrypt.DecodeAndDecrypt(jsonInput);
+                //string json = "{\"AppNo\":\"10038079\",\"CndNo\":\"\",\"SmMemberCode\":\"20011205\",\"CarrierCode\":\"2\",\"CndCat\":\"\",\"EntryDate\":\"06/10/2023\",\"Title\":\"MR\",\"GivenName\":\"FAHAD \",\"SurName\":\"\",\"Gender\":\"M\",\"FatherName\":\"HAH\",\"Relation\":\"\",\"DOB\":\"01/01/1989\",\"MaritalStat\":\"\",\"Nationality\":\"\",\"MobileTel\":\"8426543456\",\"Email\":\"hregsihsukkz8@mnil.up\",\"Mobile2\":\"\",\"Email2\":\"\",\"DstbnMethod\":\"\",\"PAN\":\"YESPL6749S\",\"AgentType\":\"SM\",\"CndAgtType\":\"IS\",\"RecruitAgtCode\":\"\",\"ProofIdDoc\":\"MBA\",\"CreateBy\":\"RGI32189\",\"CasteCat\":\"SC\",\"PrimProf\":\"SLP\",\"BasicQual\":\"HSC\",\"BasicBoardName\":\"BANI\",\"BasicRNo\":\"BABAB\",\"BasicYrPass\":\"06/10/2023\",\"Bizsrc\":\"SE\",\"ChnCls\":\"ACSO\",\"CmsUnitCode\":\"7071\",\"UniqueRefID\":\"Android-22ddcf2f-c7e3-4a80-a4e8-88402b87e7fb\",\"AadharNo\":\"\",\"AadharOTP\":\"\",\"TypeofAadharVerify\":\"\",\"Cand_Type\":\"F\",\"FeesWavier\":\"Y\",\"AnniversaryDate\":\"\",\"AddRptMgr\":\"\",\"RegRemark\":\"\",\"NomineeName\":\"\",\"NomineeRel\":\"\",\"NomineeAge\":\"\",\"NomineePAN\":\"\",\"NomineeEmail\":\"\",\"NomineeContact\":\"\",\"HigherQual\":\"MBA\",\"ExamMode\":\"ONLINE\",\"ExmBody\":\"Insurance Institute of India\",\"ExmLang\":\"MLM\",\"ExmCentre\":\"NSEIT Limited - Akola\",\"SetPrefDt\":\"7/10/2023\",\"PAFlag\":\"N\",\"WavierType\":\"GEN\",\"CnctType\":\"P1\",\"Address1\":\"JBA\",\"Address2\":\"\",\"Address3\":\"\",\"City\":\"THANE\",\"Area\":\"KALWA \",\"AreaID\":\"45574\",\"Village\":\"\",\"District\":\"THANE\",\"DistrictID\":\"336\",\"StateCode\":\"21\",\"StateID\":\"21\",\"Pincode\":\"400605\",\"StateName\":\"MAHARASHTRA\",\"CntryCode\":\"\",\"ModuleID\":\"8017\",\"SapCode\":\"RGI32189\",\"strTokenId\":\"7519BDF7-3B77-45D1-9A51-2C776500842A\",\"CallerId\":\"CBCMSCM\",\"CallerPass\":\"CBCMSCM\"}";
                 JObject jObject = JObject.Parse(json);
                 string strSapCode = Convert.ToString(jObject["SapCode"]).Trim();
                 string strTokenId = Convert.ToString(jObject["strTokenId"]).Trim();
@@ -3092,7 +3240,6 @@ namespace CBCMSWEBAPI.Controllers
 
                     return HttpStatusCode.NonAuthoritativeInformation.ToString();
                     //(HttpStatusCode.NonAuthoritativeInformation, JsonResponce).ToString();
-
                 }
                 dstemp.Clear();
                 htParam.Clear();
@@ -3166,6 +3313,9 @@ namespace CBCMSWEBAPI.Controllers
                 htParam.Add("@SetPrefDt", Convert.ToString(jObject["SetPrefDt"]).Trim());
                 htParam.Add("@PAFlag", Convert.ToString(jObject["PAFlag"]).Trim());
                 htParam.Add("@WavierType", Convert.ToString(jObject["WavierType"]).Trim());
+                //htParam.Add("@RegRemark", Convert.ToString(jObject["RegRemark"]).Trim());
+                htParam.Add("@RegReferralCode", Convert.ToString(jObject["RegReferralCode"]).Trim());
+                htParam.Add("@WavierCount", Convert.ToString(jObject["WavierCount"]).Trim());
 
                 //dstemp = objDAL.selectFromDatabase("prc_CndAdmin_UpdtCndRcrd_mobile", htParam, "IsysARTL");
                 dstemp = objDAL.selectFromDatabase("Prc_UpdRegDtls_Mob", htParam, "IsysARTL");
@@ -3175,21 +3325,23 @@ namespace CBCMSWEBAPI.Controllers
                     try
                     {
                         //JsonResponce = ds2json(dstemp);
-                        if (dstemp.Tables[0].Rows[0]["ResponseCode"].ToString() == "0")
+                        if (dstemp.Tables[0].Rows[0]["ResponseCode"].ToString().Trim() == "0")
                         {
-                            string cndno = dstemp.Tables[0].Rows[0]["CndNo"].ToString();
-                            string PAFlag = dstemp.Tables[0].Rows[0]["PAFlag"].ToString();
+                            string cndno = dstemp.Tables[0].Rows[0]["CndNo"].ToString().Trim();
+                            string PAFlag = dstemp.Tables[0].Rows[0]["PAFlag"].ToString().Trim();
                             string panNo = Convert.ToString(jObject["PAN"]).Trim();
-                            string cndtype = dstemp.Tables[0].Rows[0]["Cand_Type"].ToString();
+                            string cndtype = dstemp.Tables[0].Rows[0]["Cand_Type"].ToString().Trim();
 
                             if (!cndno.IsNullOrWhiteSpace())
                             {
-                                if (cndtype == "F")
+                                //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "Candidate Modification RDLC" + DateTime.Now.ToString() + Environment.NewLine);
+                                if (cndtype == "F" || cndtype == "P")
                                 {
                                     ConvertRDLCToPDF(cndno, strSapCode);
                                 }
-                            
-                                
+
+                                //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "Candidate Modification RDLC end" + DateTime.Now.ToString() + Environment.NewLine);
+
                                 if (PAFlag == "Y")
                                 {
                                     htParam.Clear();
@@ -3198,10 +3350,15 @@ namespace CBCMSWEBAPI.Controllers
                                     dstemp = objDAL.selectFromDatabase("Prc_getCndDtls", htParam, "IsysARTL");
                                     if (dstemp.Tables[0].Rows.Count > 0)
                                     {
-                                        cndno = dstemp.Tables[0].Rows[0]["CndNo"].ToString();
+                                        cndno = dstemp.Tables[0].Rows[0]["CndNo"].ToString().Trim();
                                         if (!cndno.IsNullOrWhiteSpace())
                                         {
+                                            //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "PA Candidate Modification RDLC" + DateTime.Now.ToString() + Environment.NewLine);
+
                                             ConvertRDLCToPDF(cndno, strSapCode);
+
+                                            //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "PA Candidate Modification RDLC end" + DateTime.Now.ToString() + Environment.NewLine);
+
                                         }
                                     }
                                 }
@@ -4273,6 +4430,7 @@ namespace CBCMSWEBAPI.Controllers
                         htable.Add("@WaiverFlag", "");
                         htable.Add("@FeesWaiverFlag", "NA");
                     }
+                    //htable.Add("@WavierCount", Convert.ToString(jObject["WavierCount"]).Trim());
                     htable.Add("@ModuleID", Convert.ToString(jObject["ModuleID"]).Trim());
 
                     objDaset = objDAL.selectFromDatabase("Prc_UpdValidTCCDtls_mob", htable, "IsysARTL");
@@ -4762,11 +4920,11 @@ namespace CBCMSWEBAPI.Controllers
                     {
                         try
                         {
-                            if (dstemp.Tables[0].Rows[0]["ResponseCode"].ToString() == "0"
-                                && dstemp.Tables[0].Rows[0]["WStatus"].ToString() == "20")
+                            if (dstemp.Tables[0].Rows[0]["ResponseCode"].ToString().Trim() == "0"
+                                && dstemp.Tables[0].Rows[0]["WStatus"].ToString().Trim() == "20")
                             {
-                                ConvertRDLCToPDF(dstemp.Tables[0].Rows[0]["MemCode"].ToString(),
-                                    dstemp.Tables[0].Rows[0]["EmpCode"].ToString(),
+                                ConvertRDLCToPDF(dstemp.Tables[0].Rows[0]["MemCode"].ToString().Trim(),
+                                    dstemp.Tables[0].Rows[0]["EmpCode"].ToString().Trim(),
                                     Convert.ToString(jObject["CreatedBy"]).ToString().Trim());
                             }
                         }
@@ -4815,7 +4973,7 @@ namespace CBCMSWEBAPI.Controllers
                 string jsonInput = model.jsonInput;
                 string json = encryptDecrypt.DecodeAndDecrypt(jsonInput);
                 JObject jObject = JObject.Parse(json);
-                string strSapCode = Convert.ToString(jObject["SapCode"]).Trim();
+                string strSapCode = Convert.ToString(jObject["CreatedBy"]).Trim();
                 string strTokenId = Convert.ToString(jObject["strTokenId"]).Trim();
 
                 SeqNo = ServerTrnReqLog(json, "FranchiseeModification", strSapCode, "", "Candidate Manager");
@@ -4953,11 +5111,11 @@ namespace CBCMSWEBAPI.Controllers
                         JsonResponce = ds2json(dstemp);
                         try
                         {
-                            if (dstemp.Tables[0].Rows[0]["ResponseCode"].ToString() == "0"
-                                && dstemp.Tables[0].Rows[0]["WStatus"].ToString() == "20")
+                            if (dstemp.Tables[0].Rows[0]["ResponseCode"].ToString().Trim() == "0"
+                                && dstemp.Tables[0].Rows[0]["WStatus"].ToString().Trim() == "20")
                             {
-                                ConvertRDLCToPDF(dstemp.Tables[0].Rows[0]["MemCode"].ToString(),
-                                    dstemp.Tables[0].Rows[0]["EmpCode"].ToString(),
+                                ConvertRDLCToPDF(dstemp.Tables[0].Rows[0]["MemCode"].ToString().Trim(),
+                                    dstemp.Tables[0].Rows[0]["EmpCode"].ToString().Trim(),
                                     Convert.ToString(jObject["CreatedBy"]).ToString().Trim());
                             }
                         }
@@ -5753,11 +5911,11 @@ namespace CBCMSWEBAPI.Controllers
                     JsonResponce = ds2json(dstemp);
                     try
                     {
-                        if (dstemp.Tables[0].Rows[0]["ResponseCode"].ToString() == "0"
-                            && dstemp.Tables[0].Rows[0]["WStatus"].ToString() == "20")
+                        if (dstemp.Tables[0].Rows[0]["ResponseCode"].ToString().Trim() == "0"
+                            && dstemp.Tables[0].Rows[0]["WStatus"].ToString().Trim() == "20")
                         {
-                            ConvertRDLCToPDF(dstemp.Tables[0].Rows[0]["MemCode"].ToString(),
-                                dstemp.Tables[0].Rows[0]["EmpCode"].ToString(),
+                            ConvertRDLCToPDF(dstemp.Tables[0].Rows[0]["MemCode"].ToString().Trim(),
+                                dstemp.Tables[0].Rows[0]["EmpCode"].ToString().Trim(),
                                 strSapCode);
                         }
                     }
@@ -6437,7 +6595,8 @@ namespace CBCMSWEBAPI.Controllers
                     {
                         continue;
                     }
-                    else if (key.Key.Contains("Address1") || key.Key.Contains("StateName"))
+                    else if (key.Key.Contains("Address1") || key.Key.Contains("StateName")
+                        || key.Key.Contains("crState") || key.Key.Contains("idState") || key.Key.Contains("BState"))
                     {
                         continue;
                     }
@@ -6531,27 +6690,28 @@ namespace CBCMSWEBAPI.Controllers
             return JsonConvert.SerializeObject(ds, Newtonsoft.Json.Formatting.Indented);
         }
 
-       
+
         public void ConvertRDLCToPDF(String MemCode, String EmpCode, String UserID)
         {
 
             try
             {
-                //File.AppendAllText(@"E:\CommBridgeCMS\CBCMSAPI\RDLCLog.txt", "Franchisee Entered RDLC" + DateTime.Now.ToString() + Environment.NewLine);
+                //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "Franchisee Entered RDLC" + DateTime.Now.ToString() + Environment.NewLine);
 
                 Hashtable htCRP = new Hashtable();
+                MemCode = MemCode.Replace("\"", "").Trim();
                 htCRP.Add("@MemCode", MemCode);
                 DataSet dsCRP = new DataSet();
                 //dsCRP = objDAL.GetDataSetForPrcCLP("prc_GetFPWelcomeLetter", htCRP);
 
                 dsCRP = objDAL.selectFromDatabase("Prc_GetDetailsForDocCreation", htCRP, "IsysCHMS");
 
-                //File.AppendAllText(@"E:\CommBridgeCMS\CBCMSAPI\RDLCLog.txt", "RDLC Count" + " " + Convert.ToString(dsCRP.Tables[0].Rows.Count) + Environment.NewLine);
+                //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "RDLC Count" + " " + Convert.ToString(dsCRP.Tables[0].Rows.Count) + Environment.NewLine);
                 foreach (DataRow dr in dsCRP.Tables[0].Rows)
                 {
                     try
                     {
-                        //File.AppendAllText(@"E:\CommBridgeCMS\CBCMSAPI\RDLCLog.txt", "RDLC_PROC " + dr["RDLC_PROC"].ToString() + Environment.NewLine);
+                        //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "RDLC_PROC " + dr["RDLC_PROC"].ToString() + Environment.NewLine);
                         string prc = dr["RDLC_PROC"].ToString();
                         if (prc.IsNullOrWhiteSpace())
                         {
@@ -6559,11 +6719,11 @@ namespace CBCMSWEBAPI.Controllers
                         }
                         else
                         {
-                            //File.AppendAllText(@"E:\CommBridgeCMS\CBCMSAPI\RDLCLog.txt", "RDLC_PROC " + dr["RDLC_PROC"].ToString() + Environment.NewLine);
+                            //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "RDLC_PROC " + dr["RDLC_PROC"].ToString() + Environment.NewLine);
                             DataSet ds = new DataSet();
                             ds = objDAL.selectFromDatabase(prc, htCRP, "IsysCHMS");
 
-                            //File.AppendAllText(@"E:\CommBridgeCMS\CBCMSAPI\RDLCLog.txt", "RDLC_PROC Result " + Convert.ToString(ds.Tables[0].Rows.Count) + Environment.NewLine);
+                            //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "RDLC_PROC Result " + Convert.ToString(ds.Tables[0].Rows.Count) + Environment.NewLine);
                             ReportDataSource rdsAct = new ReportDataSource(dr["RDLC_DS"].ToString(), ds.Tables[0]);
                             ReportViewer viewer = new ReportViewer();
                             viewer.LocalReport.Refresh();
@@ -6571,7 +6731,7 @@ namespace CBCMSWEBAPI.Controllers
                             string strRDLC = dr["MRDLC_PATH"].ToString();
                             if (String.IsNullOrEmpty(strRDLC))
                             {
-                                //File.AppendAllText(@"E:\CommBridgeCMS\CBCMSAPI\RDLCLog.txt", "MRDLC_PATH empty " + Environment.NewLine);
+                                //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "MRDLC_PATH empty " + Environment.NewLine);
                                 continue;
                             }
                             viewer.LocalReport.ReportPath = System.Web.Hosting.HostingEnvironment.MapPath(strRDLC); //This is your rdlc name.
@@ -6591,7 +6751,7 @@ namespace CBCMSWEBAPI.Controllers
                             //    fs.Write(bytes, 0, bytes.Length);
                             //}
 
-                            //File.AppendAllText(@"E:\CommBridgeCMS\CBCMSAPI\RDLCLog.txt", "Byte length " + Convert.ToString(bytes.Length) + Environment.NewLine);
+                            //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "Byte length " + Convert.ToString(bytes.Length) + Environment.NewLine);
 
                             Hashtable htApp = new Hashtable();
                             htApp.Add("@MemCode", MemCode.ToString().Trim());
@@ -6604,14 +6764,14 @@ namespace CBCMSWEBAPI.Controllers
 
                             //objDAL.GetDataSetForPrcCLP("Prc_InsFPConRDLCToPDF", htApp);
                             ds = objDAL.selectFromDatabase("Prc_InsFPDocFromRDLCToPDF", htApp, "IsysCHMS");
-                            //File.AppendAllText(@"E:\CommBridgeCMS\CBCMSAPI\RDLCLog.txt", "Complete" + Environment.NewLine);
+                            //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "Complete" + Environment.NewLine);
                         }
                     }
                     catch (Exception ex)
                     {
                         LogAPIError("mConvertRDLCToPDF", ex.ToString());
                         //ex.StackTrace.ToString();
-                        //File.AppendAllText(@"E:\CommBridgeCMS\CBCMSAPI\RDLCLog.txt", "Exception " + ex.ToString() + Environment.NewLine);
+                        //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "Exception " + ex.ToString() + Environment.NewLine);
                     }
                 }
             }
@@ -6619,30 +6779,31 @@ namespace CBCMSWEBAPI.Controllers
             {
                 LogAPIError("mConvertRDLCToPDF", e.ToString());
                 //e.ToString();
-                //File.AppendAllText(@"E:\CommBridgeCMS\CBCMSAPI\RDLCLog.txt", "Exception " + e.ToString() + Environment.NewLine);
+                //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "Exception " + e.ToString() + Environment.NewLine);
             }
-            //File.AppendAllText(@"E:\CommBridgeCMS\CBCMSAPI\RDLCLog.txt", "Method Complete " + Environment.NewLine);
+            //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "Method Complete " + Environment.NewLine);
         }
 
         public void ConvertRDLCToPDF(String CndNo, String UserID)
         {
             try
             {
-                //File.AppendAllText(@"E:\CommBridgeCMS\CBCMSAPI\RDLCLog.txt", "Candidate Entered RDLC" + DateTime.Now.ToString() + Environment.NewLine);
+                //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "Candidate Entered RDLC" + DateTime.Now.ToString() + Environment.NewLine);
                 Hashtable htCRP = new Hashtable();
+                CndNo = CndNo.Replace("\"", "").Trim();
                 htCRP.Add("@CndNo", CndNo);
                 DataSet dsCRP = new DataSet();
                 //dsCRP = objDAL.GetDataSetForPrcCLP("prc_GetFPWelcomeLetter", htCRP);
-                //File.AppendAllText(@"E:\CommBridgeCMS\CBCMSAPI\RDLCLog.txt", "Cnd No " + CndNo + Environment.NewLine);
+                //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "Cnd No " + CndNo + Environment.NewLine);
                 dsCRP = objDAL.selectFromDatabase("Prc_GetDetailsForPDFCreation", htCRP, "IsysARTL");
 
-                //File.AppendAllText(@"E:\CommBridgeCMS\CBCMSAPI\RDLCLog.txt", "RDLC Count" + " " + Convert.ToString(dsCRP.Tables[0].Rows.Count) + Environment.NewLine);
+                //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "RDLC Count" + " " + Convert.ToString(dsCRP.Tables[0].Rows.Count) + Environment.NewLine);
 
                 foreach (DataRow dr in dsCRP.Tables[0].Rows)
                 {
                     try
                     {
-                        //File.AppendAllText(@"E:\CommBridgeCMS\CBCMSAPI\RDLCLog.txt", "RDLC_PROC Check " + Environment.NewLine);
+                        //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "RDLC_PROC Check " + Environment.NewLine);
                         string prc = dr["RDLC_PROC"].ToString();
                         if (prc.IsNullOrWhiteSpace())
                         {
@@ -6650,18 +6811,18 @@ namespace CBCMSWEBAPI.Controllers
                         }
                         else
                         {
-                            //File.AppendAllText(@"E:\CommBridgeCMS\CBCMSAPI\RDLCLog.txt", "RDLC_PROC " + dr["RDLC_PROC"].ToString() + Environment.NewLine);
+                            //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "RDLC_PROC " + dr["RDLC_PROC"].ToString() + Environment.NewLine);
                             DataSet ds = new DataSet();
                             ds = objDAL.selectFromDatabase(prc, htCRP, "IsysARTL");
-                            //File.AppendAllText(@"E:\CommBridgeCMS\CBCMSAPI\RDLCLog.txt", "RDLC_PROC Result " + Convert.ToString(ds.Tables[0].Rows.Count) + Environment.NewLine);
+                            //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "RDLC_PROC Result " + Convert.ToString(ds.Tables[0].Rows.Count) + Environment.NewLine);
                             ReportDataSource rdsAct = new ReportDataSource(dr["RDLC_DS"].ToString(), ds.Tables[0]);
                             ReportViewer viewer = new ReportViewer();
                             viewer.LocalReport.Refresh();
                             //viewer.LocalReport.ReportPath = Server.MapPath(dr["MRDLC_PATH"].ToString()); //This is your rdlc name.
-                            string strRDLC = dr["MRDLC_PATH"].ToString(); 
+                            string strRDLC = dr["MRDLC_PATH"].ToString();
                             if (String.IsNullOrEmpty(strRDLC))
                             {
-                                //File.AppendAllText(@"E:\CommBridgeCMS\CBCMSAPI\RDLCLog.txt", "MRDLC_PATH empty " + Environment.NewLine);
+                                //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "MRDLC_PATH empty " + Environment.NewLine);
                                 continue;
                             }
                             viewer.LocalReport.ReportPath = System.Web.Hosting.HostingEnvironment.MapPath(strRDLC); //This is your rdlc name.
@@ -6669,9 +6830,9 @@ namespace CBCMSWEBAPI.Controllers
                             viewer.LocalReport.DataSources.Add(rdsAct); // Add  datasource here         
                             Warning[] warnings;
                             string[] streamIds;
-                            string mimeType = string.Empty;
-                            string encoding = string.Empty;
-                            string extension = string.Empty;
+                            string mimeType = string.Empty; 
+                            string encoding = string.Empty; 
+                            string extension = string.Empty; 
 
                             //Microsoft.Reporting.WebForms.Warning[] warnings;
                             //string[] warnings;
@@ -6680,7 +6841,7 @@ namespace CBCMSWEBAPI.Controllers
                             //{
                             //    fs.Write(bytes, 0, bytes.Length);
                             //}
-                            //File.AppendAllText(@"E:\CommBridgeCMS\CBCMSAPI\RDLCLog.txt", "Byte length " + Convert.ToString(bytes.Length) + Environment.NewLine);
+                            //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "Byte length " + Convert.ToString(bytes.Length) + Environment.NewLine);
 
                             Hashtable htApp = new Hashtable();
                             htApp.Add("@CndNo", CndNo.ToString().Trim());
@@ -6693,12 +6854,12 @@ namespace CBCMSWEBAPI.Controllers
 
                             //objDAL.GetDataSetForPrcCLP("Prc_InsFPConRDLCToPDF", htApp);
                             ds = objDAL.selectFromDatabase("Prc_InsCndDocFromRDLCToPDF", htApp, "IsysARTL");
-                            //File.AppendAllText(@"E:\CommBridgeCMS\CBCMSAPI\RDLCLog.txt", "Complete" + Environment.NewLine);
+                            //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "Complete" + Environment.NewLine);
                         }
                     }
                     catch (Exception ex)
                     {
-                        LogAPIError("cConvertRDLCToPDF",ex.ToString());
+                        LogAPIError("cConvertRDLCToPDF", ex.ToString());
                     }
                 }
             }
@@ -6706,10 +6867,10 @@ namespace CBCMSWEBAPI.Controllers
             {
                 LogAPIError("cConvertRDLCToPDF", e.ToString());
             }
-            //File.AppendAllText(@"E:\CommBridgeCMS\CBCMSAPI\RDLCLog.txt", "Method Complete " + Environment.NewLine);
+            //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "Method Complete " + Environment.NewLine);
         }
 
-        public void LogAPIError(string method,string error)
+        public void LogAPIError(string method, string error)
         {
             dstemp = null;
             Hashtable ht = new Hashtable();
