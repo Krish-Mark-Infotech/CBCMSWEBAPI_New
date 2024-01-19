@@ -36,6 +36,7 @@ namespace CBCMSWEBAPI.Controllers
 
         WSDataAccessLayer objDAL = new WSDataAccessLayer();
         EncryptDecrypt encryptDecrypt = new EncryptDecrypt();
+        private PolicyDispatchServiceConsume dispatch = new PolicyDispatchServiceConsume();
         DataSet dstemp = new DataSet();
         String SeqNo = String.Empty;
         String JsonResponce = String.Empty;
@@ -1864,7 +1865,16 @@ namespace CBCMSWEBAPI.Controllers
                 htParam.Add("@CarrierCode", Convert.ToString(jObject["CarrierCode"]).Trim());
                 //dstemp = objDAL.selectFromDatabase("prc_CnandidateApproved_mobile", htParam, "IsysARTL");
                 dstemp = objDAL.selectFromDatabase("prc_UpdateCandidateapproval_mob", htParam, "IsysARTL");
-                JsonResponce = "Candidate Approved";
+                //JsonResponce = "Candidate Approved";
+                if (dstemp.Tables.Count > 0 && dstemp.Tables[0].Rows.Count > 0)
+                {
+                    JsonResponce = ds2json(dstemp);
+                }
+                else
+                {
+                    JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"No Candidates found for your Search.\"}]}";
+                }
+                
             }
             catch (Exception ex)
             {
@@ -4286,6 +4296,88 @@ namespace CBCMSWEBAPI.Controllers
             updateResponse(JsonResponce, SeqNo);
             JsonResponce = encryptDecrypt.EncryptAndEncode(JsonResponce);
             return JsonResponce;
+        }
+
+        [Route("api/CBCMS/GetDispatchDetails")]
+        [HttpPost]
+        public string GetDispatchDetails([FromBody] InputModel model)
+        {
+            #region Declaration
+            DataSet objDaset = new DataSet();
+            DataSet dsDispatch = new DataSet();
+            
+            XmlDocument xmlDoc = new XmlDocument();
+            string SeqNo = string.Empty;
+            Hashtable htable = new Hashtable();
+            String JSonString = String.Empty;
+            #endregion
+            try
+            {
+                //string AppNo, string CarrierCode;string AppNo, string CarrierCode, String SapCode, String strTokenId
+                //string strAppNo = encryptDecrypt.DecodeAndDecrypt(AppNo);
+                //String param = "AppNo : " + strAppNo + ",CarrierCode : " + CarrierCode;
+                string jsonInput = model.jsonInput;
+                string json = encryptDecrypt.DecodeAndDecrypt(jsonInput);
+                JObject jObject = JObject.Parse(json);
+                string strSapCode = Convert.ToString(jObject["SapCode"]).Trim();
+                string strTokenId = Convert.ToString(jObject["strTokenId"]).Trim();
+                string strAppNo = Convert.ToString(jObject["AppNo"]).Trim();
+                string Agent_Broker_Code = Convert.ToString(jObject["Agent_Broker_Code"]).Trim();
+
+                SeqNo = ServerTrnReqLog(json, "GetDispatchDetails", strSapCode, strAppNo, "Candidate Manager");
+                String result = ValidateRequest(json);
+                if (!result.Equals("Valid"))
+                {
+                    JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"" + result + "\"}]}";
+                    updateResponse(JsonResponce, SeqNo);
+                    return JsonResponce;
+                }
+                else if (strTokenId.Equals(string.Empty) || (!strTokenId.Equals(string.Empty)
+                    && ValidateToken(strSapCode, strTokenId) != "Valid"))
+                {
+                    JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"invalid token details\"}]}";
+                    updateResponse(JsonResponce, SeqNo);
+
+                    return HttpStatusCode.NonAuthoritativeInformation.ToString();
+                    //(HttpStatusCode.NonAuthoritativeInformation, JsonResponce).ToString();
+
+                }
+                if (strAppNo != null && strAppNo.Trim() != "")
+                {
+                    objDaset.Clear();
+                    htable.Clear();
+                    htable.Add("@Agent_Broker_Code", Convert.ToString(Agent_Broker_Code));
+                    objDaset = objDAL.selectFromDatabase("Prc_GetDispatchDtlsTX", htable, "ISysARTL");
+                    if (objDaset.Tables.Count > 0 && objDaset.Tables[0].Rows.Count > 0)
+                    {
+                        if (objDaset.Tables[0].Rows[0]["DeliveryStatus"].ToString().Trim() == "Delivered")
+                        {
+                            JSonString = ds2json(objDaset);
+                        } else
+                        {
+                            dsDispatch = dispatch.GetAgentDispatchDetails(Convert.ToString(Agent_Broker_Code));
+                            //objDaset = objDAL.selectFromDatabase("Prc_GetDispatchDtlsTX", htable, "ISysARTL");
+                            JSonString = ds2json(dsDispatch);
+                        }
+                    }
+                    else
+                    {
+                        JSonString = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"No Data Found.\"}]}";
+                    }
+                }
+                else
+                {
+                    JSonString = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"invalid api call\"}]}";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                JSonString = "{\"Table\": [ {\"ResponseCode\": \"2\",\"ErrorDescription\":\"" + ex.Message.ToString() + "\"}]}";
+            }
+            updateResponse(JSonString, SeqNo);
+            JSonString = encryptDecrypt.EncryptAndEncode(JSonString);
+            return JSonString;
         }
 
         [Route("api/CBCMS/GetCandidateExam_detail")]

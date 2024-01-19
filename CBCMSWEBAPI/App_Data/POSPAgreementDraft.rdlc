@@ -45,7 +45,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>RELIANCE GENERAL INSURANCE COMPANY LIMITED </Value>
+                <Value>=Fields!CompanyName.Value</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Palatino Linotype</FontFamily>
@@ -56,7 +56,40 @@
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>a company incorporated under the provisions of the Companies Act, 1956 and having its corporate office at Reliance Centre, 4th Floor, South wing, Off Western Express Highway, Santacruz (East), Mumbai – 400055, Maharashtra (hereinafter called “RGICL” which term shall be deemed to mean and include its representative in interest and permitted assignees) of the one part.</Value>
+                <Value xml:space="preserve"> </Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Palatino Linotype</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>a company incorporated under the provisions of the Companies Act, 1956 and having its corporate office at </Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Cambria</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!OffcAddr.Value</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Cambria</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>  (hereinafter called “RGICL” which term shall be deemed to mean and include its representative in interest and permitted assignees) of the one part.</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Cambria</FontFamily>
@@ -5754,7 +5787,18 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Reliance General Insurance Co. Ltd.                     Name : </Value>
+                <Value>=Fields!CompanyName.Value</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Palatino Linotype</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>                   Name : </Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Palatino Linotype</FontFamily>
@@ -6101,6 +6145,14 @@
         </Field>
         <Field Name="BirthRegDate">
           <DataField>BirthRegDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OffcAddr">
+          <DataField>OffcAddr</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

@@ -41,7 +41,23 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Reliance General Insurance Company Limited</Value>
+                <Value />
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!CompanyName.Value</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Calibri</FontFamily>
@@ -61,25 +77,6 @@
             <TextRuns>
               <TextRun>
                 <Value>Mumbai</Value>
-                <Style>
-                  <FontStyle>Normal</FontStyle>
-                  <FontFamily>Calibri</FontFamily>
-                  <FontSize>11pt</FontSize>
-                  <FontWeight>Normal</FontWeight>
-                  <TextDecoration>None</TextDecoration>
-                  <Color>#000000</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-              <LineHeight>13pt</LineHeight>
-            </Style>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value />
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Calibri</FontFamily>
@@ -540,8 +537,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>0.53125in</Top>
-        <Height>4.9075in</Height>
+        <Top>0.53819in</Top>
+        <Height>4.69917in</Height>
         <Width>6.16667in</Width>
         <Style>
           <Border>
@@ -569,14 +566,13 @@
           </Border>
         </Style>
       </Image>
-      <Image Name="Image2">
-        <Source>Embedded</Source>
-        <Value>Relince</Value>
+      <Image Name="Image3">
+        <Source>Database</Source>
+        <Value>=First(Fields!Logo.Value, "InsuranceAdvisor")</Value>
+        <MIMEType>image/jpeg</MIMEType>
         <Sizing>FitProportional</Sizing>
-        <Top>0.12375in</Top>
-        <Left>0.12375in</Left>
-        <Height>0.33806in</Height>
-        <Width>2.09375in</Width>
+        <Height>0.62153in</Height>
+        <Width>3.4375in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -631,6 +627,14 @@
         </Field>
         <Field Name="City">
           <DataField>City</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Logo">
+          <DataField>Logo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

@@ -41,6 +41,8 @@
               <xs:element name="DateofAppointmentasAgent" msprop:Generator_ColumnVarNameInTable="columnDateofAppointmentasAgent" msprop:Generator_ColumnPropNameInRow="DateofAppointmentasAgent" msprop:Generator_ColumnPropNameInTable="DateofAppointmentasAgentColumn" msprop:Generator_UserColumnName="DateofAppointmentasAgent" type="xs:string" minOccurs="0" />
               <xs:element name="DateofcessationofAgency" msprop:Generator_ColumnVarNameInTable="columnDateofcessationofAgency" msprop:Generator_ColumnPropNameInRow="DateofcessationofAgency" msprop:Generator_ColumnPropNameInTable="DateofcessationofAgencyColumn" msprop:Generator_UserColumnName="DateofcessationofAgency" type="xs:string" minOccurs="0" />
               <xs:element name="ReasonforcessationofAgency" msprop:Generator_ColumnVarNameInTable="columnReasonforcessationofAgency" msprop:Generator_ColumnPropNameInRow="ReasonforcessationofAgency" msprop:Generator_ColumnPropNameInTable="ReasonforcessationofAgencyColumn" msprop:Generator_UserColumnName="ReasonforcessationofAgency" type="xs:string" minOccurs="0" />
+              <xs:element name="CompanyName" msprop:Generator_ColumnVarNameInTable="columnCompanyName" msprop:Generator_ColumnPropNameInRow="CompanyName" msprop:Generator_ColumnPropNameInTable="CompanyNameColumn" msprop:Generator_UserColumnName="CompanyName" type="xs:string" minOccurs="0" />
+              <xs:element name="OffcAddr" msprop:Generator_ColumnVarNameInTable="columnOffcAddr" msprop:Generator_ColumnPropNameInRow="OffcAddr" msprop:Generator_ColumnPropNameInTable="OffcAddrColumn" msprop:Generator_UserColumnName="OffcAddr" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

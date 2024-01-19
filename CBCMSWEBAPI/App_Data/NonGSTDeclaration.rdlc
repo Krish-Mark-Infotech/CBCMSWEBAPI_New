@@ -140,7 +140,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Reliance General Insurance Company Ltd.</Value>
+                <Value>=Fields!CompanyName.Value</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Calibri</FontFamily>
@@ -159,45 +159,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>6th Floor, Oberoi Commerz</Value>
-                <Style>
-                  <FontStyle>Normal</FontStyle>
-                  <FontFamily>Calibri</FontFamily>
-                  <FontWeight>Normal</FontWeight>
-                  <TextDecoration>None</TextDecoration>
-                  <Color>#000000</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <LeftIndent>0.25in</LeftIndent>
-            <Style>
-              <TextAlign>Left</TextAlign>
-              <LineHeight>14pt</LineHeight>
-            </Style>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>International Business Park, Oberoi Garden City, Off.</Value>
-                <Style>
-                  <FontStyle>Normal</FontStyle>
-                  <FontFamily>Calibri</FontFamily>
-                  <FontWeight>Normal</FontWeight>
-                  <TextDecoration>None</TextDecoration>
-                  <Color>#000000</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <LeftIndent>0.25in</LeftIndent>
-            <Style>
-              <TextAlign>Left</TextAlign>
-              <LineHeight>14pt</LineHeight>
-            </Style>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Western Express Highway, Goregaon (E), Mumbai- 400063.</Value>
+                <Value>=Fields!OffcAddr.Value</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Calibri</FontFamily>
@@ -797,6 +759,44 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
+                <Value />
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <HangingIndent>0.25in</HangingIndent>
+            <Style>
+              <TextAlign>Left</TextAlign>
+              <LineHeight>13pt</LineHeight>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <HangingIndent>0.25in</HangingIndent>
+            <Style>
+              <TextAlign>Left</TextAlign>
+              <LineHeight>13pt</LineHeight>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
                 <Value>Authorised Signatory</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
@@ -948,6 +948,14 @@
         </Field>
         <Field Name="Images">
           <DataField>Images</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OffcAddr">
+          <DataField>OffcAddr</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

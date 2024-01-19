@@ -12,7 +12,7 @@
   <xs:element name="POSPAgreementDraft" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="POSPAgreementDraft" msprop:Generator_UserDSName="POSPAgreementDraft">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="POSPAgreementDraft" msprop:Generator_TableClassName="POSPAgreementDraftDataTable" msprop:Generator_TableVarName="tablePOSPAgreementDraft" msprop:Generator_RowChangedName="POSPAgreementDraftRowChanged" msprop:Generator_TablePropName="_POSPAgreementDraft" msprop:Generator_RowDeletingName="POSPAgreementDraftRowDeleting" msprop:Generator_RowChangingName="POSPAgreementDraftRowChanging" msprop:Generator_RowEvHandlerName="POSPAgreementDraftRowChangeEventHandler" msprop:Generator_RowDeletedName="POSPAgreementDraftRowDeleted" msprop:Generator_RowClassName="POSPAgreementDraftRow" msprop:Generator_UserTableName="POSPAgreementDraft" msprop:Generator_RowEvArgName="POSPAgreementDraftRowChangeEvent">
+        <xs:element name="POSPAgreementDraft" msprop:Generator_TableClassName="POSPAgreementDraftDataTable" msprop:Generator_TableVarName="tablePOSPAgreementDraft" msprop:Generator_TablePropName="_POSPAgreementDraft" msprop:Generator_RowDeletingName="POSPAgreementDraftRowDeleting" msprop:Generator_RowChangingName="POSPAgreementDraftRowChanging" msprop:Generator_RowEvHandlerName="POSPAgreementDraftRowChangeEventHandler" msprop:Generator_RowDeletedName="POSPAgreementDraftRowDeleted" msprop:Generator_UserTableName="POSPAgreementDraft" msprop:Generator_RowChangedName="POSPAgreementDraftRowChanged" msprop:Generator_RowEvArgName="POSPAgreementDraftRowChangeEvent" msprop:Generator_RowClassName="POSPAgreementDraftRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="GivenName" msprop:Generator_ColumnVarNameInTable="columnGivenName" msprop:Generator_ColumnPropNameInRow="GivenName" msprop:Generator_ColumnPropNameInTable="GivenNameColumn" msprop:Generator_UserColumnName="GivenName" type="xs:string" minOccurs="0" />
@@ -25,6 +25,8 @@
               <xs:element name="EntryDate" msprop:Generator_ColumnVarNameInTable="columnEntryDate" msprop:Generator_ColumnPropNameInRow="EntryDate" msprop:Generator_ColumnPropNameInTable="EntryDateColumn" msprop:Generator_UserColumnName="EntryDate" type="xs:string" minOccurs="0" />
               <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:string" minOccurs="0" />
               <xs:element name="BirthRegDate" msprop:Generator_ColumnVarNameInTable="columnBirthRegDate" msprop:Generator_ColumnPropNameInRow="BirthRegDate" msprop:Generator_ColumnPropNameInTable="BirthRegDateColumn" msprop:Generator_UserColumnName="BirthRegDate" type="xs:string" minOccurs="0" />
+              <xs:element name="CompanyName" msprop:Generator_ColumnVarNameInTable="columnCompanyName" msprop:Generator_ColumnPropNameInRow="CompanyName" msprop:Generator_ColumnPropNameInTable="CompanyNameColumn" msprop:Generator_UserColumnName="CompanyName" type="xs:string" minOccurs="0" />
+              <xs:element name="OffcAddr" msprop:Generator_ColumnVarNameInTable="columnOffcAddr" msprop:Generator_ColumnPropNameInRow="OffcAddr" msprop:Generator_ColumnPropNameInTable="OffcAddrColumn" msprop:Generator_UserColumnName="OffcAddr" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

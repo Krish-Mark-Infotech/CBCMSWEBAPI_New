@@ -79,7 +79,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Reliance General Insurance Company Limited</Value>
+                <Value>=Fields!CompanyName.Value</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Book Antiqua</FontFamily>
@@ -100,7 +100,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Mumbai</Value>
+                <Value>=Fields!OffcAddr.Value</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Book Antiqua</FontFamily>
@@ -111,13 +111,18 @@
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <LeftIndent>0cm</LeftIndent>
+            <RightIndent>0cm</RightIndent>
+            <Style>
+              <TextAlign>Left</TextAlign>
+              <LineHeight>13pt</LineHeight>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>1.96356cm</Top>
         <Left>1.3462cm</Left>
-        <Height>2.75194cm</Height>
+        <Height>2.40798cm</Height>
         <Width>8.37375cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
@@ -206,7 +211,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>4.89189cm</Top>
+        <Top>4.54793cm</Top>
         <Left>1.3462cm</Left>
         <Height>1.71097cm</Height>
         <Width>13.96528cm</Width>
@@ -260,7 +265,61 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>In reference to the captioned subject matter, I would like to inform you that I was appointed as ‘POSP’ of Reliance General Insurance Company Limited.  </Value>
+                <Value>In reference to the captioned subject matter, I would like to inform you that I was appointed as ‘POSP’ of  </Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Book Antiqua</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!CompanyName.Value</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Book Antiqua</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <LeftIndent>0cm</LeftIndent>
+            <RightIndent>0cm</RightIndent>
+            <Style>
+              <TextAlign>Left</TextAlign>
+              <LineHeight>13pt</LineHeight>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>since </Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Book Antiqua</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!LcnIssDate.Value</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Book Antiqua</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>.  </Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Book Antiqua</FontFamily>
@@ -302,86 +361,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>POSP to IRDA conversion</Value>
-                <Style>
-                  <FontStyle>Normal</FontStyle>
-                  <FontFamily>Book Antiqua</FontFamily>
-                  <FontSize>11pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                  <TextDecoration>None</TextDecoration>
-                  <Color>#000000</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <LeftIndent>0cm</LeftIndent>
-            <RightIndent>0cm</RightIndent>
-            <Style>
-              <TextAlign>Left</TextAlign>
-              <LineHeight>13pt</LineHeight>
-            </Style>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
                 <Value>------------------------------------------------------------------------------------------------------</Value>
-                <Style>
-                  <FontStyle>Normal</FontStyle>
-                  <FontFamily>Book Antiqua</FontFamily>
-                  <FontSize>11pt</FontSize>
-                  <FontWeight>Normal</FontWeight>
-                  <TextDecoration>None</TextDecoration>
-                  <Color>#000000</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <LeftIndent>0cm</LeftIndent>
-            <RightIndent>0cm</RightIndent>
-            <Style>
-              <TextAlign>Left</TextAlign>
-              <LineHeight>13pt</LineHeight>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>6.77926cm</Top>
-        <Left>1.3462cm</Left>
-        <Height>3.91583cm</Height>
-        <Width>13.96528cm</Width>
-        <ZIndex>3</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox6">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Thanking you,</Value>
-                <Style>
-                  <FontStyle>Normal</FontStyle>
-                  <FontFamily>Book Antiqua</FontFamily>
-                  <FontSize>11pt</FontSize>
-                  <FontWeight>Normal</FontWeight>
-                  <TextDecoration>None</TextDecoration>
-                  <Color>#000000</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Yours Sincerely</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Book Antiqua</FontFamily>
@@ -423,12 +403,23 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Fields!AgentName.Value</Value>
+                <Value>I understand that in terms of the Guideline on Appointment of Insurance Agent, 2015 issued by IRDAI, post issuance of Cessation Certificate in form I-C by the Company, </Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Book Antiqua</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>I would not be able to be appointed as insurance agent with any other insurance company for a period of ninety days from the date of issuance of such Cessation Certificate in form I-C.   </Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Book Antiqua</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
                   <TextDecoration>None</TextDecoration>
                   <Color>#000000</Color>
                 </Style>
@@ -441,13 +432,293 @@
               <LineHeight>13pt</LineHeight>
             </Style>
           </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Book Antiqua</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+              <LineHeight>13pt</LineHeight>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>In this regard, I request you to kindly issue me the Cessation Certificate in terms of the Company’s Agent Appointment Policy subject to my submission of Agent Appointment Letter, original Identity Card and any other documents issued to me by the Company.</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Book Antiqua</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+              <LineHeight>13pt</LineHeight>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Book Antiqua</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+              <LineHeight>13pt</LineHeight>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Thanking you,</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Book Antiqua</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+              <LineHeight>13pt</LineHeight>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Yours Sincerely</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Book Antiqua</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+              <LineHeight>13pt</LineHeight>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Book Antiqua</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+              <LineHeight>13pt</LineHeight>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Book Antiqua</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+              <LineHeight>13pt</LineHeight>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!AgentName.Value</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Book Antiqua</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>.</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Book Antiqua</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+              <LineHeight>13pt</LineHeight>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Book Antiqua</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+              <LineHeight>13pt</LineHeight>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Book Antiqua</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+              <LineHeight>13pt</LineHeight>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Contact No.: </Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Book Antiqua</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!ContactNo.Value</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Book Antiqua</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+              <LineHeight>13pt</LineHeight>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Email ID:  </Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Book Antiqua</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!EmailID.Value</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Book Antiqua</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+              <LineHeight>13pt</LineHeight>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value xml:space="preserve"> </Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Book Antiqua</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+              <LineHeight>13pt</LineHeight>
+            </Style>
+          </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox6</rd:DefaultName>
-        <Top>11.40037cm</Top>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>6.14425cm</Top>
         <Left>1.3462cm</Left>
-        <Height>2.1875cm</Height>
-        <Width>3.54069cm</Width>
-        <ZIndex>4</ZIndex>
+        <Height>14.41979cm</Height>
+        <Width>13.96528cm</Width>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -459,7 +730,7 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>5.52083in</Height>
+    <Height>8.32291in</Height>
     <Style />
   </Body>
   <Width>6.5in</Width>
@@ -516,6 +787,14 @@
         </Field>
         <Field Name="EmailID">
           <DataField>EmailID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OffcAddr">
+          <DataField>OffcAddr</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

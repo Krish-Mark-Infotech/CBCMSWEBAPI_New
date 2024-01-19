@@ -20,6 +20,9 @@
               <xs:element name="PAN" msprop:Generator_ColumnVarNameInTable="columnPAN" msprop:Generator_ColumnPropNameInRow="PAN" msprop:Generator_ColumnPropNameInTable="PANColumn" msprop:Generator_UserColumnName="PAN" type="xs:string" minOccurs="0" />
               <xs:element name="EntryDate" msprop:Generator_ColumnVarNameInTable="columnEntryDate" msprop:Generator_ColumnPropNameInRow="EntryDate" msprop:Generator_ColumnPropNameInTable="EntryDateColumn" msprop:Generator_UserColumnName="EntryDate" type="xs:string" minOccurs="0" />
               <xs:element name="City" msprop:Generator_ColumnVarNameInTable="columnCity" msprop:Generator_ColumnPropNameInRow="City" msprop:Generator_ColumnPropNameInTable="CityColumn" msprop:Generator_UserColumnName="City" type="xs:string" minOccurs="0" />
+              <xs:element name="Logo" msprop:Generator_ColumnVarNameInTable="columnLogo" msprop:Generator_ColumnPropNameInRow="Logo" msprop:Generator_ColumnPropNameInTable="LogoColumn" msprop:Generator_UserColumnName="Logo" type="xs:string" minOccurs="0" />
+              <xs:element name="CompanyName" msprop:Generator_ColumnVarNameInTable="columnCompanyName" msprop:Generator_ColumnPropNameInRow="CompanyName" msprop:Generator_ColumnPropNameInTable="CompanyNameColumn" msprop:Generator_UserColumnName="CompanyName" type="xs:string" minOccurs="0" />
+              <xs:element name="OfficAddr" msprop:Generator_ColumnVarNameInTable="columnOfficAddr" msprop:Generator_ColumnPropNameInRow="OfficAddr" msprop:Generator_ColumnPropNameInTable="OfficAddrColumn" msprop:Generator_UserColumnName="OfficAddr" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

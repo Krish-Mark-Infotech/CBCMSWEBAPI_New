@@ -145,7 +145,27 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value> This is to confirm that you have fulfilled the criteria as laid down under the IRDAI Guidelines on Motor Insurance Service Provider. Your identification particular is as under:</Value>
+                <Value> This is to confirm that you have fulfilled the criteria as laid down under the IRDAI Guidelines on Motor</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <LeftIndent>0cm</LeftIndent>
+            <RightIndent>0cm</RightIndent>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value> Insurance Service Provider. Your identification particular is as under:</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Calibri</FontFamily>
@@ -435,7 +455,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Height>12.80901cm</Height>
+        <Height>11.85651cm</Height>
         <Width>17.68708cm</Width>
         <Style>
           <Border>

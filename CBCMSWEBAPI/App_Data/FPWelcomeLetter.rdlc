@@ -1,40 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
-  <DataSources>
-    <DataSource Name="FPWelcomeLetter">
-      <ConnectionProperties>
-        <DataProvider>System.Data.DataSet</DataProvider>
-        <ConnectString>/* Local Connection */</ConnectString>
-      </ConnectionProperties>
-      <rd:DataSourceID>6823473e-249b-4e86-bc40-efe2b01a9ec8</rd:DataSourceID>
-    </DataSource>
-  </DataSources>
-  <DataSets>
-    <DataSet Name="FPWelcomeLetter">
-      <Fields>
-        <Field Name="LegalName">
-          <DataField>LegalName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="MemTypeDesc01">
-          <DataField>MemTypeDesc01</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>FPWelcomeLetter</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <rd:DataSetInfo>
-        <rd:DataSetName>FPWelcomeLetter</rd:DataSetName>
-        <rd:SchemaPath>~/App_Data/FPWelcomeLetter.xsd</rd:SchemaPath>
-        <rd:TableName>DataTable1</rd:TableName>
-        <rd:TableAdapterFillMethod />
-        <rd:TableAdapterGetDataMethod />
-        <rd:TableAdapterName />
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
       <Textbox Name="Textbox1">
@@ -66,7 +31,15 @@ We are delighted to have you onboard and welcome you as our </Value>
               <TextRun>
                 <Value>, on behalf of all our members and management. 
 
-We want you to have an enriching association with Reliance General Insurance Company Limited {RGICL}. Working with us you are entitled to digital and product training support and much more! We pride ourselves on the excellence of our associates and are excited about your inputs and contribution towards the company. 
+We want you to have an enriching association with </Value>
+                <Style />
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!CompanyName.Value</Value>
+                <Style />
+              </TextRun>
+              <TextRun>
+                <Value>  {RGICL}. Working with us you are entitled to digital and product training support and much more! We pride ourselves on the excellence of our associates and are excited about your inputs and contribution towards the company. 
 
 With a GWP of Rs. 5072 Crs. and growth of 12.71% in H1 FY 21-22, RGICL is the 4th largest Pvt. General Insurance company in India. For years RGI has maintained healthy claim settlement ratio amongst peers, which is one of the best in the industry. Our customers have also shown great trust in the brand and this reflects through the 0.02% grievance ratio which is one of the lowest in the industry. 
 
@@ -118,28 +91,65 @@ PS: Feel free to mail us on rgicl.healthpartners.com to connect with the RGICL t
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Image Name="RelianceLogo">
-        <Source>Embedded</Source>
-        <Value>RelianceLogo</Value>
-        <Sizing>Fit</Sizing>
-        <Left>3.875in</Left>
-        <Height>0.71181in</Height>
-        <Width>2.09375in</Width>
+      <Textbox Name="Textbox2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!CompanyName.Value</Value>
+                <Style>
+                  <FontSize>9pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value> IRDA of India Registration No. 103</Value>
+                <Style>
+                  <FontSize>9pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>. An IS0 9001:2006 Certified Company
+Insurance is a subject matter of solicitation.
+Registered Office: 19, Reliance Centre, Walchand Hirachand Marg, Ballard Estate, Mumbai 400001.
+Corporate Office: 570, Rectifier House, Naigaum Cross Road, Next to Royal Industrial Estate, Wadala (W), Mumbai 400031.
+Corporate Identity No.USSS0IMH2000PLC 128300. RGI/MCOMAPPOINTMENT LETTER Ver. 1.0/080515
+Trade Logo displayed above belongs to Anil Dhirubhai Ambani Ventures Private Limited and used by Reliance General Insurance Company Limited underLicense.
+</Value>
+                <Style>
+                  <FontSize>7pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox2</rd:DefaultName>
+        <Top>6.19768in</Top>
+        <Left>0.24354in</Left>
+        <Height>1.26287in</Height>
+        <Width>6.10021in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
         </Style>
-      </Image>
-      <Image Name="Image4">
-        <Source>Embedded</Source>
-        <Value>end1</Value>
+      </Textbox>
+      <Image Name="Image1">
+        <Source>Database</Source>
+        <Value>=First(Fields!Logo.Value, "FPWelcomeLetter")</Value>
+        <MIMEType>image/jpeg</MIMEType>
         <Sizing>FitProportional</Sizing>
-        <Top>6.12824in</Top>
-        <Left>0.61859cm</Left>
-        <Height>0.94965in</Height>
-        <Width>6.10021in</Width>
+        <Top>0.15626in</Top>
+        <Left>0.24354in</Left>
+        <Height>0.5in</Height>
+        <Width>2.45139in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -148,7 +158,7 @@ PS: Feel free to mail us on rgicl.healthpartners.com to connect with the RGICL t
         </Style>
       </Image>
     </ReportItems>
-    <Height>7.07789in</Height>
+    <Height>7.64111in</Height>
     <Style />
   </Body>
   <Width>6.34375in</Width>
@@ -159,6 +169,54 @@ PS: Feel free to mail us on rgicl.healthpartners.com to connect with the RGICL t
     <BottomMargin>1in</BottomMargin>
     <Style />
   </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="FPWelcomeLetter">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>6823473e-249b-4e86-bc40-efe2b01a9ec8</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="FPWelcomeLetter">
+      <Query>
+        <DataSourceName>FPWelcomeLetter</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="LegalName">
+          <DataField>LegalName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MemTypeDesc01">
+          <DataField>MemTypeDesc01</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Logo">
+          <DataField>Logo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OffcAddr">
+          <DataField>OffcAddr</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>FPWelcomeLetter</rd:DataSetName>
+        <rd:SchemaPath>~/App_Data/FPWelcomeLetter.xsd</rd:SchemaPath>
+        <rd:TableName>DataTable1</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
   <EmbeddedImages>
     <EmbeddedImage Name="RelianceLogo">
       <MIMEType>image/png</MIMEType>
@@ -243,6 +301,6 @@ tk4EowHFzkD/AJZhMfNnI85+KX/BIzXvGegQWukfFSPSJ7C7s7i1kFjrdkpVNDtNIuo5m0rW9PuJVlWx
 AKKKKACiiigD/9k=</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
-  <rd:ReportID>21b8cda5-db8a-43ac-bf72-4c971860b1cd</rd:ReportID>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>21b8cda5-db8a-43ac-bf72-4c971860b1cd</rd:ReportID>
 </Report>

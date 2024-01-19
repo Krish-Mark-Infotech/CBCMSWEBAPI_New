@@ -43,6 +43,8 @@
               <xs:element name="ReasonforcessationofAgency" msprop:Generator_ColumnVarNameInTable="columnReasonforcessationofAgency" msprop:Generator_ColumnPropNameInRow="ReasonforcessationofAgency" msprop:Generator_ColumnPropNameInTable="ReasonforcessationofAgencyColumn" msprop:Generator_UserColumnName="ReasonforcessationofAgency" type="xs:string" minOccurs="0" />
               <xs:element name="ExmBody" msprop:Generator_ColumnVarNameInTable="columnExmBody" msprop:Generator_ColumnPropNameInRow="ExmBody" msprop:Generator_ColumnPropNameInTable="ExmBodyColumn" msprop:Generator_UserColumnName="ExmBody" type="xs:string" minOccurs="0" />
               <xs:element name="ExmCentre" msprop:Generator_ColumnVarNameInTable="columnExmCentre" msprop:Generator_ColumnPropNameInRow="ExmCentre" msprop:Generator_ColumnPropNameInTable="ExmCentreColumn" msprop:Generator_UserColumnName="ExmCentre" type="xs:string" minOccurs="0" />
+              <xs:element name="CompanyName" msprop:Generator_ColumnVarNameInTable="columnCompanyName" msprop:Generator_ColumnPropNameInRow="CompanyName" msprop:Generator_ColumnPropNameInTable="CompanyNameColumn" msprop:Generator_UserColumnName="CompanyName" type="xs:string" minOccurs="0" />
+              <xs:element name="OffcAddr" msprop:Generator_ColumnVarNameInTable="columnOffcAddr" msprop:Generator_ColumnPropNameInRow="OffcAddr" msprop:Generator_ColumnPropNameInTable="OffcAddrColumn" msprop:Generator_UserColumnName="OffcAddr" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

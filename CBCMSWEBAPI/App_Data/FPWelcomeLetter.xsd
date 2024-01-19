@@ -9,14 +9,17 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="FPWelcomeLetter" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="FPWelcomeLetter" msprop:Generator_UserDSName="FPWelcomeLetter">
+  <xs:element name="FPWelcomeLetter" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="FPWelcomeLetter" msprop:Generator_DataSetName="FPWelcomeLetter">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="LegalName" msprop:Generator_ColumnVarNameInTable="columnLegalName" msprop:Generator_ColumnPropNameInRow="LegalName" msprop:Generator_ColumnPropNameInTable="LegalNameColumn" msprop:Generator_UserColumnName="LegalName" type="xs:string" minOccurs="0" />
               <xs:element name="MemTypeDesc01" msprop:Generator_ColumnVarNameInTable="columnMemTypeDesc01" msprop:Generator_ColumnPropNameInRow="MemTypeDesc01" msprop:Generator_ColumnPropNameInTable="MemTypeDesc01Column" msprop:Generator_UserColumnName="MemTypeDesc01" type="xs:string" minOccurs="0" />
+              <xs:element name="Logo" type="xs:string" minOccurs="0" />
+              <xs:element name="OffcAddr" type="xs:string" minOccurs="0" />
+              <xs:element name="CompanyName" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Posp" targetNamespace="http://tempuri.org/Posp.xsd" xmlns:mstns="http://tempuri.org/Posp.xsd" xmlns="http://tempuri.org/Posp.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Posp" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="Posp" msprop:Generator_DataSetName="Posp">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Posp_Ds1" msprop:Generator_TableClassName="Posp_Ds1DataTable" msprop:Generator_TableVarName="tablePosp_Ds1" msprop:Generator_TablePropName="Posp_Ds1" msprop:Generator_RowDeletingName="Posp_Ds1RowDeleting" msprop:Generator_RowChangingName="Posp_Ds1RowChanging" msprop:Generator_RowEvHandlerName="Posp_Ds1RowChangeEventHandler" msprop:Generator_RowDeletedName="Posp_Ds1RowDeleted" msprop:Generator_UserTableName="Posp_Ds1" msprop:Generator_RowChangedName="Posp_Ds1RowChanged" msprop:Generator_RowEvArgName="Posp_Ds1RowChangeEvent" msprop:Generator_RowClassName="Posp_Ds1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Fullname" msprop:Generator_ColumnVarNameInTable="columnGivenName" msprop:Generator_ColumnPropNameInRow="GivenName" msprop:Generator_ColumnPropNameInTable="GivenNameColumn" msprop:Generator_UserColumnName="GivenName" type="xs:string" minOccurs="0" />
+              <xs:element name="Images" msprop:Generator_ColumnVarNameInTable="columnImages" msprop:Generator_ColumnPropNameInRow="Images" msprop:Generator_ColumnPropNameInTable="ImagesColumn" msprop:Generator_UserColumnName="Images" type="xs:string" minOccurs="0" />
+              <xs:element name="PAN" msprop:Generator_ColumnVarNameInTable="columnPAN" msprop:Generator_ColumnPropNameInRow="PAN" msprop:Generator_ColumnPropNameInTable="PANColumn" msprop:Generator_UserColumnName="PAN" type="xs:string" minOccurs="0" />
+              <xs:element name="MobileTel" msprop:Generator_ColumnVarNameInTable="columnMobileTel" msprop:Generator_ColumnPropNameInRow="MobileTel" msprop:Generator_ColumnPropNameInTable="MobileTelColumn" msprop:Generator_UserColumnName="MobileTel" type="xs:string" minOccurs="0" />
+              <xs:element name="Address" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_UserColumnName="Address" type="xs:string" minOccurs="0" />
+              <xs:element name="Adr2" msprop:Generator_ColumnVarNameInTable="columnAdr2" msprop:Generator_ColumnPropNameInRow="Adr2" msprop:Generator_ColumnPropNameInTable="Adr2Column" msprop:Generator_UserColumnName="Adr2" type="xs:string" minOccurs="0" />
+              <xs:element name="Adr3" msprop:Generator_ColumnVarNameInTable="columnAdr3" msprop:Generator_ColumnPropNameInRow="Adr3" msprop:Generator_ColumnPropNameInTable="Adr3Column" msprop:Generator_UserColumnName="Adr3" type="xs:string" minOccurs="0" />
+              <xs:element name="Title" msprop:Generator_ColumnVarNameInTable="columnTitle" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_ColumnPropNameInTable="TitleColumn" msprop:Generator_UserColumnName="Title" type="xs:string" minOccurs="0" />
+              <xs:element name="Logo" type="xs:string" minOccurs="0" />
+              <xs:element name="CompanyName" type="xs:string" minOccurs="0" />
+              <xs:element name="PhoneNo" type="xs:string" minOccurs="0" />
+              <xs:element name="OffcAddr" type="xs:string" minOccurs="0" />
+              <xs:element name="CustCareNo" type="xs:string" minOccurs="0" />
+              <xs:element name="Website" type="xs:string" minOccurs="0" />
+              <xs:element name="CurrentDate" type="xs:string" minOccurs="0" />
+              <xs:element name="Adr1" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

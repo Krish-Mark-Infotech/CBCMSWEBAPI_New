@@ -39,7 +39,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>APPLICATION FOR APPOINTMENT TO ACT AS AN INSURANCE AGENT</Value>
+                <Value>APPLICATION FOR APPOINTMENT TO ACT AS AN INSURENCE AGENT</Value>
                 <Style>
                   <FontFamily>Times New Roman</FontFamily>
                   <FontSize>11pt</FontSize>
@@ -69,41 +69,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>(With a Life Insurer </Value>
-                <Style>
-                  <FontFamily>Times New Roman</FontFamily>
-                  <FontSize>11pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-              <TextRun>
-                <Value>OR </Value>
-                <Style>
-                  <FontFamily>Times New Roman</FontFamily>
-                  <FontSize>11pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                  <TextDecoration>Underline</TextDecoration>
-                </Style>
-              </TextRun>
-              <TextRun>
-                <Value>General Insurer </Value>
-                <Style>
-                  <FontFamily>Times New Roman</FontFamily>
-                  <FontSize>11pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-              <TextRun>
-                <Value>OR </Value>
-                <Style>
-                  <FontFamily>Times New Roman</FontFamily>
-                  <FontSize>11pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                  <TextDecoration>Underline</TextDecoration>
-                </Style>
-              </TextRun>
-              <TextRun>
-                <Value>Health Insurer)</Value>
+                <Value>(With a Life Insurerer OR Insurer OR Health Insurer)</Value>
                 <Style>
                   <FontFamily>Times New Roman</FontFamily>
                   <FontSize>11pt</FontSize>
@@ -118,7 +84,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>0.12167in</Top>
-        <Left>0.19257in</Left>
+        <Left>0.17542in</Left>
         <Height>1.04167in</Height>
         <Width>6.23958in</Width>
         <Style>
@@ -137,7 +103,7 @@
         <MIMEType>image/jpeg</MIMEType>
         <Sizing>FitProportional</Sizing>
         <Top>1.455in</Top>
-        <Left>4.88007in</Left>
+        <Left>4.52959in</Left>
         <Height>0.9375in</Height>
         <Width>1.09375in</Width>
         <ZIndex>1</ZIndex>
@@ -157,7 +123,6 @@
                 <Value>To,</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -169,71 +134,51 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Reliance General Insurance Company Limited </Value>
+                <Value />
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Calibri</FontFamily>
-                  <FontSize>11pt</FontSize>
-                  <FontWeight>Normal</FontWeight>
-                  <TextDecoration>None</TextDecoration>
-                  <Color>#000000</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <LeftIndent>0cm</LeftIndent>
-            <RightIndent>0cm</RightIndent>
-            <Style>
-              <TextAlign>Left</TextAlign>
-              <LineHeight>13pt</LineHeight>
-            </Style>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>6th Floor, Oberoi Commerz International Business Park, </Value>
-                <Style>
-                  <FontStyle>Normal</FontStyle>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
                 </Style>
               </TextRun>
             </TextRuns>
-            <LeftIndent>0cm</LeftIndent>
-            <RightIndent>0cm</RightIndent>
-            <Style>
-              <TextAlign>Left</TextAlign>
-              <LineHeight>13pt</LineHeight>
-            </Style>
+            <Style />
           </Paragraph>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Oberoi Garden City, Off. Western Express Highway, </Value>
+                <Value>=Fields!CompanyName.Value</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
                 </Style>
               </TextRun>
             </TextRuns>
-            <LeftIndent>0cm</LeftIndent>
-            <RightIndent>0cm</RightIndent>
-            <Style>
-              <TextAlign>Left</TextAlign>
-              <LineHeight>13pt</LineHeight>
-            </Style>
+            <Style />
           </Paragraph>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Goregaon (E), Mumbai- 400063</Value>
+                <Value>=Fields!OffcAddr.Value</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style>
+                  <FontStyle>Normal</FontStyle>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -250,9 +195,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>3.13127cm</Top>
-        <Left>0.48912cm</Left>
+        <Left>0.44556cm</Left>
         <Height>3.97192cm</Height>
-        <Width>7.99042cm</Width>
+        <Width>10.7556cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -271,7 +216,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>DEAR SIRS,</Value>
+                <Value>Dear SIRS,</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontSize>11pt</FontSize>
@@ -285,7 +230,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox16</rd:DefaultName>
         <Top>7.27958cm</Top>
-        <Left>0.48913cm</Left>
+        <Left>0.44557cm</Left>
         <Height>0.6cm</Height>
         <Width>3.34667cm</Width>
         <ZIndex>3</ZIndex>
@@ -306,10 +251,9 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>   I request that Appointment to act as an insurance agent of your organisation may be</Value>
+                <Value> I request that Appointment to act as an insurance agent of your organization may be</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -321,10 +265,9 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>   granted to me.</Value>
+                <Value> granted to me.</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -339,7 +282,6 @@
                 <Value />
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -351,10 +293,9 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>  I hereby declare that particulars given below are true and that the APPOINTMENT for which </Value>
+                <Value>I hereby declare that particulars given below are true and that the APPOINTMENT for which </Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -371,10 +312,9 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>  I apply will be used only by myself for soliciting or procuring insurance business for your </Value>
+                <Value>I apply will be used only by myself for soliciting or procuring insurance business for your </Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -391,10 +331,9 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>  Insurance Organization</Value>
+                <Value>Insurance Organization</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -414,7 +353,6 @@
                 <Value />
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -431,10 +369,9 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>(1) Name : </Value>
+                <Value>(1) Name :</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -444,7 +381,6 @@
                 <Value>=Fields!GivenName.Value</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -461,10 +397,9 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>(2) Title :  </Value>
+                <Value>(2) Title : </Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -474,7 +409,6 @@
                 <Value>=Fields!title.Value</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -491,10 +425,9 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>(3) Father’s / Husband’s Name :  </Value>
+                <Value>(3) Father’s / Husband’s Name : </Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -504,7 +437,6 @@
                 <Value>=Fields!FatherName.Value</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -524,7 +456,88 @@
                 <Value>(4) Full Address :</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!Adr1.Value</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!Adr2.Value</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!Adr3.Value</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <LeftIndent>0cm</LeftIndent>
+            <RightIndent>0cm</RightIndent>
+            <Style>
+              <TextAlign>Left</TextAlign>
+              <LineHeight>13pt</LineHeight>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!City.Value</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>,</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!District.Value</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>,</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!PostCode.Value</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -544,7 +557,6 @@
                 <Value xml:space="preserve">           </Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -560,10 +572,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>7.87958cm</Top>
-        <Left>0.48912cm</Left>
+        <Top>7.91486cm</Top>
+        <Left>0.44556cm</Left>
         <Height>5.17757cm</Height>
-        <Width>15.84854cm</Width>
+        <Width>16.48354cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -577,8 +589,8 @@
       </Textbox>
       <Line Name="Line32">
         <Top>13.1676cm</Top>
-        <Left>0.55616cm</Left>
-        <Height>6.13833cm</Height>
+        <Left>0.5126cm</Left>
+        <Height>6.79979cm</Height>
         <Width>0cm</Width>
         <ZIndex>5</ZIndex>
         <Style>
@@ -589,8 +601,8 @@
       </Line>
       <Line Name="Line35">
         <Top>13.19406cm</Top>
-        <Left>16.22193cm</Left>
-        <Height>6.14715cm</Height>
+        <Left>16.17837cm</Left>
+        <Height>6.77333cm</Height>
         <Width>0cm</Width>
         <ZIndex>6</ZIndex>
         <Style>
@@ -601,7 +613,7 @@
       </Line>
       <Line Name="Line43">
         <Top>13.19406cm</Top>
-        <Left>0.58262cm</Left>
+        <Left>0.53906cm</Left>
         <Height>0cm</Height>
         <Width>15.59688cm</Width>
         <ZIndex>7</ZIndex>
@@ -613,7 +625,7 @@
       </Line>
       <Line Name="Line44">
         <Top>13.96135cm</Top>
-        <Left>0.59144cm</Left>
+        <Left>0.53906cm</Left>
         <Height>0cm</Height>
         <Width>15.63931cm</Width>
         <ZIndex>8</ZIndex>
@@ -625,7 +637,7 @@
       </Line>
       <Line Name="Line45">
         <Top>14.7551cm</Top>
-        <Left>0.58262cm</Left>
+        <Left>0.53906cm</Left>
         <Height>0cm</Height>
         <Width>15.63931cm</Width>
         <ZIndex>9</ZIndex>
@@ -637,7 +649,7 @@
       </Line>
       <Line Name="Line46">
         <Top>15.52239cm</Top>
-        <Left>0.55616cm</Left>
+        <Left>0.5126cm</Left>
         <Height>0cm</Height>
         <Width>15.66577cm</Width>
         <ZIndex>10</ZIndex>
@@ -649,7 +661,7 @@
       </Line>
       <Line Name="Line47">
         <Top>16.23677cm</Top>
-        <Left>0.58262cm</Left>
+        <Left>0.53906cm</Left>
         <Height>0cm</Height>
         <Width>15.63931cm</Width>
         <ZIndex>11</ZIndex>
@@ -661,7 +673,7 @@
       </Line>
       <Line Name="Line48">
         <Top>17.03052cm</Top>
-        <Left>0.58262cm</Left>
+        <Left>0.53906cm</Left>
         <Height>0cm</Height>
         <Width>15.63931cm</Width>
         <ZIndex>12</ZIndex>
@@ -673,7 +685,7 @@
       </Line>
       <Line Name="Line49">
         <Top>17.77135cm</Top>
-        <Left>0.58262cm</Left>
+        <Left>0.53906cm</Left>
         <Height>0cm</Height>
         <Width>15.63931cm</Width>
         <ZIndex>13</ZIndex>
@@ -685,7 +697,7 @@
       </Line>
       <Line Name="Line50">
         <Top>18.5651cm</Top>
-        <Left>0.55616cm</Left>
+        <Left>0.5126cm</Left>
         <Height>0cm</Height>
         <Width>15.66577cm</Width>
         <ZIndex>14</ZIndex>
@@ -697,10 +709,22 @@
       </Line>
       <Line Name="Line51">
         <Top>19.30593cm</Top>
-        <Left>0.58262cm</Left>
+        <Left>0.53906cm</Left>
         <Height>0cm</Height>
         <Width>15.63931cm</Width>
         <ZIndex>15</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
+      <Line Name="Line53">
+        <Top>13.1676cm</Top>
+        <Left>6.9949cm</Left>
+        <Height>6.74688cm</Height>
+        <Width>0cm</Width>
+        <ZIndex>16</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -717,7 +741,6 @@
                 <Value>HOUSE NO</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -728,11 +751,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox21</rd:DefaultName>
-        <Top>13.19826cm</Top>
-        <Left>0.59144cm</Left>
+        <Top>13.26461cm</Top>
+        <Left>0.54788cm</Left>
         <Height>0.62618cm</Height>
-        <Width>3.63771cm</Width>
-        <ZIndex>16</ZIndex>
+        <Width>3.70826cm</Width>
+        <ZIndex>17</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -753,7 +776,6 @@
                 <Value>STREET</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -764,11 +786,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox22</rd:DefaultName>
-        <Top>14.11982cm</Top>
-        <Left>0.55616cm</Left>
+        <Top>14.09364cm</Top>
+        <Left>0.53906cm</Left>
         <Height>0.6cm</Height>
         <Width>3.71708cm</Width>
-        <ZIndex>17</ZIndex>
+        <ZIndex>18</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -789,7 +811,6 @@
                 <Value>TOWN</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -801,10 +822,10 @@
         </Paragraphs>
         <rd:DefaultName>Textbox23</rd:DefaultName>
         <Top>14.79947cm</Top>
-        <Left>0.58262cm</Left>
+        <Left>0.53906cm</Left>
         <Height>0.65236cm</Height>
         <Width>3.71708cm</Width>
-        <ZIndex>18</ZIndex>
+        <ZIndex>19</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -825,7 +846,6 @@
                 <Value>DISTRICT</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -837,10 +857,10 @@
         </Paragraphs>
         <rd:DefaultName>Textbox24</rd:DefaultName>
         <Top>15.52239cm</Top>
-        <Left>0.59144cm</Left>
+        <Left>0.54788cm</Left>
         <Height>0.64382cm</Height>
         <Width>3.70826cm</Width>
-        <ZIndex>19</ZIndex>
+        <ZIndex>20</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -861,7 +881,6 @@
                 <Value>STATE</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -873,10 +892,10 @@
         </Paragraphs>
         <rd:DefaultName>Textbox25</rd:DefaultName>
         <Top>16.27204cm</Top>
-        <Left>0.58262cm</Left>
+        <Left>0.53906cm</Left>
         <Height>0.68792cm</Height>
         <Width>3.71708cm</Width>
-        <ZIndex>20</ZIndex>
+        <ZIndex>21</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -897,7 +916,6 @@
                 <Value>PINCODE</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -909,10 +927,45 @@
         </Paragraphs>
         <rd:DefaultName>Textbox27</rd:DefaultName>
         <Top>17.06579cm</Top>
-        <Left>0.62672cm</Left>
+        <Left>0.53906cm</Left>
         <Height>0.635cm</Height>
         <Width>3.71708cm</Width>
-        <ZIndex>21</ZIndex>
+        <ZIndex>22</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox28">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>TELEPHONE NO</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox28</rd:DefaultName>
+        <Top>17.80663cm</Top>
+        <Left>0.53906cm</Left>
+        <Height>0.68792cm</Height>
+        <Width>3.71708cm</Width>
+        <ZIndex>23</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -933,7 +986,6 @@
                 <Value>MOBILE NO</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -944,11 +996,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox29</rd:DefaultName>
-        <Top>17.8419cm</Top>
-        <Left>0.58262cm</Left>
+        <Top>18.60038cm</Top>
+        <Left>0.5126cm</Left>
         <Height>0.635cm</Height>
         <Width>3.74354cm</Width>
-        <ZIndex>22</ZIndex>
+        <ZIndex>24</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -969,7 +1021,6 @@
                 <Value>Email ID</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -980,11 +1031,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox31</rd:DefaultName>
-        <Top>18.58273cm</Top>
-        <Left>0.55616cm</Left>
-        <Height>0.66146cm</Height>
+        <Top>19.30593cm</Top>
+        <Left>0.58316cm</Left>
+        <Height>0.62618cm</Height>
         <Width>3.67299cm</Width>
-        <ZIndex>23</ZIndex>
+        <ZIndex>25</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1003,10 +1054,7 @@
             <TextRuns>
               <TextRun>
                 <Value>=Fields!Adr1.Value</Value>
-                <Style>
-                  <FontFamily>Calibri</FontFamily>
-                  <FontSize>11pt</FontSize>
-                </Style>
+                <Style />
               </TextRun>
             </TextRuns>
             <Style />
@@ -1014,10 +1062,10 @@
         </Paragraphs>
         <rd:DefaultName>Textbox5</rd:DefaultName>
         <Top>13.22934cm</Top>
-        <Left>7.10901cm</Left>
+        <Left>7.06545cm</Left>
         <Height>0.73201cm</Height>
         <Width>9.07049cm</Width>
-        <ZIndex>24</ZIndex>
+        <ZIndex>26</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1036,10 +1084,7 @@
             <TextRuns>
               <TextRun>
                 <Value>=Fields!Adr2.Value</Value>
-                <Style>
-                  <FontFamily>Calibri</FontFamily>
-                  <FontSize>11pt</FontSize>
-                </Style>
+                <Style />
               </TextRun>
             </TextRuns>
             <Style />
@@ -1047,10 +1092,10 @@
         </Paragraphs>
         <rd:DefaultName>Textbox10</rd:DefaultName>
         <Top>13.99663cm</Top>
-        <Left>7.14429cm</Left>
+        <Left>7.10073cm</Left>
         <Height>0.77639cm</Height>
         <Width>9.03521cm</Width>
-        <ZIndex>25</ZIndex>
+        <ZIndex>27</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1077,10 +1122,10 @@
         </Paragraphs>
         <rd:DefaultName>Textbox12</rd:DefaultName>
         <Top>14.79947cm</Top>
-        <Left>7.14429cm</Left>
+        <Left>7.10073cm</Left>
         <Height>0.65236cm</Height>
         <Width>9.03521cm</Width>
-        <ZIndex>26</ZIndex>
+        <ZIndex>28</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1099,10 +1144,7 @@
             <TextRuns>
               <TextRun>
                 <Value>=Fields!District.Value</Value>
-                <Style>
-                  <FontFamily>Calibri</FontFamily>
-                  <FontSize>11pt</FontSize>
-                </Style>
+                <Style />
               </TextRun>
             </TextRuns>
             <Style />
@@ -1110,10 +1152,10 @@
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
         <Top>15.55767cm</Top>
-        <Left>7.14429cm</Left>
+        <Left>7.10073cm</Left>
         <Height>0.60855cm</Height>
         <Width>9.03521cm</Width>
-        <ZIndex>27</ZIndex>
+        <ZIndex>29</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1132,9 +1174,7 @@
             <TextRuns>
               <TextRun>
                 <Value>=Fields!StateName.Value</Value>
-                <Style>
-                  <FontFamily>Calibri</FontFamily>
-                </Style>
+                <Style />
               </TextRun>
             </TextRuns>
             <Style />
@@ -1142,10 +1182,10 @@
         </Paragraphs>
         <rd:DefaultName>Textbox14</rd:DefaultName>
         <Top>16.27204cm</Top>
-        <Left>7.10901cm</Left>
+        <Left>7.06545cm</Left>
         <Height>0.68792cm</Height>
         <Width>9.11292cm</Width>
-        <ZIndex>28</ZIndex>
+        <ZIndex>30</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1172,10 +1212,40 @@
         </Paragraphs>
         <rd:DefaultName>Textbox15</rd:DefaultName>
         <Top>17.06552cm</Top>
-        <Left>7.10901cm</Left>
+        <Left>7.06545cm</Left>
         <Height>0.6cm</Height>
         <Width>9.11292cm</Width>
-        <ZIndex>29</ZIndex>
+        <ZIndex>31</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox18">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!mobiletel.Value</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox18</rd:DefaultName>
+        <Top>17.80663cm</Top>
+        <Left>7.10073cm</Left>
+        <Height>0.75847cm</Height>
+        <Width>9.07764cm</Width>
+        <ZIndex>32</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1194,21 +1264,18 @@
             <TextRuns>
               <TextRun>
                 <Value>=Fields!mobiletel.Value</Value>
-                <Style>
-                  <FontFamily>Calibri</FontFamily>
-                  <FontSize>11pt</FontSize>
-                </Style>
+                <Style />
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox19</rd:DefaultName>
-        <Top>17.85955cm</Top>
-        <Left>7.10186cm</Left>
+        <Top>18.60038cm</Top>
+        <Left>7.10073cm</Left>
         <Height>0.63499cm</Height>
         <Width>9.07764cm</Width>
-        <ZIndex>30</ZIndex>
+        <ZIndex>33</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1227,21 +1294,18 @@
             <TextRuns>
               <TextRun>
                 <Value>=Fields!email.Value</Value>
-                <Style>
-                  <FontFamily>Calibri</FontFamily>
-                  <FontSize>11pt</FontSize>
-                </Style>
+                <Style />
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>18.5651cm</Top>
-        <Left>7.14429cm</Left>
+        <Top>19.30593cm</Top>
+        <Left>7.10073cm</Left>
         <Height>0.60855cm</Height>
         <Width>9.03521cm</Width>
-        <ZIndex>31</ZIndex>
+        <ZIndex>34</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1262,7 +1326,6 @@
                 <Value>(5) Date of Birth : </Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -1272,7 +1335,6 @@
                 <Value>=Fields!BirthRegDate.Value</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -1282,7 +1344,6 @@
                 <Value>(Attach Age Proof )</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -1297,7 +1358,6 @@
                 <Value />
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -1309,10 +1369,9 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>(6) Educational Qualifications. (Tick the right Box) (Attach self-attested certificate)  </Value>
+                <Value>(6) Educational Qualifications. (Tick the right Box) (Attach self-attested certificate)</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -1329,10 +1388,10 @@
         </Paragraphs>
         <rd:DefaultName>Textbox64</rd:DefaultName>
         <Top>20.38757cm</Top>
-        <Left>0.48913cm</Left>
-        <Height>1.51983cm</Height>
-        <Width>15.84853cm</Width>
-        <ZIndex>32</ZIndex>
+        <Left>0.44557cm</Left>
+        <Height>1.47035cm</Height>
+        <Width>16.53646cm</Width>
+        <ZIndex>35</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1343,6 +1402,18 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Line Name="Line52">
+        <Top>19.94976cm</Top>
+        <Left>0.58316cm</Left>
+        <Height>0cm</Height>
+        <Width>15.59521cm</Width>
+        <ZIndex>36</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
       <Tablix Name="Tablix7">
         <TablixBody>
           <TablixColumns>
@@ -1375,7 +1446,6 @@
                               <Value>Class   XII</Value>
                               <Style>
                                 <FontStyle>Normal</FontStyle>
-                                <FontFamily>Calibri</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                                 <TextDecoration>None</TextDecoration>
@@ -1411,7 +1481,6 @@
                               <Value>Graduate</Value>
                               <Style>
                                 <FontStyle>Normal</FontStyle>
-                                <FontFamily>Calibri</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                                 <TextDecoration>None</TextDecoration>
@@ -1447,7 +1516,6 @@
                               <Value>Post  Graduate</Value>
                               <Style>
                                 <FontStyle>Normal</FontStyle>
-                                <FontFamily>Calibri</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                                 <TextDecoration>None</TextDecoration>
@@ -1483,7 +1551,6 @@
                               <Value>Others</Value>
                               <Style>
                                 <FontStyle>Normal</FontStyle>
-                                <FontFamily>Calibri</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                                 <TextDecoration>None</TextDecoration>
@@ -1522,10 +1589,7 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!ClassHSC.Value</Value>
-                              <Style>
-                                <FontFamily>Calibri</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -1557,10 +1621,7 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!GRADUATE.Value</Value>
-                              <Style>
-                                <FontFamily>Calibri</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -1592,10 +1653,7 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style>
-                                <FontFamily>Calibri</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1625,10 +1683,7 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style>
-                                <FontFamily>Calibri</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1681,7 +1736,6 @@
                             <Value>Class   X</Value>
                             <Style>
                               <FontStyle>Normal</FontStyle>
-                              <FontFamily>Calibri</FontFamily>
                               <FontSize>11pt</FontSize>
                               <FontWeight>Normal</FontWeight>
                               <TextDecoration>None</TextDecoration>
@@ -1718,10 +1772,7 @@
                         <TextRuns>
                           <TextRun>
                             <Value>=Fields!ClassSSC.Value</Value>
-                            <Style>
-                              <FontFamily>Calibri</FontFamily>
-                              <FontSize>11pt</FontSize>
-                            </Style>
+                            <Style />
                           </TextRun>
                         </TextRuns>
                         <Style>
@@ -1748,11 +1799,11 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>FormIAPage</DataSetName>
-        <Top>21.94268cm</Top>
-        <Left>0.48972cm</Left>
+        <Top>22.24254cm</Top>
+        <Left>0.44556cm</Left>
         <Height>1.2cm</Height>
         <Width>15.68978cm</Width>
-        <ZIndex>33</ZIndex>
+        <ZIndex>37</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1766,10 +1817,9 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>(7) PAN CARD Number: </Value>
+                <Value>(7) PAN CARD Number/Aadhaar Number: </Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -1779,7 +1829,6 @@
                 <Value>=Fields!PAN.Value</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -1789,7 +1838,6 @@
                 <Value> (attach self-attested copy of the </Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -1801,10 +1849,9 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>   PAN CARD)</Value>
+                <Value>PAN CARD/ AADHAAR CARD)</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -1819,7 +1866,6 @@
                 <Value />
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -1834,16 +1880,14 @@
                 <Value>(</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>8) Particulars of Pass in pre-recruitment test conducted by the Insurance Institute of India or </Value>
+                <Value>8) Particulars of Pass in pre-recruitment test conducted by Insurence Institute of India or </Value>
                 <Style>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                 </Style>
               </TextRun>
@@ -1855,20 +1899,52 @@
               <TextRun>
                 <Value>      any Examination  Body :</Value>
                 <Style>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>(9) Furnish the details of any insurance agency in force or ever hold by the applicant:</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <LeftIndent>0cm</LeftIndent>
+            <RightIndent>0cm</RightIndent>
+            <Style>
+              <TextAlign>Left</TextAlign>
+              <LineHeight>13pt</LineHeight>
+            </Style>
+          </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox86</rd:DefaultName>
-        <Top>23.01893cm</Top>
-        <Left>0.4431cm</Left>
-        <Height>1.68116cm</Height>
-        <Width>15.89456cm</Width>
-        <ZIndex>34</ZIndex>
+        <Top>23.61893cm</Top>
+        <Left>0.39264cm</Left>
+        <Height>2.00229cm</Height>
+        <Width>16.53646cm</Width>
+        <ZIndex>38</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1914,7 +1990,6 @@
                               <Value>Name of the Insurer</Value>
                               <Style>
                                 <FontStyle>Normal</FontStyle>
-                                <FontFamily>Calibri</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                                 <TextDecoration>None</TextDecoration>
@@ -1950,7 +2025,6 @@
                               <Value>Agency code Number</Value>
                               <Style>
                                 <FontStyle>Normal</FontStyle>
-                                <FontFamily>Calibri</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                                 <TextDecoration>None</TextDecoration>
@@ -1986,7 +2060,6 @@
                               <Value>Date of Appointment </Value>
                               <Style>
                                 <FontStyle>Normal</FontStyle>
-                                <FontFamily>Calibri</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                                 <TextDecoration>None</TextDecoration>
@@ -2001,7 +2074,6 @@
                               <Value>as  agent</Value>
                               <Style>
                                 <FontStyle>Normal</FontStyle>
-                                <FontFamily>Calibri</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                                 <TextDecoration>None</TextDecoration>
@@ -2037,7 +2109,6 @@
                               <Value>Date   of cessation  of Agency</Value>
                               <Style>
                                 <FontStyle>Normal</FontStyle>
-                                <FontFamily>Calibri</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                                 <TextDecoration>None</TextDecoration>
@@ -2073,7 +2144,6 @@
                               <Value>Reason   for cessation  of agency</Value>
                               <Style>
                                 <FontStyle>Normal</FontStyle>
-                                <FontFamily>Calibri</FontFamily>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Normal</FontWeight>
                                 <TextDecoration>None</TextDecoration>
@@ -2112,10 +2182,7 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!NameofInsurer.Value</Value>
-                              <Style>
-                                <FontFamily>Calibri</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -2145,10 +2212,7 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!AgencycodeNumber.Value</Value>
-                              <Style>
-                                <FontFamily>Calibri</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -2178,9 +2242,7 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!DateofAppointmentasAgent.Value</Value>
-                              <Style>
-                                <FontFamily>Calibri</FontFamily>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -2210,9 +2272,7 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!DateofcessationofAgency.Value</Value>
-                              <Style>
-                                <FontFamily>Calibri</FontFamily>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -2242,10 +2302,7 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!ReasonforcessationofAgency.Value</Value>
-                              <Style>
-                                <FontFamily>Calibri</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -2289,11 +2346,11 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>FormIAPage</DataSetName>
-        <Top>30.20342cm</Top>
-        <Left>0.39017cm</Left>
+        <Top>27.0315cm</Top>
+        <Left>0.27956cm</Left>
         <Height>2.31125cm</Height>
         <Width>16.53646cm</Width>
-        <ZIndex>35</ZIndex>
+        <ZIndex>39</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2309,7 +2366,6 @@
               <TextRun>
                 <Value xml:space="preserve"> </Value>
                 <Style>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                 </Style>
               </TextRun>
@@ -2319,33 +2375,8 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>  *Please attach Agency cessation letter issued by the insurer</Value>
+                <Value>  *Please attach Agency censsation letter issued by the insurer</Value>
                 <Style>
-                  <FontFamily>Calibri</FontFamily>
-                  <FontSize>11pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value />
-                <Style>
-                  <FontFamily>Calibri</FontFamily>
-                  <FontSize>11pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>(10) Details of other Insurance related activities undertaken, if any :</Value>
-                <Style>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                 </Style>
               </TextRun>
@@ -2357,7 +2388,28 @@
               <TextRun>
                 <Value />
                 <Style>
-                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>(10) Details of other Insurence related activities undertaken, if any :</Value>
+                <Style>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style>
                   <FontSize>11pt</FontSize>
                 </Style>
               </TextRun>
@@ -2369,7 +2421,61 @@
               <TextRun>
                 <Value>(11) I declare that---</Value>
                 <Style>
-                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>     (a) I have not been found to be of unsound mind by court of competent jurisdiction;</Value>
+                <Style>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>     (b) I hane not been foundguilty of criminal misappropriation or creminal breach of trust </Value>
+                <Style>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>          or cheating or forgery or an abetment of or attempt to commit any offence by a court</Value>
+                <Style>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>          of competent of  jurisdiction;</Value>
+                <Style>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>     (c) I have not been guilty  of or to have knowingly  participated in or connived any                              fraud,dishonesty or mis-representation against an insurer or an insured.</Value>
+                <Style>
                   <FontSize>11pt</FontSize>
                 </Style>
               </TextRun>
@@ -2381,79 +2487,6 @@
               <TextRun>
                 <Value />
                 <Style>
-                  <FontFamily>Calibri</FontFamily>
-                  <FontSize>11pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value> (a)  I have not been found to be of unsound mind by a court of competent jurisdiction;</Value>
-                <Style>
-                  <FontFamily>Calibri</FontFamily>
-                  <FontSize>11pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>(b)  I have not been found guilty of criminal misappropriation or criminal breach of trust </Value>
-                <Style>
-                  <FontFamily>Calibri</FontFamily>
-                  <FontSize>11pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>        or cheating or forgery or an abetment of or attempt to commit any such offence by a court</Value>
-                <Style>
-                  <FontFamily>Calibri</FontFamily>
-                  <FontSize>11pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>        of competent of  jurisdiction;</Value>
-                <Style>
-                  <FontFamily>Calibri</FontFamily>
-                  <FontSize>11pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>(c)   I have not been found guilty  of or to have knowingly  participated in or connived at any</Value>
-                <Style>
-                  <FontFamily>Calibri</FontFamily>
-                  <FontSize>11pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>         fraud,dishonesty or mis-representation against an insurer or an insured.</Value>
-                <Style>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                 </Style>
               </TextRun>
@@ -2465,7 +2498,6 @@
               <TextRun>
                 <Value />
                 <Style>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                 </Style>
               </TextRun>
@@ -2475,35 +2507,8 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value />
+                <Value>          Place :                                                                                      Your's faithfully,</Value>
                 <Style>
-                  <FontFamily>Calibri</FontFamily>
-                  <FontSize>11pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>          Place :      </Value>
-                <Style>
-                  <FontFamily>Calibri</FontFamily>
-                  <FontSize>11pt</FontSize>
-                </Style>
-              </TextRun>
-              <TextRun>
-                <Value>=Fields!City.Value</Value>
-                <Style>
-                  <FontFamily>Calibri</FontFamily>
-                  <FontSize>11pt</FontSize>
-                </Style>
-              </TextRun>
-              <TextRun>
-                <Value>                                                                                Yours faithfully,</Value>
-                <Style>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                 </Style>
               </TextRun>
@@ -2515,7 +2520,6 @@
               <TextRun>
                 <Value xml:space="preserve"> </Value>
                 <Style>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                 </Style>
               </TextRun>
@@ -2527,7 +2531,6 @@
               <TextRun>
                 <Value xml:space="preserve">           </Value>
                 <Style>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                 </Style>
               </TextRun>
@@ -2537,9 +2540,8 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value xml:space="preserve">                                                                                       </Value>
+                <Value>          Date :                                                                                        </Value>
                 <Style>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                 </Style>
               </TextRun>
@@ -2551,7 +2553,6 @@
               <TextRun>
                 <Value />
                 <Style>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                 </Style>
               </TextRun>
@@ -2561,23 +2562,8 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>          Date :        </Value>
+                <Value>                                                                                                           Signature of applicant</Value>
                 <Style>
-                  <FontFamily>Calibri</FontFamily>
-                  <FontSize>11pt</FontSize>
-                </Style>
-              </TextRun>
-              <TextRun>
-                <Value>=Fields!EntryDate.Value</Value>
-                <Style>
-                  <FontFamily>Calibri</FontFamily>
-                  <FontSize>11pt</FontSize>
-                </Style>
-              </TextRun>
-              <TextRun>
-                <Value>                                                                   Signature of applicant</Value>
-                <Style>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                 </Style>
               </TextRun>
@@ -2586,11 +2572,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>12.8705in</Top>
-        <Left>0.43681cm</Left>
-        <Height>3.68159in</Height>
-        <Width>6.19791in</Width>
-        <ZIndex>36</ZIndex>
+        <Top>14.10434in</Top>
+        <Left>0.27956cm</Left>
+        <Height>3.56233in</Height>
+        <Width>6.18669in</Width>
+        <ZIndex>40</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2608,9 +2594,8 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>(9) Furnish the details of any Insurance Agency in force or ever hold by the applicant :</Value>
+                <Value>(9) Furnish the details of any Insurence Agency in force or ever hold by applicant :</Value>
                 <Style>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                 </Style>
               </TextRun>
@@ -2619,11 +2604,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox36</rd:DefaultName>
-        <Top>11.47792in</Top>
-        <Left>0.15361in</Left>
+        <Top>11.8425in</Top>
+        <Left>0.11006in</Left>
         <Height>0.34375in</Height>
         <Width>6.51042in</Width>
-        <ZIndex>37</ZIndex>
+        <ZIndex>41</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2638,10 +2623,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.67457in</Width>
+              <Width>2.08159in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.48098in</Width>
+              <Width>4.49418in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -2650,23 +2635,21 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox26">
+                    <Textbox Name="Textbox38">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Name of Examination Body</Value>
-                              <Style>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Value>Name of Examination Body :</Value>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox26</rd:DefaultName>
+                      <rd:DefaultName>Textbox38</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -2690,9 +2673,7 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!ExmBody.Value</Value>
-                              <Style>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -2727,10 +2708,7 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Candidate's Name :</Value>
-                              <Style>
-                                <FontFamily>Calibri</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -2760,10 +2738,7 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!GivenName.Value</Value>
-                              <Style>
-                                <FontFamily>Calibri</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -2798,10 +2773,7 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Candidate's Number :</Value>
-                              <Style>
-                                <FontFamily>Calibri</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -2831,10 +2803,7 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style>
-                                <FontFamily>Calibri</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -2868,11 +2837,8 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Centre of Examination</Value>
-                              <Style>
-                                <FontFamily>Calibri</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Value>Center of Examination</Value>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -2902,10 +2868,7 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!ExmCentre.Value</Value>
-                              <Style>
-                                <FontFamily>Calibri</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -2939,11 +2902,8 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Name of the Exam passed :</Value>
-                              <Style>
-                                <FontFamily>Calibri</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Value>Name of Exam passed :</Value>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -2973,10 +2933,7 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style>
-                                <FontFamily>Calibri</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -3011,10 +2968,7 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Date of Passing :</Value>
-                              <Style>
-                                <FontFamily>Calibri</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -3044,10 +2998,7 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style>
-                                <FontFamily>Calibri</FontFamily>
-                                <FontSize>11pt</FontSize>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -3093,120 +3044,23 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>FormIAPage</DataSetName>
-        <Top>9.79389in</Top>
-        <Left>0.17445in</Left>
+        <Top>12.37028in</Top>
+        <Left>0.08923in</Left>
         <Height>1.5in</Height>
-        <Width>6.15555in</Width>
-        <ZIndex>38</ZIndex>
+        <Width>6.57577in</Width>
+        <ZIndex>42</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
-      <Image Name="Image2">
-        <Source>Database</Source>
-        <Value>=First(Fields!Sign.Value, "FormIAPage")</Value>
-        <MIMEType>image/jpeg</MIMEType>
-        <Sizing>FitProportional</Sizing>
-        <Top>15.9675in</Top>
-        <Left>4.02353in</Left>
-        <Height>0.5in</Height>
-        <Width>1.74237in</Width>
-        <ZIndex>39</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
-      <Line Name="Line1">
-        <Top>5.2175in</Top>
-        <Left>2.80083in</Left>
-        <Height>2.39715in</Height>
-        <Width>0in</Width>
-        <ZIndex>40</ZIndex>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-        </Style>
-      </Line>
     </ReportItems>
-    <Height>17.20834in</Height>
+    <Height>17.66667in</Height>
     <Style />
   </Body>
-  <Width>6.68487in</Width>
+  <Width>6.68584in</Width>
   <Page>
-    <PageFooter>
-      <Height>0.30556in</Height>
-      <PrintOnFirstPage>true</PrintOnFirstPage>
-      <PrintOnLastPage>true</PrintOnLastPage>
-      <ReportItems>
-        <Textbox Name="Textbox53">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>Guidline for Appointment of Insurance Agents</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox50</rd:DefaultName>
-          <Top>0.01389in</Top>
-          <Height>0.29167in</Height>
-          <Width>6.1409in</Width>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="PageNumber">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=Globals!PageNumber</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <Top>0.05556in</Top>
-          <Left>4.97382in</Left>
-          <Height>0.25in</Height>
-          <Width>1in</Width>
-          <ZIndex>1</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-      </ReportItems>
-      <Style>
-        <Border>
-          <Style>None</Style>
-        </Border>
-      </Style>
-    </PageFooter>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
     <LeftMargin>2cm</LeftMargin>
@@ -3342,6 +3196,14 @@
         </Field>
         <Field Name="ExmCentre">
           <DataField>ExmCentre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OffcAddr">
+          <DataField>OffcAddr</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

@@ -2652,31 +2652,24 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Reliance General Insurance Company Limited             </Value>
+                <Value />
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
-                  <Color>#000000</Color>
                 </Style>
               </TextRun>
             </TextRuns>
-            <LeftIndent>0cm</LeftIndent>
-            <RightIndent>0cm</RightIndent>
-            <Style>
-              <TextAlign>Left</TextAlign>
-              <LineHeight>13pt</LineHeight>
-            </Style>
+            <Style />
           </Paragraph>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>6th Floor, Oberoi Commerz International Business Park, </Value>
+                <Value>=Fields!CompanyName.Value</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
@@ -2693,49 +2686,37 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Oberoi Garden City, Off. Western Express Highway, </Value>
+                <Value>=Fields!OffcAddr.Value</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
                 </Style>
               </TextRun>
             </TextRuns>
-            <LeftIndent>0cm</LeftIndent>
-            <RightIndent>0cm</RightIndent>
-            <Style>
-              <TextAlign>Left</TextAlign>
-              <LineHeight>13pt</LineHeight>
-            </Style>
+            <Style />
           </Paragraph>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Goregaon (E), Mumbai- 400063</Value>
+                <Value />
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontFamily>Calibri</FontFamily>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
                 </Style>
               </TextRun>
             </TextRuns>
-            <LeftIndent>0cm</LeftIndent>
-            <RightIndent>0cm</RightIndent>
-            <Style>
-              <TextAlign>Left</TextAlign>
-              <LineHeight>13pt</LineHeight>
-            </Style>
+            <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>25.74466cm</Top>
         <Left>0.35953cm</Left>
         <Height>2.4196cm</Height>
-        <Width>9.26916cm</Width>
+        <Width>10.96249cm</Width>
         <ZIndex>12</ZIndex>
         <Style>
           <Border>
@@ -3990,6 +3971,14 @@
         </Field>
         <Field Name="ExmCentre">
           <DataField>ExmCentre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OffcAddr">
+          <DataField>OffcAddr</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
