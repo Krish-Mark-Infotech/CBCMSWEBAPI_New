@@ -1,4 +1,5 @@
 ﻿using CBCMSWEBAPI.Models;
+using ExtExmDtls;
 using Insc.Common.Cryptography;
 using Microsoft.Ajax.Utilities;
 using Microsoft.Reporting.WebForms;
@@ -21,9 +22,11 @@ using System.Text.Json.Nodes;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Services;
 using System.Web.UI.WebControls;
 using System.Xml;
 using System.Xml.Linq;
+using WindowsServiceDwnlzZip;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Net.WebRequestMethods;
 using File = System.IO.File;
@@ -40,6 +43,7 @@ namespace CBCMSWEBAPI.Controllers
         DataSet dstemp = new DataSet();
         String SeqNo = String.Empty;
         String JsonResponce = String.Empty;
+        private SendAutoCreateRdlc sendRdlcViaMail = new SendAutoCreateRdlc();
         //api/CBCMS/GetName?name="30036813"
         [Route("api/CBCMS/GetName")]
         [HttpGet]
@@ -1874,7 +1878,7 @@ namespace CBCMSWEBAPI.Controllers
                 {
                     JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"No Candidates found for your Search.\"}]}";
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -2066,6 +2070,8 @@ namespace CBCMSWEBAPI.Controllers
                 //JsonResponce = ds2json(dstemp);
                 if (dstemp != null)
                 {
+                    JsonResponce = ds2json(dstemp);
+
                     if (dstemp.Tables.Count > 0 && dstemp.Tables[0].Rows.Count > 0)
                     {
                         //return ds2json(dstemp);ResponseCode
@@ -2075,8 +2081,6 @@ namespace CBCMSWEBAPI.Controllers
                             ConvertRDLCToPDF(dstemp.Tables[0].Rows[0]["CndNo"].ToString().Trim(), strSapCode);
                         }
                     }
-
-                    JsonResponce = ds2json(dstemp);
                 }
                 else
                 {
@@ -2637,6 +2641,54 @@ namespace CBCMSWEBAPI.Controllers
             return JsonResponce;
         }
 
+        [Route("api/CBCMS/CheckExtExmCentre")]
+        [HttpPost]
+        public string CheckExtExmCentre([FromBody] InputModel model)
+        {
+            try
+            {
+                dstemp.Clear();
+                htParam.Clear();
+             
+                string jsonInput = model.jsonInput;
+                string json = encryptDecrypt.DecodeAndDecrypt(jsonInput);
+                JObject jObject = JObject.Parse(json);
+                string strSapCode = Convert.ToString(jObject["SapCode"]).Trim();
+                string strAppNo = Convert.ToString(jObject["AppNo"]).Trim();
+                string strTokenId = Convert.ToString(jObject["strTokenId"]).Trim();
+                string strExmCntr = Convert.ToString(jObject["ExmCntr"]).Trim();
+                string strFlag = Convert.ToString(jObject["Flag"]).Trim();
+
+                SeqNo = ServerTrnReqLog(json, "CheckExtExmCentre", strSapCode, strAppNo, "Candidate Manager");
+
+                if (strTokenId.Equals(string.Empty) || (!strTokenId.Equals(string.Empty)
+                    && ValidateToken(strSapCode, strTokenId) != "Valid"))
+                {
+                    JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"invalid token details\"}]}";
+                    updateResponse(JsonResponce, SeqNo);
+
+                    return HttpStatusCode.NonAuthoritativeInformation.ToString();
+                    //(HttpStatusCode.NonAuthoritativeInformation, JsonResponce).ToString();
+
+                }
+                else
+                {
+                    DataTable dataTable = new DataTable();
+                    EXTAPIClient eXTAPI = new EXTAPIClient();
+                    dataTable = eXTAPI.ExtChkReg(strExmCntr, strFlag);
+                    JsonResponce = ds2json(dataTable);
+                }
+            }
+            catch (Exception ex)
+            {
+                JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"" + ex.ToString() + "\"}]}";
+            }
+
+            updateResponse(JsonResponce, SeqNo);
+            JsonResponce = encryptDecrypt.EncryptAndEncode(JsonResponce);
+            return JsonResponce;
+        }
+
         [Route("api/CBCMS/InsCndProfiling_mobile")]
         [HttpPost]
         public string InsCndProfiling_mobile([FromBody] InputModel model)
@@ -3104,6 +3156,10 @@ namespace CBCMSWEBAPI.Controllers
                 //htParam.Add("@RegRemark", Convert.ToString(jObject["RegRemark"]).Trim());
                 htParam.Add("@RegReferralCode", Convert.ToString(jObject["RegReferralCode"]).Trim());
                 htParam.Add("@WavierCount", Convert.ToString(jObject["WavierCount"]).Trim());
+                //added for tab based exam centre by chandrashekhar
+                htParam.Add("@RegStDt", Convert.ToString(jObject["RegStDt"]).Trim());
+                htParam.Add("@RegEdDt", Convert.ToString(jObject["RegEdDt"]).Trim());
+
                 // dstemp = objDAL.selectFromDatabase("prc_CndAdmin_InsCnd1_mobile", htParam, "IsysARTL");
 
                 //dstemp = objDAL.selectFromDatabase("prc_CndAdmin_InsCnd1_Androidmobile", htParam, "IsysARTL");
@@ -3326,7 +3382,9 @@ namespace CBCMSWEBAPI.Controllers
                 //htParam.Add("@RegRemark", Convert.ToString(jObject["RegRemark"]).Trim());
                 htParam.Add("@RegReferralCode", Convert.ToString(jObject["RegReferralCode"]).Trim());
                 htParam.Add("@WavierCount", Convert.ToString(jObject["WavierCount"]).Trim());
-
+                //added for tab based exam centre by chandrashekhar
+                htParam.Add("@RegStDt", Convert.ToString(jObject["RegStDt"]).Trim());
+                htParam.Add("@RegEdDt", Convert.ToString(jObject["RegEdDt"]).Trim());
                 //dstemp = objDAL.selectFromDatabase("prc_CndAdmin_UpdtCndRcrd_mobile", htParam, "IsysARTL");
                 dstemp = objDAL.selectFromDatabase("Prc_UpdRegDtls_Mob", htParam, "IsysARTL");
                 if (dstemp.Tables.Count > 0 && dstemp.Tables[0].Rows.Count > 0)
@@ -3347,7 +3405,10 @@ namespace CBCMSWEBAPI.Controllers
                                 //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "Candidate Modification RDLC" + DateTime.Now.ToString() + Environment.NewLine);
                                 if (cndtype == "F" || cndtype == "P")
                                 {
+                                    //if(PAFlag != "Y")
+                                    //{
                                     ConvertRDLCToPDF(cndno, strSapCode);
+                                    //}
                                 }
 
                                 //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "Candidate Modification RDLC end" + DateTime.Now.ToString() + Environment.NewLine);
@@ -3360,17 +3421,19 @@ namespace CBCMSWEBAPI.Controllers
                                     dstemp = objDAL.selectFromDatabase("Prc_getCndDtls", htParam, "IsysARTL");
                                     if (dstemp.Tables[0].Rows.Count > 0)
                                     {
-                                        cndno = dstemp.Tables[0].Rows[0]["CndNo"].ToString().Trim();
-                                        if (!cndno.IsNullOrWhiteSpace())
+                                        string cnd_no = dstemp.Tables[0].Rows[0]["CndNo"].ToString().Trim();
+                                        if (!cnd_no.IsNullOrWhiteSpace())
                                         {
                                             //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "PA Candidate Modification RDLC" + DateTime.Now.ToString() + Environment.NewLine);
 
-                                            ConvertRDLCToPDF(cndno, strSapCode);
+                                            ConvertRDLCToPDF(cnd_no, strSapCode);
 
                                             //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "PA Candidate Modification RDLC end" + DateTime.Now.ToString() + Environment.NewLine);
 
                                         }
                                     }
+                                    //ConvertRDLCToPDF(cndno, strSapCode);
+
                                 }
                             }
                         }
@@ -4305,7 +4368,7 @@ namespace CBCMSWEBAPI.Controllers
             #region Declaration
             DataSet objDaset = new DataSet();
             DataSet dsDispatch = new DataSet();
-            
+
             XmlDocument xmlDoc = new XmlDocument();
             string SeqNo = string.Empty;
             Hashtable htable = new Hashtable();
@@ -4346,14 +4409,15 @@ namespace CBCMSWEBAPI.Controllers
                 {
                     objDaset.Clear();
                     htable.Clear();
-                    htable.Add("@Agent_Broker_Code", Convert.ToString(Agent_Broker_Code));
+                    htable.Add("@AgentCode", Convert.ToString(Agent_Broker_Code));
                     objDaset = objDAL.selectFromDatabase("Prc_GetDispatchDtlsTX", htable, "ISysARTL");
                     if (objDaset.Tables.Count > 0 && objDaset.Tables[0].Rows.Count > 0)
                     {
                         if (objDaset.Tables[0].Rows[0]["DeliveryStatus"].ToString().Trim() == "Delivered")
                         {
                             JSonString = ds2json(objDaset);
-                        } else
+                        }
+                        else
                         {
                             dsDispatch = dispatch.GetAgentDispatchDetails(Convert.ToString(Agent_Broker_Code));
                             //objDaset = objDAL.selectFromDatabase("Prc_GetDispatchDtlsTX", htable, "ISysARTL");
@@ -4362,7 +4426,10 @@ namespace CBCMSWEBAPI.Controllers
                     }
                     else
                     {
-                        JSonString = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"No Data Found.\"}]}";
+                        //JSonString = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"No Data Found.\"}]}";
+                        dsDispatch = dispatch.GetAgentDispatchDetails(Convert.ToString(Agent_Broker_Code));
+                        //objDaset = objDAL.selectFromDatabase("Prc_GetDispatchDtlsTX", htable, "ISysARTL");
+                        JSonString = ds2json(dsDispatch);
                     }
                 }
                 else
@@ -6781,6 +6848,10 @@ namespace CBCMSWEBAPI.Controllers
         {
             return JsonConvert.SerializeObject(ds, Newtonsoft.Json.Formatting.Indented);
         }
+        public static string ds2json(DataTable ds)
+        {
+            return JsonConvert.SerializeObject(ds, Newtonsoft.Json.Formatting.Indented);
+        }
 
 
         public void ConvertRDLCToPDF(String MemCode, String EmpCode, String UserID)
@@ -6875,7 +6946,8 @@ namespace CBCMSWEBAPI.Controllers
             }
             //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "Method Complete " + Environment.NewLine);
         }
-
+        //[Route("api/CBCMS/ConvertRDLCToPDF")]
+        //[HttpGet]
         public void ConvertRDLCToPDF(String CndNo, String UserID)
         {
             try
@@ -6890,7 +6962,7 @@ namespace CBCMSWEBAPI.Controllers
                 dsCRP = objDAL.selectFromDatabase("Prc_GetDetailsForPDFCreation", htCRP, "IsysARTL");
 
                 //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "RDLC Count" + " " + Convert.ToString(dsCRP.Tables[0].Rows.Count) + Environment.NewLine);
-
+                Boolean flag = false;
                 foreach (DataRow dr in dsCRP.Tables[0].Rows)
                 {
                     try
@@ -6922,9 +6994,9 @@ namespace CBCMSWEBAPI.Controllers
                             viewer.LocalReport.DataSources.Add(rdsAct); // Add  datasource here         
                             Warning[] warnings;
                             string[] streamIds;
-                            string mimeType = string.Empty; 
-                            string encoding = string.Empty; 
-                            string extension = string.Empty; 
+                            string mimeType = string.Empty;
+                            string encoding = string.Empty;
+                            string extension = string.Empty;
 
                             //Microsoft.Reporting.WebForms.Warning[] warnings;
                             //string[] warnings;
@@ -6947,12 +7019,22 @@ namespace CBCMSWEBAPI.Controllers
                             //objDAL.GetDataSetForPrcCLP("Prc_InsFPConRDLCToPDF", htApp);
                             ds = objDAL.selectFromDatabase("Prc_InsCndDocFromRDLCToPDF", htApp, "IsysARTL");
                             //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "Complete" + Environment.NewLine);
+                            //if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                            //{
+
+                            //}
+                            flag = true;
                         }
                     }
                     catch (Exception ex)
                     {
                         LogAPIError("cConvertRDLCToPDF", ex.ToString());
+                        flag = false;
                     }
+                }
+                if (flag)
+                {
+                    sendRdlcViaMail.SendAutoGenerateDocs(CndNo.ToString().Trim());
                 }
             }
             catch (Exception e)
@@ -6962,11 +7044,13 @@ namespace CBCMSWEBAPI.Controllers
             //File.AppendAllText(@"C:\Users\ChandrashekharT\Desktop\RDLCLog.txt", "Method Complete " + Environment.NewLine);
         }
 
+        //[Route("api/CBCMS/LogAPIError")]
+        //[HttpGet]
         public void LogAPIError(string method, string error)
         {
             dstemp = null;
             Hashtable ht = new Hashtable();
-            ht.Add("@LogDtime", DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
+            ht.Add("@LogDtime", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             ht.Add("@AppName", "CBCMSAPI");
             ht.Add("@PageName", "API");
             ht.Add("@FuncName", method);

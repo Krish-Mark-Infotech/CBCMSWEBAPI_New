@@ -2507,7 +2507,19 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>          Place :                                                                                      Your's faithfully,</Value>
+                <Value>          Place : </Value>
+                <Style>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!City.Value</Value>
+                <Style>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>                                                                          Your's faithfully,</Value>
                 <Style>
                   <FontSize>11pt</FontSize>
                 </Style>
@@ -2540,7 +2552,19 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>          Date :                                                                                        </Value>
+                <Value>          Date : </Value>
+                <Style>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!EntryDate.Value</Value>
+                <Style>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value xml:space="preserve">                                                                                     </Value>
                 <Style>
                   <FontSize>11pt</FontSize>
                 </Style>
@@ -3055,6 +3079,22 @@
           </Border>
         </Style>
       </Tablix>
+      <Image Name="Image2">
+        <Source>Database</Source>
+        <Value>=First(Fields!Sign.Value, "FormIAPage")</Value>
+        <MIMEType>image/jpeg</MIMEType>
+        <Sizing>FitProportional</Sizing>
+        <Top>16.83556in</Top>
+        <Left>4.8425in</Left>
+        <Height>0.38889in</Height>
+        <Width>0.89195in</Width>
+        <ZIndex>43</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
     </ReportItems>
     <Height>17.66667in</Height>
     <Style />
