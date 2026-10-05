@@ -15,18 +15,33 @@ namespace ExtExmDtls
     {
         private readonly HttpClient _client;
         WSDataAccessLayer wSData;
+        String SeqNo = String.Empty;
         public EXTAPIClient()
         {
-            _client = new HttpClient();
+            //Added proxy for UAT
+            string host = "10.185.6.192";
+            int portnew = 443;
+            HttpClientHandler handler = new HttpClientHandler()
+            {
+                Proxy = new System.Net.WebProxy(host, portnew),
+                UseProxy = true,
+                SslProtocols = System.Security.Authentication.SslProtocols.Tls12 |
+                   System.Security.Authentication.SslProtocols.Tls13
+            };
+            //End proxy for UAT
+
+
+            _client = new HttpClient(handler);
+            //_client = new HttpClient();
             _client.BaseAddress = new System.Uri("https://cms.krishmark.com/ExamCntr/api/Exam");
             wSData = new WSDataAccessLayer();
-        }
+		}
 
         public List<ExamCenter> CallAPI(string name)
         {
             string error = string.Empty;
             var json = @"{
-            ""insurerID"": ""XXX24X0101"",
+            ""insurerID"": ""GIJ24T9649"",
             ""extendedExamCentreName"": """ + name + @""",
             ""showPastExamsAlso"": false
             }";
@@ -67,7 +82,7 @@ namespace ExtExmDtls
                 foreach (var examCenter in examCenters)
                 {
                     var str = examCenter.RegistrationEndDate.ToString("dd/MM/yyyy");
-                    if (Flag=="RegChk" && CalculateDateDifference(str).Days >= 0)
+                    if (Flag=="RegChk" && CalculateDateDifference(str).Days >= 2)
                     {
                         dataTable.Rows.Add(examCenter.ExtendedExamCentreName,
                             examCenter.Address,
@@ -84,7 +99,7 @@ namespace ExtExmDtls
                             examCenter.ExamDate.ToString("dd/MM/yyyy"),
                             string.Empty);
                     }
-                    else if ((Flag == "ExmChk" || Flag == "PreChk") && CalculateDateDifference(examCenter.ExamDate.ToString("dd/MM/yyyy")).Days >= 0)
+                    else if ((Flag == "ExmChk" || Flag == "PreChk") && CalculateDateDifference(examCenter.ExamDate.ToString("dd/MM/yyyy")).Days >= 2)
                     {
                         dataTable.Rows.Add(examCenter.ExtendedExamCentreName,
                             examCenter.Address,

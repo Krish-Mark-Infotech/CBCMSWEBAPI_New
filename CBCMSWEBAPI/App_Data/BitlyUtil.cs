@@ -14,6 +14,7 @@ using Grpc.Core;
 using System.Text;
 using System.Configuration;
 using System.Net.Http;
+using WindowsServiceDwnlzZip;
 
 namespace CBCMSWEBAPI
 {
@@ -24,13 +25,20 @@ namespace CBCMSWEBAPI
         WSDataAccessLayer objDAL = new WSDataAccessLayer();
         EncryptDecrypt encryptDecrypt = new EncryptDecrypt();
         string JSonString = "";
-        string emailhost = ConfigurationManager.AppSettings["EmailHost"].ToString();
-        string emailfrom = ConfigurationManager.AppSettings["EmailFrom"].ToString();
-        string emailpass = ConfigurationManager.AppSettings["EmailPass"].ToString();
+        //string emailhost = ConfigurationManager.AppSettings["EmailHost"].ToString();
+
+        //string emailfrom = ConfigurationManager.AppSettings["EmailFrom"].ToString();
+
+        //string emailpass = ConfigurationManager.AppSettings["EmailPass"].ToString();
+
+
+        string emailhost ="";
+        string emailfrom ="";
+        string emailpass = "";
         public BitlyUtil() {
         }
 
-        public string CreateBitlyLink(string strAppNo, string MobileNo, string EmailID)
+        public string CreateBitlyLink(string strAppNo, string MobileNo, string EmailID, string VerURL, string OTP, string Source)
         {
             try
             {
@@ -38,6 +46,11 @@ namespace CBCMSWEBAPI
                 htable.Clear();
 
                 htable.Add("@AppNo", strAppNo);
+                htable.Add("@OTP", OTP);
+                htable.Add("@VerURL", VerURL);
+                htable.Add("@Source", Source);
+                htable.Add("@MobileNo", MobileNo);
+                htable.Add("@EmailID", EmailID);
 
                 objDaset = objDAL.selectFromDatabase("Prc_GetDetailsForURL", htable, "IsysARTL");
 
@@ -120,25 +133,50 @@ namespace CBCMSWEBAPI
             return JSonString;
         }
 
-        public string ShareLink(string strAppNo)
+        public string ShareLink(string strAppNo, string MobileNo, string EmailID, string VerURL, string OTP, string Source)
         {
             try
             {
-                objDaset.Clear();
-                htable.Clear();
+                //objDaset.Clear();
+                //htable.Clear();
 
-                htable.Add("@AppNo", strAppNo);
+                //htable.Add("@AppNo", strAppNo);
+                //htable.Add("@OTP", OTP);
+                //htable.Add("@VerURL", VerURL);
+                //htable.Add("@Source", Source);
+                //htable.Add("@MobileNo", MobileNo);
+                //htable.Add("@EmailID", EmailID);
 
-                objDaset = objDAL.selectFromDatabase("Prc_GetDetailsForURL", htable, "IsysARTL");
+                // objDaset = objDAL.selectFromDatabase("Prc_GetDetailsForURL", htable, "IsysARTL");
+                //objDaset = objDAL.selectFromDatabase("Prc_InsOTPNumber", htable, "IsysARTL");
 
                 if (objDaset.Tables.Count > 0 && objDaset.Tables[0].Rows.Count > 0)
                 {
-                    string strBody = string.Format("Hi {0},<br /><br />Please complete your application using below link {1}.<br />Please do not reply to this email<br /><br />Thank You.",
-                        "Candidate", objDaset.Tables[0].Rows[0]["WebLink"].ToString(), objDaset.Tables[0].Rows[0]["AppLink"].ToString());
+                    //string strBody = string.Format("Hi {0},<br /><br />Please complete your application using below link {1}.<br />Please do not reply to this email<br /><br />Thank You.",
+                      //  "Candidate", objDaset.Tables[0].Rows[0]["WebLink"].ToString(), objDaset.Tables[0].Rows[0]["AppLink"].ToString());
+                    string subject = objDaset.Tables[0].Rows[0]["Subject"].ToString();
+                    string senderMail = objDaset.Tables[0].Rows[0]["NotificationFrom"].ToString();
+                    string mailBody = objDaset.Tables[0].Rows[0]["MailBody"].ToString();
+                    //string reciverMailid = objDaset.Tables[0].Rows[0]["EmailID"].ToString();
+                    string strbody = objDaset.Tables[0].Rows[0]["SMSBody"].ToString();//
 
-                    FuncSmsSend(objDaset.Tables[0].Rows[0]["MobileNo"].ToString(), strBody, objDaset.Tables[0].Rows[0]["mRefNo"].ToString());
+                    //string strCallerRefId = objDaset.Tables[0].Rows[0]["mRefNo"].ToString();
+                    string strSMobileTo = MobileNo;//objDaset.Tables[0].Rows[0]["MobileNo"].ToString();
+                    string reciverMailid = EmailID;                                                         
+                    string StrAppId = "ISYS";
 
-                    FunMailSend(objDaset.Tables[0].Rows[0]["EmailID"].ToString(), strBody);
+                    SendAutoCreateRdlc SACR = new SendAutoCreateRdlc();
+                    SACR.SendMail(strAppNo, senderMail, reciverMailid, null, subject, mailBody);
+
+
+                    SACR.SendSMS(StrAppId, strAppNo, "8793453602", strSMobileTo, 0, strbody, "SMSSch");
+                    // SACR.SendMail(strAppNo, senderMail, reciverMailid, null, subject, mailBody);
+                    //SACR.SendSMS(strAppNo, strCallerRefId, "8793453602", strSMSTo, 0, strBody, "SYS");
+
+
+                    //FuncSmsSend(objDaset.Tables[0].Rows[0]["MobileNo"].ToString(), strBody, objDaset.Tables[0].Rows[0]["mRefNo"].ToString());
+
+                    //FunMailSend(objDaset.Tables[0].Rows[0]["EmailID"].ToString(), strBody);
 
                     JSonString = "{\"Table\": [ {\"ResponseCode\": \"0\",\"Message\":\"We have sent the link.\"}]}";
                 }

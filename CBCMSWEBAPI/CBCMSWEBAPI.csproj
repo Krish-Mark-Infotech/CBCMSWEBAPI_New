@@ -332,6 +332,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Data\API_Bridge.cs" />
+    <Compile Include="App_Data\CKYCDwlndApiClient.cs" />
     <Compile Include="App_Data\EXTAPIClient.cs" />
     <Compile Include="App_Data\FormIAPage.Designer.cs">
       <DependentUpon>FormIAPage.xsd</DependentUpon>
@@ -393,6 +394,8 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Handlers\HttpMethodValidationHandler.cs" />
+    <Compile Include="Handlers\RemoveServerHeaderHandler.cs" />
     <Compile Include="mCode\AadharRestClient.cs" />
     <Compile Include="App_Data\BitlyUtil.cs" />
     <Compile Include="mCode\ConsumeLdap.cs" />
@@ -408,6 +411,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\InputModel.cs" />
+    <Compile Include="Models\OTPModel.cs" />
     <Compile Include="Models\UrlShorter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

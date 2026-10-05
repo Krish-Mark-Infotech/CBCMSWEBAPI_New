@@ -33,9 +33,11 @@ public partial class PolicyDispatchService : System.Web.Services.Protocols.SoapH
     
     /// <remarks/>
     public PolicyDispatchService() {
-        this.Url = "http://pds.reliancegeneral.co.in/policydispatchWS/Service.asmx";
+        //this.Url = "http://pds.reliancegeneral.co.in/policydispatchWS/Service.asmx";
+        this.Url = "https://pds.indusindinsurance.org/policydispatchWS/Service.asmx";
+
     }
-    
+
     public UserCredential UserCredentialValue {
         get {
             return this.userCredentialValueField;
@@ -61,6 +63,7 @@ public partial class PolicyDispatchService : System.Web.Services.Protocols.SoapH
     [System.Web.Services.Protocols.SoapHeaderAttribute("UserCredentialValue")]
     [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://10.65.8.42:8383/GetPolicyDispatchStatus", RequestNamespace="http://10.65.8.42:8383/", ResponseNamespace="http://10.65.8.42:8383/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
     public System.Data.DataSet GetPolicyDispatchStatus(string PolicyNo) {
+        System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
         object[] results = this.Invoke("GetPolicyDispatchStatus", new object[] {
                     PolicyNo});
         return ((System.Data.DataSet)(results[0]));

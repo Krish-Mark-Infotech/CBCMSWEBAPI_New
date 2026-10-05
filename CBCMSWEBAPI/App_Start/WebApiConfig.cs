@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.WebApi.Extensions.Compression.Server;
+﻿using CBCMSWEBAPI.Handlers;
+using Microsoft.AspNet.WebApi.Extensions.Compression.Server;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace CBCMSWEBAPI
     {
         public static void Register(HttpConfiguration config)
         {
+            config.MessageHandlers.Add(new HttpMethodValidationHandler());
             // Web API configuration and services
             config.EnableCors();
             // Web API routes

@@ -9,6 +9,7 @@ using RestSharp;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Net;
@@ -242,6 +243,55 @@ namespace CBCMSWEBAPI.Controllers
             updateResponse(JsonResponce, SeqNo);
             return Convert.ToBase64String(Encoding.UTF8.GetBytes(JsonResponce));
 
+        }
+
+        [Route("api/CBCMS/DeactivateUserToken")]
+        [HttpPost]
+        public string DeactivateUserToken([FromBody] InputModel model)
+        {
+            try
+            {
+                string jsonInput = model.jsonInput;
+                string json = encryptDecrypt.DecodeAndDecrypt(jsonInput);
+                JObject jObject = JObject.Parse(json);
+
+                string strDecSapCode = Convert.ToString(jObject["UserId"]).Trim();
+                string strTokenID = Convert.ToString(jObject["TokenId"]).Trim();
+
+                SeqNo = ServerTrnReqLog(json, "DeactivateUserToken", strDecSapCode, "", "Candidate Manager");
+
+                dstemp = null;
+                Hashtable htable = new Hashtable();
+                htable.Add("@UserID", strDecSapCode);
+                htable.Add("@TokenId", strTokenID);
+
+                dstemp = objDAL.selectFromDatabase("prc_DeactivateUserToken", htable, "USRMGMT");
+                if (dstemp != null)
+                {
+                    if (dstemp.Tables.Count > 0 && dstemp.Tables[0].Rows.Count > 0)
+                    {
+                        JsonResponce = ds2json(dstemp);
+                    }
+                    else
+                    {
+                        JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"Message\":\"Invalid user token.\"}]}";
+                       
+                    }
+                }
+                else
+                {
+                    JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"Message\":\"Invalid user token.\"}]}";
+                    //return "ds is null";
+                }
+            }
+            catch (Exception ex)
+            {
+                JsonResponce = ex.ToString();
+                //return ex.ToString();
+            }
+            updateResponse(JsonResponce, SeqNo);
+            JsonResponce = encryptDecrypt.EncryptAndEncode(JsonResponce);
+            return JsonResponce;
         }
 
         [Route("api/CBCMS/AuthenticateUser_WithAppVersion")]
@@ -1023,7 +1073,7 @@ namespace CBCMSWEBAPI.Controllers
                     updateResponse(JsonResponce, SeqNo);
                     return JsonResponce;
                 }
-                else if (strTokenId.Equals(string.Empty) || (!strTokenId.Equals(string.Empty) && ValidateToken(strSapCode, strTokenId) != "Valid"))
+                else if (strTokenId.Equals(string.Empty))// || (!strTokenId.Equals(string.Empty) && ValidateToken(strSapCode, strTokenId) != "Valid"))
                 {
                     JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"invalid token details\"}]}";
                     updateResponse(JsonResponce, SeqNo);
@@ -1071,6 +1121,175 @@ namespace CBCMSWEBAPI.Controllers
             return JsonResponce;
 
         }
+
+        //Added by Sameer for Hall Ticket and ScoreCard to show in Details module
+        //[Route("api/CBCMS/GetPdfFromFolder")]
+        //[HttpPost]
+        //public string GetPdfFromFolder([FromBody] InputModel model)
+        //{
+        //    try
+        //    {
+        //        string jsonInput = model.jsonInput;
+        //        string json = encryptDecrypt.DecodeAndDecrypt(jsonInput);
+        //        JObject jObject = JObject.Parse(json);
+        //        string strSapCode = Convert.ToString(jObject["SapCode"]).Trim();
+        //        string strAppno = Convert.ToString(jObject["AppNo"]).Trim();
+        //        string strUrnno = Convert.ToString(jObject["UrnNo"]).Trim();
+        //        string strTokenId = Convert.ToString(jObject["strTokenId"]).Trim();
+        //        SeqNo = ServerTrnReqLog(json, "GetPdfFromFolder", strSapCode, strAppno, "Candidate Manager");
+
+        //        String result = ValidateRequest(json);
+        //        if (!result.Equals("Valid"))
+        //        {
+        //            JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"" + result + "\"}]}";
+        //            updateResponse(JsonResponce, SeqNo);
+        //            return JsonResponce;
+        //        }
+        //        else if (strTokenId.Equals(string.Empty) || (!strTokenId.Equals(string.Empty) && ValidateToken(strSapCode, strTokenId) != "Valid"))
+        //        {
+        //            JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"invalid token details\"}]}";
+        //            updateResponse(JsonResponce, SeqNo);
+
+        //            return HttpStatusCode.NonAuthoritativeInformation.ToString();
+
+        //        }
+        //        string pdfDirectory = @"E:\Sameer\HallTicket";
+
+        //        // Construct the file path
+        //        string pdfFilePath = Path.Combine(pdfDirectory, $"HT_{strUrnno}.pdf");
+
+        //        DataSet dsResponse = new DataSet();
+        //        DataTable dt = new DataTable("Table");
+        //        dt.Columns.Add("ResponseCode");
+        //        dt.Columns.Add("ErrorDescription");
+        //        dt.Columns.Add("FileName");
+        //        dt.Columns.Add("FileContent");
+
+        //        if (File.Exists(pdfFilePath))
+        //        {
+        //            // Read the file and convert it to Base64
+        //            byte[] fileBytes = File.ReadAllBytes(pdfFilePath);
+        //            string base64File = Convert.ToBase64String(fileBytes);
+
+        //            // Create the response data
+        //            DataRow dr = dt.NewRow();
+        //            dr["ResponseCode"] = "0";  // Success
+        //            dr["ErrorDescription"] = "";
+        //            dr["FileName"] = $"{strUrnno}.pdf";
+        //            dr["FileContent"] = base64File;
+        //            dt.Rows.Add(dr);
+        //        }
+        //        else
+        //        {
+        //            // File not found, return appropriate response
+        //            DataRow dr = dt.NewRow();
+        //            dr["ResponseCode"] = "1";  // Error code
+        //            dr["ErrorDescription"] = "PDF not found for the provided AppNo.";
+        //            dr["FileName"] = "";
+        //            dr["FileContent"] = "";
+        //            dt.Rows.Add(dr);
+        //        }
+
+        //        dsResponse.Tables.Add(dt);
+        //        // Convert DataSet to JSON string
+        //        JsonResponce = ds2json(dsResponse);
+
+        //        // Update the response in the database or logs (if applicable)
+        //        updateResponse(JsonResponce, SeqNo);
+
+        //        // Encrypt and encode the JSON response
+        //        JsonResponce = encryptDecrypt.EncryptAndEncode(JsonResponce);
+
+        //        // Return the encrypted JSON response
+        //        return JsonResponce;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Handle any exceptions
+        //        DataSet dsResponse = new DataSet();
+        //        DataTable dt = new DataTable("Table");
+        //        dt.Columns.Add("ResponseCode");
+        //        dt.Columns.Add("ErrorDescription");
+        //        dt.Columns.Add("FileName");
+        //        dt.Columns.Add("FileContent");
+
+        //        DataRow dr = dt.NewRow();
+        //        dr["ResponseCode"] = "2";  // Error code for exceptions
+        //        dr["ErrorDescription"] = "An error occurred: " + ex.Message;
+        //        dr["FileName"] = "";
+        //        dr["FileContent"] = "";
+        //        dt.Rows.Add(dr);
+
+        //        dsResponse.Tables.Add(dt);
+
+        //        // Convert DataSet to JSON string
+        //        string JsonResponce = ds2json(dsResponse);
+
+        //        // Update the response in the database or logs (if applicable)
+        //        updateResponse(JsonResponce, SeqNo);
+
+        //        // Encrypt and encode the JSON response
+        //        JsonResponce = encryptDecrypt.EncryptAndEncode(JsonResponce);
+
+        //        // Return the encrypted JSON response
+        //        return JsonResponce;
+        //    }
+        //}
+        [Route("api/CBCMS/GetPdfFromFolder")]
+        [HttpPost]
+        public string GetPdfFromFolder([FromBody] InputModel model)
+        {
+            try
+            {
+                string jsonInput = model.jsonInput;
+                string json = encryptDecrypt.DecodeAndDecrypt(jsonInput);
+                JObject jObject = JObject.Parse(json);
+                string strSapCode = Convert.ToString(jObject["SapCode"]).Trim();
+                string strAppno = Convert.ToString(jObject["AppNo"]).Trim();
+                string strUrnno = Convert.ToString(jObject["UrnNo"]).Trim();
+                string strTokenId = Convert.ToString(jObject["strTokenId"]).Trim();
+                SeqNo = ServerTrnReqLog(json, "GetPdfFromFolder", strSapCode, strAppno, "Candidate Manager");
+
+                String result = ValidateRequest(json);
+                if (!result.Equals("Valid"))
+                {
+                    JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"" + result + "\"}]}";
+                    updateResponse(JsonResponce, SeqNo);
+                    return JsonResponce;
+                }
+                else if (strTokenId.Equals(string.Empty) || (!strTokenId.Equals(string.Empty) && ValidateToken(strSapCode, strTokenId) != "Valid"))
+                {
+                    JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"invalid token details\"}]}";
+                    updateResponse(JsonResponce, SeqNo);
+
+                    return HttpStatusCode.NonAuthoritativeInformation.ToString();
+
+                }
+                dstemp.Clear();
+                htParam.Clear();
+                htParam.Add("@UrnNo", Convert.ToString(jObject["UrnNo"]).Trim());
+                dstemp = objDAL.selectFromDatabase("Prc_GetPdfForHT", htParam, "IsysARTL");
+                if (dstemp.Tables.Count > 0 && dstemp.Tables[0].Rows.Count > 0)
+                {
+                    JsonResponce = ds2json(dstemp);
+
+                }
+                else
+                {
+                    JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"Record not found\"}]}";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                JsonResponce = ex.ToString();
+
+            }
+            updateResponse(JsonResponce, SeqNo);
+            JsonResponce = encryptDecrypt.EncryptAndEncode(JsonResponce);
+            return JsonResponce;
+        }
+
 
         [Route("api/CBCMS/GetAllSupportDocs")]
         [HttpPost]
@@ -1131,6 +1350,76 @@ namespace CBCMSWEBAPI.Controllers
             return JsonResponce;
         }
 
+        [HttpGet]
+        [Route("api/CBCMS/GetEncodedJson")]
+        public string GetEncodedJson()
+        {
+            var obj = new
+            {
+
+
+                SapCode = "70257642",
+                AppNo = "10037822",
+                CandType = "",
+                strTokenId = "2C498A6D-E876-48B3-B3AE-610070AB5730",
+                CallerId = "CBCMSCM",
+                CallerPass = "CBCMSCM",
+                //-----------------
+                //PAN = "AKKPS1234R",
+                //RecruiterType = "SM",
+                //SapCode = "71000525"
+
+                //SapCode = "70257642",
+                //SmMemberCode = "21018346",
+                //CarrierCode = "2",
+                //Pan = "HJKPK6958U",
+                //EntryDate = "21/08/2026",
+                //Occupation = "SP",
+                //Prefix = "MR",
+                //GivenName = "RAHUL",
+                //Surname = "",
+                //FatherName = "SAWAL",
+                //CndCat = "",
+                //DOB = "01/01/1989",
+                //Gender = "M",
+                //Nationality = "",
+                //MaritalStat = "",
+                //CnctType = "E",
+                //HomeTel = "",
+                //WorkTel = "",
+                //Mobilecode = "",
+                //MobileTel = "8459408423",
+                //Email = "rahul.sawal@krishmark.com",
+                //MobileCode2 = "",
+                //Mobile2 = "",
+                //Email2 = "",
+                //AgentType = "SM",
+                //RecruitAgtCode = "",
+                //Bizsrc = "AH",
+                //ChnCls = "AHLM",
+                //cmsunitcode = "1110",
+                //MobUniquerecId = "Android-937ff775-2b54-45b0-959d-3e2b711f189b",
+                //CreateBy = "70257642",
+                //RecruitUnitCode = "",
+                //CandType = "F",
+                //CndAgtType = "IS",
+                //AnniversaryDate = "",
+                //AddRptMgr = "",
+                //ModuleID = "11010",
+                //CasteCat = "GEN",
+                //strTokenId = "DC271AD1-CFC7-4217-8E9E-8BF5E98A418B",
+                //CallerId = "CBCMSCM",
+                //CallerPass = "CBCMSCM"
+
+
+
+            };
+
+            string plainJson = JsonConvert.SerializeObject(obj);
+            string encoded = encryptDecrypt.EncryptAndEncode(plainJson);
+            return encoded;
+        }
+
         [Route("api/CBCMS/ProspectRegistration_mob")]
         [HttpPost]
         public string ProspectRegistration_mob([FromBody] InputModel model)
@@ -1151,6 +1440,7 @@ namespace CBCMSWEBAPI.Controllers
                 //    " MobileTel= " + MobileTel + ", Email=" + Email + ", MobileCode2= " + MobileCode2 + ", Mobile2= " + Mobile2 + ", Email2= " + Email2 + ", AgentType= " + AgentType +
                 //    " RecruitAgtCode= " + RecruitAgtCode + ", Bizsrc= " + Bizsrc + ", ChnCls= " + ChnCls + ", RecruitUnitCode= " + RecruitUnitCode + ", cmsunitcode= " + cmsunitcode +
                 //    " MobUniquerecId= " + MobUniquerecId + ", CreateBy=" + CreateBy + ", CandType=" + CandType + ", AnniversaryDate=" + AnniversaryDate + ", AddRptMgr=" + AddRptMgr + ", ModuleID=" + ModuleID;
+
                 string jsonInput = model.jsonInput;
                 string json = encryptDecrypt.DecodeAndDecrypt(jsonInput);
                 JObject jObject = JObject.Parse(json);
@@ -1215,11 +1505,41 @@ namespace CBCMSWEBAPI.Controllers
                 htable.Add("@AddRptMgr", Convert.ToString(jObject["AddRptMgr"]).Trim());
                 htable.Add("@ModuleID", Convert.ToString(jObject["ModuleID"]).Trim());
                 htable.Add("@CasteCat", Convert.ToString(jObject["CasteCat"]).Trim());
+                htable.Add("@OccpnDesc", Convert.ToString(jObject["OccpnDesc"]).Trim()); //Added on 16092026
 
+                string otp = string.Empty;
                 objDaset = objDAL.selectFromDatabase("prc_InsProspectRegMob", htable, "IsysARTL");
                 if (objDaset.Tables.Count > 0 && objDaset.Tables[0].Rows.Count > 0)
                 {
+                    if (objDaset.Tables[0].Rows[0]["status"].ToString() == "SUCCESS")
+                    {
+                        string AppNo = objDaset.Tables[0].Rows[0]["AppNo"].ToString();
+
+
+                        string baseUrl = ConfigurationManager.AppSettings["BaseUrl"];
+
+
+                        //Added for OTP after submit on 20July2026 by Vikash K
+                        otp = GenerateOTP();
+                       string encodedappno = encryptDecrypt.EncryptAndEncode(AppNo);
+                        string lblshare = baseUrl + "/Application/ISys/Recruit/PopOTPVerf.aspx?ProspectId=" + Uri.EscapeDataString(encodedappno) + "&flag=REG";
+
+                        htParam.Clear();
+                        htParam.Add("@AppNo", AppNo);
+                        htParam.Add("@OTP", otp);
+                        htParam.Add("@VerURL", lblshare.Trim());
+                        htParam.Add("@Source", "REG");
+                        htParam.Add("@MobileNo", Convert.ToString(jObject["MobileTel"]).Trim());
+                        htParam.Add("@EmailID", Convert.ToString(jObject["Email"]).Trim());
+                        objDAL.selectFromDatabase("Prc_InsOTPNumber", htParam, "IsysARTL");
+                    }
+                    //  int x = dataAccessRecruit.execute_sprcrecruit("Prc_InsOTPNumber", htParam);
+
                     JSonString = ds2json(objDaset);
+                    JObject json1 = JObject.Parse(JSonString);
+                    json1["OTP"] = otp;   // OTP is your variable
+
+                    JSonString = json1.ToString();
                     //if (objDaset.Tables[0].Rows[0]["status"].ToString() == "SUCCESS")
                     //{
                     //    ObjTask.UpdateCndTask(objDaset.Tables[0].Rows[0]["AppNo"].ToString(), Convert.ToString(jObject["CreateBy"]).Trim());//To create task in CRM  in 18.12.2017
@@ -1284,8 +1604,17 @@ namespace CBCMSWEBAPI.Controllers
                     //(HttpStatusCode.NonAuthoritativeInformation, JsonResponce).ToString();
 
                 }
-                BitlyUtil bitly = new BitlyUtil();
-                JSonString = bitly.CreateBitlyLink(strAppNo, MobileNo, EmailID);
+                string baseUrl = ConfigurationManager.AppSettings["BaseUrl"];
+                //added by rahul
+                //String URL = baseUrl +
+                  //  "/Application/ISys/Recruit/PopOTPVerf.aspx?ProspectId=" +
+                   // strAppNo +
+                    //"&flag=REG";
+                //BitlyUtil bitly = new BitlyUtil();
+               // BitlyUtil bitly = new BitlyUtil();
+               // JSonString = bitly.CreateBitlyLink(strAppNo, MobileNo, EmailID, URL, "123456", "REG");
+
+                //JSonString = bitly.CreateBitlyLink(strAppNo, MobileNo, EmailID);
             }
             catch (Exception ex)
             {
@@ -1316,10 +1645,12 @@ namespace CBCMSWEBAPI.Controllers
                 string strSapCode = Convert.ToString(jObject["SapCode"]).Trim();
                 string strTokenId = Convert.ToString(jObject["strTokenId"]).Trim();
                 string strAppNo = Convert.ToString(jObject["AppNo"]).Trim();
-                string WebLink = Convert.ToString(jObject["WebLink"]).Trim();
-                string AppLink = Convert.ToString(jObject["AppLink"]).Trim();
+                //string WebLink = Convert.ToString(jObject["WebLink"]).Trim();
+                //string AppLink = Convert.ToString(jObject["AppLink"]).Trim();
                 string EmailID = Convert.ToString(jObject["EmailID"]).Trim();
                 string MobileNo = Convert.ToString(jObject["MobileNo"]).Trim();
+                string OTP = Convert.ToString(jObject["OTP"]).Trim();
+                string flag = Convert.ToString(jObject["flag"]).Trim();
                 string Name = Convert.ToString(jObject["Name"]).Trim();
                 SeqNo = ServerTrnReqLog(json, "ShareLinkToApplicant", strSapCode, "", "Candidate Manager");
                 String result = ValidateRequest(json);
@@ -1339,8 +1670,20 @@ namespace CBCMSWEBAPI.Controllers
                     //(HttpStatusCode.NonAuthoritativeInformation, JsonResponce).ToString();
 
                 }
-                BitlyUtil util = new BitlyUtil();
-                JSonString = util.ShareLink(strAppNo);
+                BitlyUtil bitly = new BitlyUtil();
+                //added by rahul
+                string baseUrl = ConfigurationManager.AppSettings["BaseUrl"];
+                String URL = baseUrl +
+                    "/Application/ISys/Recruit/PopOTPVerf.aspx?ProspectId=" +
+                    strAppNo +
+                    "&flag=REG";
+
+                JSonString = bitly.ShareLink(strAppNo, MobileNo, EmailID, URL, OTP, flag);
+
+
+                // JSonString = util.ShareLink(strAppNo, MobileNo, EmailID, URL, "123456", "REG");
+
+                // JSonString = util.ShareLink(strAppNo);
 
             }
             catch (Exception ex)
@@ -1842,6 +2185,7 @@ namespace CBCMSWEBAPI.Controllers
                 string strSapCode = Convert.ToString(jObject["SapCode"]).Trim();
                 string strTokenId = Convert.ToString(jObject["strTokenId"]).Trim();
                 string strAppno = Convert.ToString(jObject["Appno"]).Trim();
+                string ApproveFlag = Convert.ToString(jObject["Flag"]).Trim();
                 SeqNo = ServerTrnReqLog(json, "CnandidateApproved_mobile", strSapCode, strAppno, "Candidate Manager");
 
                 String result = ValidateRequest(json);
@@ -1863,12 +2207,19 @@ namespace CBCMSWEBAPI.Controllers
                 dstemp.Clear();
                 htParam.Clear();
                 htParam.Add("@Appno", strAppno.ToString().Trim());
-                htParam.Add("@Flag", Convert.ToString(jObject["Flag"]).Trim());
+                htParam.Add("@Flag", ApproveFlag);
                 htParam.Add("@ModuleID", Convert.ToString(jObject["ModuleID"]).Trim());
                 htParam.Add("@SapCode", strSapCode);
                 htParam.Add("@CarrierCode", Convert.ToString(jObject["CarrierCode"]).Trim());
                 //dstemp = objDAL.selectFromDatabase("prc_CnandidateApproved_mobile", htParam, "IsysARTL");
-                dstemp = objDAL.selectFromDatabase("prc_UpdateCandidateapproval_mob", htParam, "IsysARTL");
+                if (ApproveFlag.Equals("TrnWavApprvl"))
+                {
+                    dstemp = objDAL.selectFromDatabase("prc_UpdateCndApprlForTrnWaiver_mob", htParam, "IsysARTL");
+                }
+                else
+                {
+                    dstemp = objDAL.selectFromDatabase("prc_UpdateCandidateapproval_mob", htParam, "IsysARTL");
+                }
                 //JsonResponce = "Candidate Approved";
                 if (dstemp.Tables.Count > 0 && dstemp.Tables[0].Rows.Count > 0)
                 {
@@ -1927,6 +2278,7 @@ namespace CBCMSWEBAPI.Controllers
                 htParam.Clear();
                 htParam.Add("@Appno", strAppno.ToString().Trim());
                 htParam.Add("@date", Convert.ToString(jObject["date"]).Trim());
+                htParam.Add("@ExmCentre", Convert.ToString(jObject["ExmCentre"]).Trim());
                 htParam.Add("@ModuleID", Convert.ToString(jObject["ModuleID"]).Trim());
                 dstemp = objDAL.selectFromDatabase("prc_SetPreferedDate_mobile", htParam, "IsysARTL");
                 if (dstemp.Tables.Count > 0 && dstemp.Tables[0].Rows.Count > 0)
@@ -2346,8 +2698,8 @@ namespace CBCMSWEBAPI.Controllers
                     updateResponse(JsonResponce, SeqNo);
                     return JsonResponce;
                 }
-                else if (strTokenId.Equals(string.Empty) || (!strTokenId.Equals(string.Empty)
-                    && ValidateToken(strSapCode, strTokenId) != "Valid"))
+                else if (strTokenId.Equals(string.Empty)) //|| (!strTokenId.Equals(string.Empty)
+                   // && ValidateToken(strSapCode, strTokenId) != "Valid"))
                 {
                     JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"invalid token details\"}]}";
                     updateResponse(JsonResponce, SeqNo);
@@ -2480,6 +2832,61 @@ namespace CBCMSWEBAPI.Controllers
 
                 htParam.Clear();
                 dstemp = objDAL.selectFromDatabase("Prc_GetActiveIntegration", htParam, "ISysARTL");
+
+
+                if (dstemp.Tables.Count > 0 && dstemp.Tables[0].Rows.Count > 0)
+                {
+                    JsonResponce = ds2json(dstemp);
+                }
+                else
+                {
+                    JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"No record found\"}]}";
+                }
+            }
+            catch (Exception ex)
+            {
+                JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"" + ex.ToString() + "\"}]}";
+            }
+
+            updateResponse(JsonResponce, SeqNo);
+            JsonResponce = encryptDecrypt.EncryptAndEncode(JsonResponce);
+            return JsonResponce;
+        }
+
+        [Route("api/CBCMS/GetAVIResult")]
+        [HttpPost]
+        public string GetAVIResult([FromBody] InputModel model)
+        {
+            try
+            {
+                dstemp.Clear();
+                htParam.Clear();
+
+                string jsonInput = model.jsonInput;
+                string json = encryptDecrypt.DecodeAndDecrypt(jsonInput);
+                JObject jObject = JObject.Parse(json);
+                string strSapCode = Convert.ToString(jObject["SapCode"]).Trim();
+                string strTokenId = Convert.ToString(jObject["strTokenId"]).Trim();
+                string UniqueUserId = Convert.ToString(jObject["UniqueUserId"]).Trim();
+                string User_ID = Convert.ToString(jObject["User_ID"]).Trim();
+
+                SeqNo = ServerTrnReqLog(json, "GetAVIResult", strSapCode, "", "Candidate Manager");
+
+                if (strTokenId.Equals(string.Empty) || (!strTokenId.Equals(string.Empty)
+                    && ValidateToken(strSapCode, strTokenId) != "Valid"))
+                {
+                    JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"invalid token details\"}]}";
+                    updateResponse(JsonResponce, SeqNo);
+
+                    return HttpStatusCode.NonAuthoritativeInformation.ToString();
+
+                }
+
+                htParam.Clear();
+                htParam.Add("@UniqueUserId", UniqueUserId);
+                htParam.Add("@User_ID", User_ID);
+
+                dstemp = objDAL.selectFromDatabase("Prc_GetAVIProcessDtls", htParam, "ISysARTL");
 
 
                 if (dstemp.Tables.Count > 0 && dstemp.Tables[0].Rows.Count > 0)
@@ -2686,6 +3093,104 @@ namespace CBCMSWEBAPI.Controllers
 
             updateResponse(JsonResponce, SeqNo);
             JsonResponce = encryptDecrypt.EncryptAndEncode(JsonResponce);
+            return JsonResponce;
+        }
+
+        [Route("api/CBCMS/CkycDwnldDtls")]
+        [HttpPost]
+        public string CkycDwnldDtls([FromBody] InputModel model)
+        {
+            try
+            {
+                dstemp.Clear();
+                htParam.Clear();
+
+                string jsonInput = model.jsonInput;
+                string json = encryptDecrypt.DecodeAndDecrypt(jsonInput);
+                JObject jObject = JObject.Parse(json);
+                string strSapCode = Convert.ToString(jObject["SapCode"]).Trim();
+                string strAppNo = Convert.ToString(jObject["AppNo"]).Trim();
+                string strTokenId = Convert.ToString(jObject["strTokenId"]).Trim();
+                string PAN = Convert.ToString(jObject["PAN"]).Trim();
+                string DOB = Convert.ToString(jObject["DOB"]).Trim();
+                string UNIQUEID = Convert.ToString(jObject["UNIQUEID"]).Trim();
+                
+
+                //SeqNo = ServerTrnReqLog(json, "CkycDwnldDtls", strSapCode, strAppNo, "CKYCAPI");
+
+                if (strTokenId.Equals(string.Empty) || (!strTokenId.Equals(string.Empty)
+                    && ValidateToken(strSapCode, strTokenId) != "Valid"))
+                {
+                    JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"invalid token details\"}]}";
+                    updateResponse(JsonResponce, SeqNo);
+
+                    return HttpStatusCode.NonAuthoritativeInformation.ToString();
+                    //(HttpStatusCode.NonAuthoritativeInformation, JsonResponce).ToString();
+
+                }
+                else
+                {
+                    CKYCDwlndApiClient cKYCDwlndApi = new CKYCDwlndApiClient();
+                    JsonResponce = cKYCDwlndApi.VerifyCKYC(strSapCode, PAN, DOB, UNIQUEID);
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"" + ex.ToString() + "\"}]}";
+            }
+
+            //updateResponse(JsonResponce, SeqNo);
+            JsonResponce = encryptDecrypt.EncryptAndEncode(JsonResponce);
+            return JsonResponce;
+        }
+
+        [Route("api/CBCMS/CkycDwnldDtls_web")]
+        [HttpPost]
+        public string CkycDwnldDtls_web([FromBody] InputModel model)
+        {
+            try
+            {
+                dstemp.Clear();
+                htParam.Clear();
+
+                string jsonInput = model.jsonInput;
+                //string json = encryptDecrypt.DecodeAndDecrypt(jsonInput);
+                JObject jObject = JObject.Parse(jsonInput);
+                //string strSapCode = Convert.ToString(jObject["SapCode"]).Trim();
+                //string strAppNo = Convert.ToString(jObject["AppNo"]).Trim();
+                //string strTokenId = Convert.ToString(jObject["strTokenId"]).Trim();
+                string PAN = Convert.ToString(jObject["PAN"]).Trim();
+                string DOB = Convert.ToString(jObject["DOB"]).Trim();
+                string UNIQUEID = Convert.ToString(jObject["UNIQUEID"]).Trim();
+
+
+                //SeqNo = ServerTrnReqLog(json, "CkycDwnldDtls", strSapCode, strAppNo, "CKYCAPI");
+
+                /*if (strTokenId.Equals(string.Empty) || (!strTokenId.Equals(string.Empty)
+                    && ValidateToken(strSapCode, strTokenId) != "Valid"))
+                {
+                    JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"invalid token details\"}]}";
+                    updateResponse(JsonResponce, SeqNo);
+
+                    return HttpStatusCode.NonAuthoritativeInformation.ToString();
+                    //(HttpStatusCode.NonAuthoritativeInformation, JsonResponce).ToString();
+
+                }
+                else
+                {*/
+                    CKYCDwlndApiClient cKYCDwlndApi = new CKYCDwlndApiClient();
+                    JsonResponce = cKYCDwlndApi.VerifyCKYC("70011354", PAN, DOB, UNIQUEID);
+
+                //}
+            }
+            catch (Exception ex)
+            {
+                JsonResponce = "{\"Table\": [ {\"ResponseCode\": \"1\",\"ErrorDescription\":\"" + ex.ToString() + "\"}]}";
+            }
+
+            //updateResponse(JsonResponce, SeqNo);
+            //JsonResponce = encryptDecrypt.EncryptAndEncode(JsonResponce);
             return JsonResponce;
         }
 
@@ -3145,6 +3650,7 @@ namespace CBCMSWEBAPI.Controllers
                 htParam.Add("@NomineeEmail", Convert.ToString(jObject["NomineeEmail"]).Trim());
                 htParam.Add("@NomineeContact", Convert.ToString(jObject["NomineeContact"]).Trim());
                 htParam.Add("@HigherQual", Convert.ToString(jObject["HigherQual"]).Trim());
+                htParam.Add("@HigherQualOth", Convert.ToString(jObject["HigherQualOth"]).Trim());
                 htParam.Add("@ExamMode", Convert.ToString(jObject["ExamMode"]).Trim());
                 htParam.Add("@ExmBody", Convert.ToString(jObject["ExmBody"]).Trim());
                 htParam.Add("@ExmLang", Convert.ToString(jObject["ExmLang"]).Trim());
@@ -3371,6 +3877,7 @@ namespace CBCMSWEBAPI.Controllers
                 htParam.Add("@NomineeEmail", Convert.ToString(jObject["NomineeEmail"]).Trim());
                 htParam.Add("@NomineeContact", Convert.ToString(jObject["NomineeContact"]).Trim());
                 htParam.Add("@HigherQual", Convert.ToString(jObject["HigherQual"]).Trim());
+                htParam.Add("@HigherQualOth", Convert.ToString(jObject["HigherQualOth"]).Trim());
                 htParam.Add("@ExamMode", Convert.ToString(jObject["ExamMode"]).Trim());
                 htParam.Add("@ExmBody", Convert.ToString(jObject["ExmBody"]).Trim());
                 htParam.Add("@ExmLang", Convert.ToString(jObject["ExmLang"]).Trim());
@@ -4790,6 +5297,7 @@ namespace CBCMSWEBAPI.Controllers
                 htParam.Add("@BasicRNo", Convert.ToString(jObject["BasicRNo"]).Trim());
                 htParam.Add("@BasicYrPass", Convert.ToString(jObject["BasicYrPass"]).Trim());
                 htParam.Add("@HigherQual", Convert.ToString(jObject["HigherQual"]).Trim());
+                htParam.Add("@HigherQualOth", Convert.ToString(jObject["HigherQualOth"]).Trim());
                 htParam.Add("@ExamMode", Convert.ToString(jObject["ExamMode"]).Trim());
                 htParam.Add("@ExmBody", Convert.ToString(jObject["ExmBody"]).Trim());
                 htParam.Add("@ExmLang", Convert.ToString(jObject["ExmLang"]).Trim());
@@ -6615,9 +7123,9 @@ namespace CBCMSWEBAPI.Controllers
 
 
             Random ran = new Random();
-            int number1 = ran.Next(1, 9);
-            int number2 = ran.Next(1, 9);
-            var operation = ran.Next(1, 3);
+            int number1 = ran.Next(1, 10);
+            int number2 = ran.Next(1, 10);
+            var operation = ran.Next(1, 4);
             string operatorString = "";
             int answer = 0;
 
@@ -7059,5 +7567,236 @@ namespace CBCMSWEBAPI.Controllers
             ht.Add("@Severity", "High");
             dstemp = objDAL.selectFromDatabase("Mob_LogError", ht, "USRMGMT");
         }
+
+        [Route("api/CBCMS/ProspectRegister_Website")]
+        [HttpPost]
+        public string ProspectRegister_Website([FromBody] InputModel model)
+        {
+            #region Declaration
+            DataSet objDataset = new DataSet();
+            XmlDocument xmlDoc = new XmlDocument();
+            string SeqNo = string.Empty;
+            Hashtable htable = new Hashtable();
+            string JsonResponse = string.Empty;
+
+            #endregion
+
+            try
+            {
+                string jsonInput = model.jsonInput;
+                string json = encryptDecrypt.DecodeAndDecrypt(jsonInput);
+                JObject jObject = JObject.Parse(json);
+                string strSapCode = Convert.ToString(jObject["SapCode"]).Trim();
+                SeqNo = ServerTrnReqLog(json, "ProspectRegistration_website", strSapCode, "", "Website");
+
+                htable.Clear();
+
+                htable.Add("@SapCode", strSapCode);
+                htable.Add("@CarrierCode", Convert.ToString(jObject["CarrierCode"]).Trim());
+                htable.Add("@Pan", Convert.ToString(jObject["Pan"]).Trim());
+                htable.Add("@EntryDate", Convert.ToString(jObject["EntryDate"]).Trim());
+                htable.Add("@Occupation", Convert.ToString(jObject["Occupation"]).Trim());
+                htable.Add("@Prefix", Convert.ToString(jObject["Prefix"]).Trim());
+                htable.Add("@GivenName", Convert.ToString(jObject["GivenName"]).Trim());
+                htable.Add("@FatherName", Convert.ToString(jObject["FatherName"]).Trim());
+                htable.Add("@BirthRegDate", Convert.ToString(jObject["BirthRegDate"]).Trim());
+                htable.Add("@Gender", Convert.ToString(jObject["Gender"]).Trim());
+                htable.Add("@MobileTel", Convert.ToString(jObject["MobileTel"]).Trim());
+                htable.Add("@Email", Convert.ToString(jObject["Email"]).Trim());
+                htable.Add("@RecruiterType", Convert.ToString(jObject["RecruiterType"]).Trim());
+                htable.Add("@Bizsrc", Convert.ToString(jObject["Bizsrc"]).Trim());
+                htable.Add("@ChnCls", Convert.ToString(jObject["ChnCls"]).Trim());
+                htable.Add("@cmsunitcode", Convert.ToString(jObject["cmsunitcode"]).Trim());
+                htable.Add("@UniquerecId", Convert.ToString(jObject["UniquerecId"]).Trim());
+                htable.Add("@CreateBy", Convert.ToString(jObject["CreateBy"]).Trim());
+                htable.Add("@CandType", Convert.ToString(jObject["CandType"]).Trim());
+                htable.Add("@AddRptMgr", Convert.ToString(jObject["AddRptMgr"]).Trim());
+                htable.Add("@ModuleID", Convert.ToString(jObject["ModuleID"]).Trim());
+                htable.Add("@RecruitAgtName", Convert.ToString(jObject["RecruitAgtName"]).Trim());
+                htable.Add("@Pincode", Convert.ToString(jObject["Pincode"]).Trim());
+                htable.Add("@Que1", Convert.ToString(jObject["Que1"]).Trim());
+                htable.Add("@Que2", Convert.ToString(jObject["Que2"]).Trim());
+                htable.Add("@Que3", Convert.ToString(jObject["Que3"]).Trim());
+                htable.Add("@Que4", Convert.ToString(jObject["Que4"]).Trim());
+
+                objDataset = objDAL.selectFromDatabase("prc_InsProspectReg_Website", htable, "IsysARTL");
+
+                if (objDataset.Tables.Count > 0 && objDataset.Tables[0].Rows.Count > 0)
+                {
+                    JsonResponse = ds2json(objDataset);
+                    JsonResponse = JsonResponse.Replace("\r", "").Replace("\n", "").Replace("\\\"", "\"");
+                }
+                else
+                {
+                    //JsonResponse = "{\"Table\": [ {\"Status\": \"Failed\",\"Message\":\"No records to display\"}]}";
+                    JsonResponse = "{\"Table\": [ {\"Result\": \"1\",\"Message\":\"No records to display\"}]}";
+                }
+            }
+            catch (Exception ex)
+            {
+                //JsonResponse = "{\"Table\": [ {\"Status\": \"Failed\",\"Message\":\"" + ex.Message + "\"}]}";
+                JsonResponse = "{\"Table\": [ {\"Result\": \"1\",\"Message\":\"" + ex.Message + "\"}]}";
+            }
+
+            updateResponse(JsonResponse, SeqNo);
+            return encryptDecrypt.EncryptAndEncode(JsonResponse);
+            //return JsonResponse;
+
+        }
+        // Created on 01Oct2026
+        [Route("api/CBCMS/OTPGeneration")]
+        [HttpPost]
+        public string OTPGeneration([FromBody] InputModel model)
+        {
+
+            #region Declaration
+            DataSet objDataset = new DataSet();
+            XmlDocument xmlDoc = new XmlDocument();
+            string SeqNo = string.Empty;
+            Hashtable htable = new Hashtable();
+            string JsonResponse = string.Empty;
+            DataTable dt=new DataTable();
+
+            #endregion
+            try
+            {
+                string jsonInput = model.jsonInput;
+                string json = encryptDecrypt.DecodeAndDecrypt(jsonInput);
+                JObject jObject = JObject.Parse(json);
+                string strAppNo = Convert.ToString(jObject["AppNo"]).Trim();
+                string strMobNo = Convert.ToString(jObject["MobileNO"]).Trim();
+                string strEmailID = Convert.ToString(jObject["EmailID"]).Trim();
+                string strFlag = Convert.ToString(jObject["Flag"]).Trim();
+                string strOTPType = Convert.ToString(jObject["OTPType"]).Trim();
+                string strOTP = Convert.ToString(jObject["OTP"]).Trim();
+                //string strMobileOTP = Convert.ToString(jObject["MobileOTP"]).Trim();
+                SeqNo = ServerTrnReqLog(json, "OTPGeneration", "", strAppNo, "");
+
+                htable.Clear();
+
+                //htable.Add("@SapCode", strSapCode);
+                htable.Add("@MobileNO", strMobNo);
+                htable.Add("@EmailID", strEmailID);
+                objDataset = objDAL.selectFromDatabase("Prc_GetQualCheckverifyEmail_mobile", htable, "IsysARTL");
+
+                if(objDataset.Tables.Count > 0 && objDataset.Tables[0].Rows.Count > 0)
+                {
+                    dt = objDataset.Tables[0];
+                    if (dt.Rows[0]["Result_verifyEmailMobile"].ToString() == "Valid")
+                    {
+                        strOTP = GenerateOTP(); // Generate a random OTP
+                        htable.Add("@AppNo", strAppNo);
+                        htable.Add("@Flag", strFlag);
+                        htable.Add("@OTPType", strOTPType);
+                        htable.Add("@OTP", strOTP);
+                        //htable.Add("@MobileOTP", strMobileOTP);
+
+                        //For OTP Generation, we can generate a random OTP and pass it to the stored procedure.
+
+                        objDataset = objDAL.selectFromDatabase("Prc_GenerateCndMultiOTP", htable, "IsysARTL");
+
+                        JsonResponse = ds2json(objDataset);
+                        JsonResponse = JsonResponse.Replace("\r", "").Replace("\n", "").Replace("\\\"", "\"");
+                        return encryptDecrypt.EncryptAndEncode(JsonResponse);
+
+                    }
+                    else
+                    {
+                        return "Invalid";// Use the existing OTP from the database
+                    }
+                }
+                else
+                {
+                    LogAPIError("EmailAndMobileNotFound", "");
+                    return "BadReequest: Email and Mobile number not found in the database.";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                LogAPIError("OTPGeneration", ex.ToString());
+                return "Error: " + ex.Message;
+            }
+
+        }
+        //End
+
+        //Created 01Oct2026
+        [Route("api/CBCMS/OTPVerified")]
+        [HttpPost]
+        public string OTPVerified([FromBody] InputModel model)
+        {
+
+            #region Declaration
+            DataSet objDataset = new DataSet();
+            XmlDocument xmlDoc = new XmlDocument();
+            string SeqNo = string.Empty;
+            Hashtable htable = new Hashtable();
+            string JsonResponse = string.Empty;
+            DataTable dt = new DataTable();
+            #endregion
+
+            try
+            {
+                string jsonInput = model.jsonInput;
+                string json = encryptDecrypt.DecodeAndDecrypt(jsonInput);
+                JObject jObject = JObject.Parse(json);
+                string strAppNo = Convert.ToString(jObject["AppNo"]).Trim();
+                string strMobNo = Convert.ToString(jObject["MobileNO"]).Trim();
+                string strEmailID = Convert.ToString(jObject["EmailID"]).Trim();
+                string strFlag = Convert.ToString(jObject["Flag"]).Trim();
+                string strOTPType = Convert.ToString(jObject["OTPType"]).Trim();
+                string strOTP = Convert.ToString(jObject["OTP"]).Trim();
+                string strEnteredOTP = Convert.ToString(jObject["EnteredOTP"]).Trim();
+                //string strMobileOTP = Convert.ToString(jObject["MobileOTP"]).Trim();
+                SeqNo = ServerTrnReqLog(json, "OTPVerified", "", strAppNo, "");
+
+                htable.Clear();
+
+                htable.Add("@AppNo", strAppNo);
+                htable.Add("@EnterOTP", strEnteredOTP);
+                htable.Add("@OTPType", strOTPType);
+                objDataset = objDAL.selectFromDatabase("Prc_GenerateCndMultiOTP", htable, "IsysARTL");
+
+                
+                if (objDataset.Tables.Count > 0 && objDataset.Tables[0].Rows.Count > 0)
+                {
+                    dt = objDataset.Tables[0];
+                    if (dt.Rows[0]["ResponseCode"].ToString() == "0")
+                    {
+                        JsonResponse = ds2json(objDataset);
+                        JsonResponse = JsonResponse.Replace("\r", "").Replace("\n", "").Replace("\\\"", "\"");
+                        return encryptDecrypt.EncryptAndEncode(JsonResponse);
+
+                    }
+                    else
+                    {
+                        return "Invalid";// Use the existing OTP from the database
+                        //JsonResponse = "{\"Table\": [ {\"Result\": \"1\",\"Message\":\"No records to display\"}]}";
+                    }
+                }
+                else
+                {
+                    LogAPIError("OTPNotFound", "");
+                    return "BadRequest: OTP not found in the database.";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                LogAPIError("OTPVerified", ex.ToString());
+                return "Error: " + ex.Message;
+            }
+
+        }//End
+
+
+        //Added by  Rahul S on 13Jul2026 for OTP Generation
+        private string GenerateOTP()
+        {
+            Random random = new Random();
+            return random.Next(100000, 1000000).ToString(); // Generates 100000 to 999999
+        }
+
     }
 }
